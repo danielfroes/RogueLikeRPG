@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99bba1b7bad36f948a16a804bb3ca345, type: 3}
   m_Name: HealPotion
   m_EditorClassIdentifier: 
-  actionName: 
-  actionType: 0
+  actionName: Heal Potion
+  actionType: 2
   effectType: 0
   castVelocity: 0
   actionBarsNeeded: 0

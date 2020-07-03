@@ -1546,7 +1546,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &689619115
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2375,11 +2375,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionMenu: {fileID: 689619114}
-  options: {fileID: 1886474722}
-  secondaryMenu: {fileID: 601066527}
+  mainOptions: {fileID: 1886474723}
+  secondaryOptions: {fileID: 601066528}
   genericButton: {fileID: 2604230150969088768, guid: 2f0a640d21223cc418c34fcd400fcb80,
     type: 3}
-  transitionsTime: 1
+  transitionsTime: 0.3
   availableActions:
   - {fileID: 11400000, guid: 726e6592547c8fd4e941f1e8680234bb, type: 2}
   - {fileID: 11400000, guid: 6c65f14d3fbcbc9498f65a6051406fc2, type: 2}
@@ -3347,10 +3347,10 @@ RectTransform:
   m_Father: {fileID: 689619115}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 4.2759047, y: 3.8774014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1911042201
 GameObject:

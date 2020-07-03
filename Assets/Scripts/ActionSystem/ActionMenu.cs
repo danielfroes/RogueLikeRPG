@@ -9,35 +9,42 @@ using UnityEngine.UI;
 
 public class ActionMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject actionMenu;
-    [SerializeField] private GameObject options;
-    [SerializeField] private GameObject secondaryMenu;
-    [SerializeField] private GameObject genericButton;
-    [SerializeField] private float transitionsTime;
+    [SerializeField] private GameObject actionMenu = null;
+    [SerializeField] private RectTransform mainOptions = null;
+    [SerializeField] private RectTransform secondaryOptions = null;
+    [SerializeField] private GameObject genericButton = null;
+    [SerializeField] private float transitionsTime = 0;
 
-    public Action[] availableActions;
+    public Action[] availableActions ;
     private EventSystem es;
+
+    private Vector2 _secondaryInitPivot;    
     
+    private Vector2 _mainInitPivot;
 
     private void Awake() {
        es = GameObject.FindObjectOfType<EventSystem>();
+       
     }
+
+    private void Start() {
+        _mainInitPivot = mainOptions.pivot;
+        _secondaryInitPivot = secondaryOptions.pivot;
+    }
+
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Z))
         {
-
             ToggleActionMenu();
-            
         }
     }
 
 
     public void ChooseOption(string type)
     {
-        options.transform.DOMoveX(-3, transitionsTime).SetUpdate(true).OnComplete(() => options.SetActive(false));
-
+        mainOptions.DOPivotX(1.5f, transitionsTime).SetUpdate(true).OnComplete(() => mainOptions.gameObject.SetActive(false));
 
         if(type.ToLower() == "attack")
             PopulateSecondaryMenu(ActionType.attack);
@@ -46,8 +53,7 @@ public class ActionMenu : MonoBehaviour
         if(type.ToLower() == "item")
             PopulateSecondaryMenu(ActionType.item);
 
-       
-        secondaryMenu.GetComponent<RectTransform>().DOPivotX(0.5f, transitionsTime).SetUpdate(true);
+        secondaryOptions.DOPivotX(0.5f, transitionsTime).SetUpdate(true);
     }
     
     
@@ -60,7 +66,7 @@ public class ActionMenu : MonoBehaviour
         {
             if(action.actionType == type)
             {   
-                GameObject newButton = Instantiate(genericButton, secondaryMenu.transform);
+                GameObject newButton = Instantiate(genericButton, secondaryOptions.transform);
                 newButton.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, - 1*cntActionsWithType);
                 newButton.name = action.name;
                 newButton.GetComponentInChildren<TextMeshProUGUI>().SetText(action.actionName);
@@ -80,17 +86,30 @@ public class ActionMenu : MonoBehaviour
 
     private void ToggleActionMenu()
     {
+
+        
         actionMenu.SetActive(!actionMenu.activeInHierarchy);
         
         if(actionMenu.activeInHierarchy)
         {
+            Vector2 bufferScale = actionMenu.transform.localScale;
+            actionMenu.transform.localScale = Vector2.one * 0.3f;
             Time.timeScale = 0f;
+            mainOptions.gameObject.SetActive(true);
+           
             es.SetSelectedGameObject(null);
             es.SetSelectedGameObject(es.firstSelectedGameObject);
+
+            mainOptions.pivot = _mainInitPivot;
+            secondaryOptions.pivot =_secondaryInitPivot;
+            
+            actionMenu.transform.DOScale(bufferScale, transitionsTime).SetUpdate(true);
+
         }
         if(!actionMenu.activeInHierarchy)
         {
             Time.timeScale = 1f;
         }
+        
     }
 }

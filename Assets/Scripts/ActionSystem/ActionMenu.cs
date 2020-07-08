@@ -12,19 +12,16 @@ public class ActionMenu : MonoBehaviour
     [SerializeField] private GameObject actionMenu = null;
     [SerializeField] private RectTransform mainOptions = null;
     [SerializeField] private RectTransform secondaryOptions = null;
-    [SerializeField] private GameObject genericButton = null;
+    [SerializeField] private ActionButton genericButton = null;
     [SerializeField] private float transitionsTime = 0;
 
     public Action[] availableActions ;
     private EventSystem es;
-
     private Vector2 _secondaryInitPivot;    
-    
     private Vector2 _mainInitPivot;
 
     private void Awake() {
        es = GameObject.FindObjectOfType<EventSystem>();
-       
     }
 
     private void Start() {
@@ -37,7 +34,7 @@ public class ActionMenu : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Z))
         {
-            ToggleActionMenu();
+            SetActionMenuActive(!actionMenu.activeInHierarchy);
         }
     }
 
@@ -66,16 +63,19 @@ public class ActionMenu : MonoBehaviour
         {
             if(action.actionType == type)
             {   
-                GameObject newButton = Instantiate(genericButton, secondaryOptions.transform);
+                ActionButton newButton = Instantiate<ActionButton>(genericButton, secondaryOptions.transform);
                 newButton.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, - 1*cntActionsWithType);
                 newButton.name = action.name;
-                newButton.GetComponentInChildren<TextMeshProUGUI>().SetText(action.actionName);
+                newButton.action = action;
+                newButton.actionMenu = this;
+
+                //Auto Select the first button
                 if(cntActionsWithType == 0)
                 {
                     es.SetSelectedGameObject(null);
-                    es.SetSelectedGameObject(newButton);
+                    es.SetSelectedGameObject(newButton.gameObject);
                 }
-
+                
                 cntActionsWithType++;
             }
         }
@@ -84,17 +84,18 @@ public class ActionMenu : MonoBehaviour
 
     }
 
-    private void ToggleActionMenu()
+    public void SetActionMenuActive(bool status)
     {
 
         
-        actionMenu.SetActive(!actionMenu.activeInHierarchy);
+        actionMenu.SetActive(status);
         
-        if(actionMenu.activeInHierarchy)
+        // When action menu is activated
+        if(status)
         {
             Vector2 bufferScale = actionMenu.transform.localScale;
             actionMenu.transform.localScale = Vector2.one * 0.3f;
-            Time.timeScale = 0f;
+            Time.timeScale = 0.0f;
             mainOptions.gameObject.SetActive(true);
            
             es.SetSelectedGameObject(null);
@@ -106,10 +107,15 @@ public class ActionMenu : MonoBehaviour
             actionMenu.transform.DOScale(bufferScale, transitionsTime).SetUpdate(true);
 
         }
-        if(!actionMenu.activeInHierarchy)
+        else //when action menu in deactivated
         {
             Time.timeScale = 1f;
         }
         
     }
+
+
+    
+
+
 }

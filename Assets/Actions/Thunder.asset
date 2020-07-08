@@ -15,5 +15,5 @@ MonoBehaviour:
   actionName: Thunder
   actionType: 1
   effectType: 0
-  castVelocity: 0
-  actionBarsNeeded: 0
+  castVelocity: 1
+  actionBarsNeeded: 2

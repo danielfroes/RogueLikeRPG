@@ -17,7 +17,10 @@ public class ActionBar : MonoBehaviour
 
     //Color of the action bars; the first Color is the initial background Img;
     [SerializeField]private List<Color> barColors = null;
+    [SerializeField] private float fillSpeed;
+    public static ActionBar instance;
     private int colorIndex = 0;
+    private bool _isFull;
 
     //quantity of actions charged
     private int _numActions;
@@ -34,34 +37,71 @@ public class ActionBar : MonoBehaviour
 
     // Start is called before the first frame update
     private void Awake() {
-        // barColors = new List<Color>(); 
+        if(instance == null)
+            instance = this;
+        else
+            Destroy(this);
     }
 
     private void Start() {
         numActions = 0;
+        _isFull = false;
         backgroundImg.color = barColors[0];
         fillImg.color = barColors[1];
         colorIndex = 2;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if(Input.GetKey(KeyCode.R))
+      
+        actionSlider.value += fillSpeed*Time.deltaTime;
+
+        if(actionSlider.value == actionSlider.maxValue && !_isFull)
         {
-            actionSlider.value += 0.1f;
+            //changes the intermediary
+            if(colorIndex < barColors.Count)
+            {
+                ChangeBarColor();
+                actionSlider.value = actionSlider.minValue; //slider value goes to minimun
+                numActions++;
+            }
+            //Last bar is full
+            else if(colorIndex == barColors.Count)
+            {
+                numActions++;
+                _isFull = true;
+            }
+            
         }
 
-        if(actionSlider.value == actionSlider.maxValue && colorIndex < barColors.Count)
+    }
+
+
+    public void SpendAction(int amount)
+    {
+        numActions -= amount;
+        
+        if(_isFull)
         {
-            
-            backgroundImg.color = fillImg.color; //Changes the color of the background to look that the action bars is overlayed
+            _isFull = false;
             actionSlider.value = actionSlider.minValue; //slider value goes to minimun
-            fillImg.color = barColors[colorIndex]; //fill value changes to the next color to seems another bar
-            
-            numActions++;
-            colorIndex++;
-
         }
+        else
+        {
+            colorIndex -= amount+1;
+            ChangeBarColor();
+        }
+    }
+
+
+    private void ChangeBarColor()
+    {
+        backgroundImg.color = barColors[colorIndex - 1]; //Changes the color of the background to look that the action bars is overlayed
+        
+        fillImg.color = barColors[colorIndex]; //fill value changes to the next color to seems another bar
+        colorIndex++;
+        // numActions++;
+        // colorIndex++;
     }
 }

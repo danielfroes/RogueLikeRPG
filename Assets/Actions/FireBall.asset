@@ -16,4 +16,4 @@ MonoBehaviour:
   actionType: 1
   effectType: 0
   castVelocity: 0
-  actionBarsNeeded: 0
+  actionBarsNeeded: 2

@@ -14,16 +14,15 @@ public class ActionMenu : MonoBehaviour
     [SerializeField] private RectTransform secondaryOptions = null;
     [SerializeField] private ActionButton genericButton = null;
     [SerializeField] private float transitionsTime = 0;
-
     public Action[] availableActions ;
     private EventSystem es;
     private Vector2 _secondaryInitPivot;    
     private Vector2 _mainInitPivot;
+    private List<ActionButton> _actionsIntantiated = new List<ActionButton>();
 
     private void Awake() {
        es = GameObject.FindObjectOfType<EventSystem>();
     }
-
     private void Start() {
         _mainInitPivot = mainOptions.pivot;
         _secondaryInitPivot = secondaryOptions.pivot;
@@ -38,7 +37,6 @@ public class ActionMenu : MonoBehaviour
         }
     }
 
-
     public void ChooseOption(string type)
     {
         mainOptions.DOPivotX(1.5f, transitionsTime).SetUpdate(true).OnComplete(() => mainOptions.gameObject.SetActive(false));
@@ -52,8 +50,6 @@ public class ActionMenu : MonoBehaviour
 
         secondaryOptions.DOPivotX(0.5f, transitionsTime).SetUpdate(true);
     }
-    
-    
 
     private void PopulateSecondaryMenu(ActionType type)
     {
@@ -68,14 +64,14 @@ public class ActionMenu : MonoBehaviour
                 newButton.name = action.name;
                 newButton.action = action;
                 newButton.actionMenu = this;
-
+                
+                _actionsIntantiated.Add(newButton);
                 //Auto Select the first button
                 if(cntActionsWithType == 0)
                 {
                     es.SetSelectedGameObject(null);
                     es.SetSelectedGameObject(newButton.gameObject);
-                }
-                
+                }    
                 cntActionsWithType++;
             }
         }
@@ -84,35 +80,46 @@ public class ActionMenu : MonoBehaviour
 
     }
 
+    //**Refatorar isso para quando mexer nos inputs
+    //** Ficar instanciado e destruindo objetos não é a melhor solução, mudar para pooling das opções
     public void SetActionMenuActive(bool status)
     {
-
-        
-        actionMenu.SetActive(status);
-        
         // When action menu is activated
-        if(status)
+        if(status )
         {
-            Vector2 bufferScale = actionMenu.transform.localScale;
-            actionMenu.transform.localScale = Vector2.one * 0.3f;
-            Time.timeScale = 0.0f;
-            mainOptions.gameObject.SetActive(true);
-           
-            es.SetSelectedGameObject(null);
-            es.SetSelectedGameObject(es.firstSelectedGameObject);
-
-            mainOptions.pivot = _mainInitPivot;
-            secondaryOptions.pivot =_secondaryInitPivot;
+            if(!ActionCaster.instance.isCasting)
+            {
+                actionMenu.SetActive(status);
+                Vector2 bufferScale = actionMenu.transform.localScale;
+                actionMenu.transform.localScale = Vector2.one * 0.3f;
+                Time.timeScale = 0.0f;
+                mainOptions.gameObject.SetActive(true);
             
-            actionMenu.transform.DOScale(bufferScale, transitionsTime).SetUpdate(true);
+                es.SetSelectedGameObject(null);
+                es.SetSelectedGameObject(es.firstSelectedGameObject);
 
+                mainOptions.pivot = _mainInitPivot;
+                secondaryOptions.pivot =_secondaryInitPivot;
+                
+                actionMenu.transform.DOScale(bufferScale, transitionsTime).SetUpdate(true);
+            }
         }
         else //when action menu in deactivated
         {
+            foreach (ActionButton action in _actionsIntantiated)
+            {   
+                Destroy(action.gameObject);
+            }
+            _actionsIntantiated.Clear();
             Time.timeScale = 1f;
+            actionMenu.SetActive(status);
         }
         
+        
+        
     }
+
+
 
 
     

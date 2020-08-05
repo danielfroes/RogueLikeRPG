@@ -20,6 +20,7 @@ public class ActionButton : MonoBehaviour
     
     TextMeshProUGUI[] texts;
     
+
     private void Start() {
         buttonGUI = GetComponent<Button>();
         texts = GetComponentsInChildren<TextMeshProUGUI>(); 
@@ -61,12 +62,13 @@ public class ActionButton : MonoBehaviour
 
     public void SelectAction()
     {
-        if(action.actionBarsNeeded <= ActionBar.instance.numActions)
-            ActionBar.instance.SpendAction(action.actionBarsNeeded);
+        // if(action.actionBarsNeeded <= ActionBar.instance.numActions)
+        ActionBar.instance.SpendAction(action.actionBarsNeeded);
+        ActionCaster.instance.CastAction(action);
 
         actionMenu.SetActionMenuActive(false);
         
+        
     }
-
 
 }

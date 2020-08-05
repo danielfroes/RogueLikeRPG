@@ -14,14 +14,15 @@ public enum EffectType {
     heal
 }
 
-[CreateAssetMenu(fileName = "new Action", menuName = "Action")]
-public class Action : ScriptableObject
+
+public abstract class Action: ScriptableObject
 {
     public string actionName;
     public ActionType actionType;
-    public EffectType effectType;
-    public float castVelocity;
+    public EffectType effectType; 
+    public float castTime;
     public int actionBarsNeeded;
+    public abstract void DoAction();
     
     //jeito de triggar animação
 }

@@ -40,15 +40,22 @@ public class PlayerController : MonoBehaviour
         //move the move point
         if(Vector3.Distance(rb2d.position, movePoint.position) <= Mathf.Epsilon  && waitCouroutineIsRunning == false)
         {
+            
             //move horizontally
             if(Mathf.Abs(xInput) == 1f)
             {
+                if(ActionCaster.instance.isCasting)
+                    ActionCaster.instance.CancelCasting();
+                
                 lastMovePosition = movePoint.position;
                 movePoint.position += new Vector3(xInput * offsetMovement, 0, 0);
                 StartCoroutine("WaitToNextMove");
             }
             else if(Mathf.Abs(yInput) == 1f) //move vertically
             {
+                if(ActionCaster.instance.isCasting)
+                    ActionCaster.instance.CancelCasting();
+                    
                 lastMovePosition = movePoint.position;
                 movePoint.position += new Vector3(0, yInput * offsetMovement, 0);
                 StartCoroutine("WaitToNextMove");

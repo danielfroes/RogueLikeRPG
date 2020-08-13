@@ -48,6 +48,9 @@ TagManager:
   - name: Player
     uniqueID: 3651232853
     locked: 0
+  - name: Attack
+    uniqueID: 4008415243
+    locked: 0
   - name: ActionMenu
     uniqueID: 394864697
     locked: 0

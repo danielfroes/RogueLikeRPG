@@ -9,6 +9,9 @@ public class AttackManager : MonoBehaviour
     private List<AttackTag> attacksLists;
     private Animator anim;
     
+    //**Prototipo
+    private int lastRand = -1;
+    
 
     private void Awake() {
         attacksLists = new List<AttackTag>(GetComponentsInChildren<AttackTag>(true));
@@ -16,17 +19,23 @@ public class AttackManager : MonoBehaviour
     }
 
     private void Start() {
+          //**Prototipo
         InvokeRepeating("InvokeAttack", timeBtwAttacks, timeBtwAttacks);
     }
 
-
+    //**Prototipo
     private void InvokeAttack()
     {
         
-        int rand = Random.Range(0,anim.parameterCount);
+        int rand = lastRand;
+        while(rand == lastRand)
+        {
+            rand = Random.Range(0,anim.parameterCount);
+        }
+
         print("Attack"+rand);
         anim.SetTrigger("Attack"+rand);
-
+        lastRand = rand;
     }
 
 

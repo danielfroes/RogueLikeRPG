@@ -11,6 +11,9 @@ public class ActionCaster : MonoBehaviour
     public static ActionCaster instance;
     [SerializeField] private Slider castingBar;
 
+    //**Tirar isso depois do teste
+    [SerializeField] private Animator attackAnim;
+
     private void Awake() {
         if(instance == null)
             instance = this;
@@ -26,7 +29,7 @@ public class ActionCaster : MonoBehaviour
         isCasting = true;
         castingBar.DOValue(castingBar.maxValue, action.castTime).OnComplete(()=>
         {
-            action.DoAction();
+            action.DoAction(attackAnim);
             castingBar.gameObject.SetActive(false);
             isCasting = false;
         });

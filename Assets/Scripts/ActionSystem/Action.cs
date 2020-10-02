@@ -22,7 +22,7 @@ public abstract class Action: ScriptableObject
     public EffectType effectType; 
     public float castTime;
     public int actionBarsNeeded;
-    public abstract void DoAction();
+    public abstract void DoAction(Animator anim);
     
     //jeito de triggar animação
 }

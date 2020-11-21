@@ -29,8 +29,17 @@ public class CombatGrid : MonoBehaviour
         Vector3Int gridPos = _grid.LocalToCell(pos);
         return _combatTilemap.HasTile(gridPos);
     }
-    
 
+    public Vector3 PositionToCellCenter(Vector3 pos)
+    {
+        return _grid.CellToLocal( _grid.LocalToCell(pos)) ;
+    }
+    
+    public float GetSpacing()
+    {
+        return _grid.cellSize.x;
+    }
+    
     //RemoveTile()
     //ChangeTile()
     //GetCell()

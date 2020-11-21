@@ -23,7 +23,7 @@ public class AttackBehaviour : StateMachineBehaviour
         // SpriteRenderer rend = animator.gameObject.GetComponent<SpriteRenderer>();
         // Color colorTmp = rend.color;
         // rend.DOFade(0, 0.1f).OnComplete(()=>{
-            animator.gameObject.transform.parent.gameObject.SetActive(false);
+            Destroy(animator.gameObject.transform.parent.gameObject);
         //     rend.color = colorTmp;
         // });
 

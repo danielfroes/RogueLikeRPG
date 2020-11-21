@@ -25,9 +25,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5706660572304011427}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.120002, y: -6.75, z: 0}
-  m_LocalScale: {x: 2.0670278, y: 0.08553466, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5706660573243064955}
   m_RootOrder: 0
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_SortingLayerID: -286552053
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5a2f2ad704f46264c9c3830c37f7a77f, type: 3}
-  m_Color: {r: 1, g: 0.41037738, b: 0.41037738, a: 0.4745098}
+  m_Sprite: {fileID: 21300000, guid: 211cfb9b83162584bb143999b97b9fc0, type: 3}
+  m_Color: {r: 1, g: 0, b: 0.11936569, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -110,14 +110,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5706660573243064955}
-  - component: {fileID: 5706660573243064954}
+  - component: {fileID: -1058362162210021440}
   m_Layer: 0
-  m_Name: SpearRowTopLeft - #srtl
+  m_Name: Spear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5706660573243064955
 Transform:
   m_ObjectHideFlags: 0
@@ -125,7 +125,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5706660573243064952}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -133,7 +133,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5706660573243064954
+--- !u!114 &-1058362162210021440
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,7 +142,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5706660573243064952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0556ae80e2b66f6418845877b9badb92, type: 3}
+  m_Script: {fileID: 11500000, guid: a0cc2c505210c2a4992c8d96537745ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tag: '#srtl'
+  gridDimension: 5
+  offsetFromBoundary: 5
+  baseDirection: 3
+  _Up: 1
+  _Down: 1
+  _Right: 1
+  _Left: 1

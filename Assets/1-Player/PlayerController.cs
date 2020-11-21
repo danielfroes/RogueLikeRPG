@@ -40,8 +40,8 @@ public class PlayerController : MonoBehaviour
         float xInput = Input.GetAxisRaw("Horizontal");
         float yInput = Input.GetAxisRaw("Vertical");
 
-    
-        //move the move point
+        
+        //if the player is not moving 
         if(Vector3.Distance(rb2d.position, movePoint.position) <= Mathf.Epsilon  && waitCouroutineIsRunning == false)
         {
             //move horizontally
@@ -49,25 +49,45 @@ public class PlayerController : MonoBehaviour
             {
                 if(ActionCaster.instance.isCasting)
                     ActionCaster.instance.CancelCasting();
+            
+                Vector3 newMovePosition = movePoint.position + new Vector3(xInput * offsetMovement, 0, 0);
                 
-                lastMovePosition = movePoint.position;  
-                if(xInput > 0) spriteAnimator.Play("MoveRight", 0);
-                if(xInput < 0) spriteAnimator.Play("MoveLeft", 0);
+                if(CombatGrid.Instance.IsPositionInGrid(newMovePosition))
+                {
+                    //updates the move point
+                    lastMovePosition = movePoint.position;  
+                    movePoint.position = newMovePosition;
 
-                movePoint.position += new Vector3(xInput * offsetMovement, 0, 0);
-                StartCoroutine("WaitToNextMove");
+                    //trigger annimations
+                    if(xInput > 0) spriteAnimator.Play("MoveRight", 0);
+                    if(xInput < 0) spriteAnimator.Play("MoveLeft", 0);
+                
+                    //little wait to next Input be valid                
+                    StartCoroutine("WaitToNextMove");
+                }
             }
             else if(Mathf.Abs(yInput) == 1f) //move vertically
             {
+
+                //Cancel Casting if is casting
                 if(ActionCaster.instance.isCasting)
                     ActionCaster.instance.CancelCasting();
-
-                if(yInput < 0) spriteAnimator.Play("MoveBack", 0);   
-                if(yInput > 0) spriteAnimator.Play("MoveFront", 0);  
                 
-                lastMovePosition = movePoint.position;
-                movePoint.position += new Vector3(0, yInput * offsetMovement, 0);
-                StartCoroutine("WaitToNextMove");
+                Vector3 newMovePosition = movePoint.position + new Vector3(0, yInput * offsetMovement, 0);
+                
+                if(CombatGrid.Instance.IsPositionInGrid(newMovePosition))
+                {
+                    //updates the move point
+                    lastMovePosition = movePoint.position;
+                    movePoint.position = newMovePosition;
+
+                    //trigger annimations
+                    if(yInput < 0) spriteAnimator.Play("MoveBack", 0);   
+                    if(yInput > 0) spriteAnimator.Play("MoveFront", 0);  
+                    
+                    //little wait to next Input be valid
+                    StartCoroutine("WaitToNextMove");
+                }
             }
             else
             {

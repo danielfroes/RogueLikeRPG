@@ -45,6 +45,9 @@ TagManager:
   - name: Grid
     uniqueID: 1708472561
     locked: 0
+  - name: Hitbox
+    uniqueID: 1240616013
+    locked: 0
   - name: Player
     uniqueID: 3651232853
     locked: 0

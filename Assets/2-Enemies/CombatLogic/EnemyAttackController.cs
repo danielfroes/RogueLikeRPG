@@ -16,7 +16,6 @@ public class EnemyAttackController : MonoBehaviour
     {
         _playerTransform = FindObjectOfType<PlayerController>().gameObject.transform;
 
-    
     }
 
     private void Start()
@@ -36,6 +35,7 @@ public class EnemyAttackController : MonoBehaviour
         CancelInvoke();
     }
 
+    //invoke the attacks
     private void InvokeAttack()
     {
         int rand = Random.Range(0,enemyAttacks.Length);
@@ -48,22 +48,25 @@ public class EnemyAttackController : MonoBehaviour
 
         attack.transform.position = FixAttackPosition(attackDir, attack.offsetFromBoundary, attack.gridDimension);
         // ajeitar a rotação
-        attack.transform.rotation = FixAttackRotation(attack.baseDirection, attackDir);
+        attack.transform.rotation = FixAttackRotation(attack.baseSpawnSide, attackDir);
      
         // attack.transform.rotation = FixAttackRotation();
         
 
 
     }
+ 
 
-    Vector3 FixAttackPosition(Direction direction, float offsetFromBoundary, int gridDimension)
+    private Vector3 FixAttackPosition(Direction direction, float offsetFromBoundary, int gridDimension)
     {
-        //negate the value because you are getting the initial point of the vector;
-        Vector3 attackDir = -DirectionUtils.DirToVec3(direction);
+        //Fetch the equivalent vec3 to the side;
+        Vector3 attackDir = DirectionUtils.DirToVec3(direction);
 
         //Calculate the offset From The grid
         float spacing = CombatGrid.Instance.GetSpacing();
-        float gridOffset = (0.25f * spacing * gridDimension + spacing * 0.25f); //Calculate the offset to the outermost tile of the grid 
+        print(spacing);
+        float gridOffset = (0.5f * spacing * gridDimension - spacing * 0.5f); //Calculate the offset to the outermost tile of the grid 
+        print(gridOffset);
         gridOffset += offsetFromBoundary;
         Vector3 attackOffset = attackDir * gridOffset ;
     
@@ -79,79 +82,21 @@ public class EnemyAttackController : MonoBehaviour
         return playerPos + attackOffset + randOffset;  
     }
 
+
     private Quaternion FixAttackRotation(Direction direction, Direction baseDirection)
     {
         float angleBetween = DirectionUtils.AngleBtwDirections(baseDirection, direction);
         float xAngle = 0;
         float yAngle = 0;
 
-        if(angleBetween == 180)
-            xAngle =180;
+        // if(angleBetween == 180)
+        //     xAngle =180;
 
-        if(angleBetween == 90)
-            yAngle = 180;
+        // if(angleBetween == 90)
+        //     yAngle = 180;
 
         
         return Quaternion.Euler(xAngle,yAngle,angleBetween);
     }
 
-
-    // [SerializeField] private float timeBtwAttacks;
-    // private List<AttackTag> attacksLists;
-    // private Animator anim;
-    
-    // //**Prototipo
-    // private int lastRand = -1;
-    
-
-    // private void Awake() {
-    //     attacksLists = new List<AttackTag>(GetComponentsInChildren<AttackTag>(true));
-    //     anim = GetComponent<Animator>();
-    // }
-
-    // private void Start() {
-    //       //**Prototipo
-    //     InvokeRepeating("InvokeAttack", timeBtwAttacks, timeBtwAttacks);
-    // }
-
-    // //**Prototipo
-    
-
-    // //function that is called by the animation events
-    // public void ActivateAttack(string tag){
-    //     if(tag != null)
-    //     {
-    //         bool attackIsListed = false;
-    //         if(tag[0] != '#')
-    //         {
-    //             tag = '#' + tag;
-    //         }
-            
-    //         foreach (AttackTag attack in attacksLists)
-    //         {
-    //             if(attack.tag == tag)
-    //             {
-    //                 attackIsListed = true;
-    //                 if(!attack.gameObject.activeInHierarchy)
-    //                     attack.gameObject.SetActive(true);
-    //                 else
-    //                 {
-    //                     attack.gameObject.SetActive(false);
-    //                     attack.gameObject.SetActive(true);
-    //                 }
-    //                 break;
-    //             }
-    //         }
-
-    //         if(!attackIsListed)
-    //         {
-    //             Debug.LogError("Tag "+ tag +" insirida não está listada no AttackManager do gameObject " + gameObject.name);
-    //         }
-    //     }
-    //     else
-    //     {
-    //         Debug.LogWarning("tag não foi inserida no animation event");
-    //     }
-    //     //attack.SetActive(true);
-    // }
 }

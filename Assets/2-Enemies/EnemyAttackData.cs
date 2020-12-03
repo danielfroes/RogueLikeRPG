@@ -6,11 +6,12 @@ using DirectionSystem;
 
 public class EnemyAttackData : MonoBehaviour
 {
+    [Tooltip("Works better when grid dimension is odd, because that way the grid has a center cell")] 
     public int gridDimension = 3;
     public int offsetFromBoundary = 0;
-    public Direction baseDirection;
+    public Direction baseSpawnSide;
     
-    [Header("Possible Directions")]
+    [Header("Possible Spawn Sides")]
     [SerializeField] private bool _Up = true;
     [SerializeField] private bool _Down = true;
     [SerializeField] private bool _Right = true;

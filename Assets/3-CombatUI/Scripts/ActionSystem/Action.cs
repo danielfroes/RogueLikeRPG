@@ -4,28 +4,27 @@ using UnityEngine;
 
 
 public enum ActionType {
-    attack,
-    spell,
-    item
+    ATTACK,
+    SPELL,
+    ITEM,
 };
 
 public enum EffectType {
-    damage,
-    heal
+    DAMAGE,
+    HEAL,
 }
 
-
-public abstract class Action: ScriptableObject
-{
+public abstract class Action : ScriptableObject {
     public string actionName;
 
-    [TextArea(3,10)]
+    [TextArea(3, 10)]
     public string details;
+
     public ActionType actionType;
-    public EffectType effectType; 
+    public EffectType effectType;
+
     public float castTime;
     public int actionBarsNeeded;
+
     public abstract void DoAction(Animator anim);
-    
-    //jeito de triggar animação
 }

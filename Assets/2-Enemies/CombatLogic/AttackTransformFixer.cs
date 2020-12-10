@@ -34,18 +34,8 @@ namespace Enemy
         public static void FixRotation(EnemyAttackData attack,Direction direction)
         {
             float angleBetween = DirectionUtils.AngleBtwDirections(direction, attack.baseSpawnSide);
-            float xAngle = 0;
-            float yAngle = 0;
 
-            Debug.Log(angleBetween);
-
-            // if(angleBetween == 180)
-            //     xAngle =180;
-
-            // if(angleBetween == 90)
-            //     yAngle = 180;
-
-            attack.transform.rotation =  Quaternion.Euler(xAngle, yAngle, angleBetween);
+            attack.transform.rotation =  Quaternion.Euler(0f, 0f, angleBetween);
         }
 
         ///<summary>  
@@ -60,6 +50,7 @@ namespace Enemy
             gridOffset += attack.offsetFromBoundary;
             return attackDir * gridOffset;
         }
+        
         ///<summary>  
         /// Calculate the orthogonal to direction offset that its apllied 
         /// based in the attack accuracy

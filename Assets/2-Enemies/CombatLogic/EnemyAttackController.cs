@@ -14,12 +14,13 @@ namespace Enemy
         [SerializeField] private EnemyAttackData[] enemyAttacks = null;
         private Transform _playerTransform = null;
         private GameObject _attackContainer = null;
+        private IEnumerator _spawnAttacksCoroutine;
 
 
         private void Awake()
         {
             _playerTransform = FindObjectOfType<PlayerController>().gameObject.transform;
-
+            _spawnAttacksCoroutine = SpawnAttacks();
         }
 
         private void Start()
@@ -31,31 +32,40 @@ namespace Enemy
         {
             _attackContainer = new GameObject();
             _attackContainer.name = "[EnemyAttacksContainer-RunModeOnly]";
-            InvokeRepeating("InvokeAttack", timeBtwAttacks, timeBtwAttacks);
+            StartCoroutine(_spawnAttacksCoroutine);
+
         }
 
         public void StopAttacks()
         {
-            CancelInvoke();
+            StopCoroutine(_spawnAttacksCoroutine);
         }
 
-
+        void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                StopAttacks();
+            }
+        }
         
 
         //invoke the attacks
-        private void InvokeAttack()
+        private IEnumerator SpawnAttacks()
         {
-            int rand = Random.Range(0, enemyAttacks.Length);
-            EnemyAttackData attack = Instantiate<EnemyAttackData>(enemyAttacks[rand], _attackContainer.transform);
+            while(true)
+            {
+                int rand = Random.Range(0, enemyAttacks.Length);
+                EnemyAttackData attack = Instantiate<EnemyAttackData>(enemyAttacks[rand], _attackContainer.transform);
+                //Fetch a random possible direction for the attack
+                Direction attackDir = attack.GetRandomPossibleDirection();
+                //fix position
+                AttackTransformFixer.FixPosition(attack, attackDir,_playerTransform.position);
+                AttackTransformFixer.FixRotation(attack, attackDir);
 
-            //Fetch a random possible direction for the attack
-            Direction attackDir = attack.GetRandomPossibleDirection();
+                yield return new WaitForSeconds(attack.timeToNextAttack);
+            }
 
-            //fix position
-            AttackTransformFixer.FixPosition(attack, attackDir,_playerTransform.position);
-
-            AttackTransformFixer.FixRotation(attack, attackDir);
-           
         }
 
        

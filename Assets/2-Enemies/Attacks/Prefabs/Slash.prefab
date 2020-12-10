@@ -214,6 +214,7 @@ MonoBehaviour:
   offsetFromBoundary: 0
   baseSpawnSide: 0
   accuracy: 50
+  timeToNextAttack: 1.5
   _Up: 1
   _Down: 1
   _Right: 1

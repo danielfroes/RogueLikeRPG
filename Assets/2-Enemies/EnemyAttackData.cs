@@ -10,6 +10,11 @@ public class EnemyAttackData : MonoBehaviour
     public int gridDimension = 3;
     public int offsetFromBoundary = 0;
     public Direction baseSpawnSide;
+
+    [Range(0.0f, 100.0f)]
+    public float accuracy = 90f;
+
+    public float timeToNextAttack;
     
     [Header("Possible Spawn Sides")]
     [SerializeField] private bool _Up = true;

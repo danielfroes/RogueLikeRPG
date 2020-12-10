@@ -10,7 +10,6 @@ namespace Enemy
     // Controla os ataques do inimigo
     public class EnemyAttackController : MonoBehaviour
     {
-        [SerializeField] private float timeBtwAttacks = 3;
         [SerializeField] private EnemyAttackData[] enemyAttacks = null;
         private Transform _playerTransform = null;
         private GameObject _attackContainer = null;

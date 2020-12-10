@@ -209,11 +209,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0cc2c505210c2a4992c8d96537745ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridDimension: 3
+  attackType: 0
+  gridDimension: 5
   offsetFromBoundary: 4
   baseSpawnSide: 2
   accuracy: 80
-  timeToNextAttack: 0.8
+  timeToNextAttack: 1
   _Up: 1
   _Down: 1
   _Right: 1

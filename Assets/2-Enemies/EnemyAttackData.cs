@@ -18,7 +18,6 @@ public class EnemyAttackData : MonoBehaviour
     [Tooltip("innerGrid Attacks will spawn inside all the cells of the grid and OuterGrid Attacks will spawn in the outermost tile + the offset")]
     public AttackType attackType = AttackType.OuterGrid;
 
-
     [Tooltip("Works better when grid dimension is odd, because that way the grid has a center cell")]
     public int gridDimension = 3;
     public int offsetFromBoundary = 0;
@@ -26,7 +25,6 @@ public class EnemyAttackData : MonoBehaviour
 
     [Range(0.0f, 100.0f)]
     public float accuracy = 90f;
-
     public float timeToNextAttack;
 
     [Header("Possible Spawn Sides")]
@@ -35,6 +33,8 @@ public class EnemyAttackData : MonoBehaviour
     [SerializeField] private bool _Right = true;
     [SerializeField] private bool _Left = true;
 
+
+    private float[] weights;
     private List<Direction> _possibleDirections = new List<Direction>();
 
     void Awake()

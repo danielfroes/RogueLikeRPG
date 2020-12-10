@@ -7,6 +7,7 @@ namespace Enemy
 {
     public class AttackTransformFixer
     {   
+        
         ///<summary>
         /// Applys offsets in the attack based by the its direction and 
         /// position of the player
@@ -14,15 +15,21 @@ namespace Enemy
         public static void FixPosition(EnemyAttackData attack, Direction direction, Vector3 playerPos)
         {
             float spacing;
-            Vector3 attackDir, playerPosTile, spawnOffset, accuracyOffset;
+            Vector3 attackDir, playerPosTile, spawnOffset , accuracyOffset;
 
             //Fetch the equivalent vec3 to the side;
             attackDir = DirectionUtils.DirToVec3(direction);
             spacing = CombatGrid.Instance.GetSpacing();
+            spawnOffset = Vector3.zero;
+            accuracyOffset = Vector3.zero;
 
-
-            spawnOffset = CalculateSpawnOffset(attack, attackDir, spacing);
-            accuracyOffset = CalculateAccuracyOffset(attack, attackDir, spacing);
+            if(attack.attackType == EnemyAttackData.AttackType.OuterGrid)
+            {
+                spawnOffset  = GetOuterSpawnOffset(attack, attackDir, spacing);
+                
+            }
+            
+            accuracyOffset = GetOuterAccuracyOffset(attack, attackDir, spacing);
             //Position of the tile where the player stands
             playerPosTile = CombatGrid.Instance.PositionToCellCenter(playerPos);  
 
@@ -39,10 +46,10 @@ namespace Enemy
         }
 
         ///<summary>  
-        /// Calculate the offset in the direction of the attack to the 
+        /// Calculate the offset in the direction of the Outer Attack to the 
         /// attack grid's outermost tile and then applys the offset from the grid's boundary.
         ///</summary>
-        private static Vector3 CalculateSpawnOffset(EnemyAttackData attack, Vector3 attackDir, float gridSpacing)
+        private static Vector3 GetOuterSpawnOffset(EnemyAttackData attack, Vector3 attackDir, float gridSpacing)
         {
             float gridOffset;
             //Calculate the offset to the outermost tile of the grid 
@@ -50,19 +57,18 @@ namespace Enemy
             gridOffset += attack.offsetFromBoundary;
             return attackDir * gridOffset;
         }
-        
+
         ///<summary>  
         /// Calculate the orthogonal to direction offset that its apllied 
         /// based in the attack accuracy
         /// (Control if the attack targets or dont targets the player's cell)
         ///</summary>  
-        private static Vector3 CalculateAccuracyOffset(EnemyAttackData attack, Vector3 attackDir, float gridSpacing)
+        private static Vector3 GetOuterAccuracyOffset(EnemyAttackData attack, Vector3 attackDir, float gridSpacing)
         {
             float[] weights = new float[attack.gridDimension];
-
-            //Calculate the rand range of the attack
-            Vector3 ortDir = new Vector3(Mathf.Abs(attackDir.y), Mathf.Abs(attackDir.x));
-
+            Vector3 accuracyOffset = Vector3.zero;
+            
+            //**Generates the weights
             for (int i = 0; i < weights.Length; i++)
             {
                 // Attack targets the player's cell
@@ -72,12 +78,30 @@ namespace Enemy
                 else
                     weights[i] = (100 - attack.accuracy) / (attack.gridDimension - 1);
             }
-            int rand = RandomUtils.GetRandomWeightedIndex(weights);
-            rand = rand - (attack.gridDimension / 2); //centralizes the value;
 
-            return ortDir * rand * gridSpacing;
+            int rand = RandomUtils.GetRandomWeightedIndex(weights);
+            
+            if(EnemyAttackData.AttackType.OuterGrid == attack.attackType)
+            {
+                rand = rand - (attack.gridDimension / 2); //centralizes the value;
+                Vector3 ortDir = new Vector3(Mathf.Abs(attackDir.y), Mathf.Abs(attackDir.x));
+                accuracyOffset =  ortDir * rand * gridSpacing;
+            }
+            else if(EnemyAttackData.AttackType.OuterGrid == attack.attackType)
+            {
+                int xRand = RandomUtils.GetRandomWeightedIndex(weights);
+                xRand = xRand - (attack.gridDimension / 2); //centralizes the value;
+            
+                int yRand = RandomUtils.GetRandomWeightedIndex(weights);
+                yRand = yRand - (attack.gridDimension / 2); //centralizes the value;
+
+                accuracyOffset = new Vector3(xRand * gridSpacing, yRand * gridSpacing);
+            }
+            return accuracyOffset;
         }
 
+
+        private float[] GeneratesOuterWeights;
 
 
     }

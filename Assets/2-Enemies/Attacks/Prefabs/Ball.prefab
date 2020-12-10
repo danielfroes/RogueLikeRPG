@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackType: 1
-  gridDimension: 5
+  gridDimension: 3
   offsetFromBoundary: 0
   baseSpawnSide: 0
-  accuracy: 90
+  accuracy: 95
   timeToNextAttack: 0.5
   _Up: 1
   _Down: 1
@@ -125,7 +125,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.050980393}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ActionBar : MonoBehaviour
-{    
+public class ActionBar : MonoBehaviour {
     //Text component of the number of actions
     [SerializeField] private TextMeshProUGUI numActionsUI = null;
     //Fillable image 

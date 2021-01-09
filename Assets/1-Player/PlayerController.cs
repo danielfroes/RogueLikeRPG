@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-
-public class PlayerController : MonoBehaviour
-{   
+public class PlayerController : MonoBehaviour {
     //Speed of the movement
     [SerializeField] private float moveSpeed = 5f;
     //Dummy game object which the player will move toward
@@ -14,11 +12,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float offsetMovement = 1.2f;
     [SerializeField] private float secondsToNextMove = 0.5f;
     [SerializeField] private Animator spriteAnimator = null;
+
+    [SerializeField] private GameObject chargeEffect;
+
+    private bool dead = false;
+
     private Rigidbody2D rb2d = null;
     private Vector3 lastMovePosition;
+    private bool wasCasting = false;
     private bool waitCouroutineIsRunning = false;
-
-    
 
     // Start is called before the first frame update
 
@@ -26,8 +28,7 @@ public class PlayerController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();    
     }
 
-    void Start()
-    {
+    void Start() {
         movePoint.parent = null;
     }
 
@@ -43,7 +44,40 @@ public class PlayerController : MonoBehaviour
         
         //if the player is not moving 
         if(Vector3.Distance(rb2d.position, movePoint.position) <= Mathf.Epsilon  && waitCouroutineIsRunning == false)
+        // só pra testar a animação vo remover
+        if (dead)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.M)) {
+            spriteAnimator.Play("Death");
+            dead = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.N)) {
+            spriteAnimator.Play("Damage");
+            StartCoroutine("WaitToNextMove");
+        }
+
+        if (ActionCaster.instance.isCasting) {
+            if (!wasCasting) {
+                wasCasting = true;
+                spriteAnimator.Play("Charge");
+                chargeEffect.SetActive(true);
+            }
+        }
+        else {
+            if (wasCasting) {
+                spriteAnimator.Play("Attack");
+                wasCasting = false;
+                chargeEffect.SetActive(false);
+                StartCoroutine("WaitToNextMove");
+            }
+        }
+
+        //move the move point
+        if (Vector3.Distance(rb2d.position, movePoint.position) <= Mathf.Epsilon  && waitCouroutineIsRunning == false)
         {
+
             //move horizontally
             if(Mathf.Abs(xInput) == 1f)
             {
@@ -88,15 +122,14 @@ public class PlayerController : MonoBehaviour
                     //little wait to next Input be valid
                     StartCoroutine("WaitToNextMove");
                 }
-            }
-            else
-            {
-                spriteAnimator.Play("Idle", 0);
+            } else {
+                if (!ActionCaster.instance.isCasting) {
+                    spriteAnimator.Play("Idle");
+                }
             }
         }
        
     }
-
 
     private IEnumerator WaitToNextMove()
     {

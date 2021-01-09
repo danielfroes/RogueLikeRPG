@@ -4,10 +4,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class ActionButton : MonoBehaviour
-{
+public class ActionButton : MonoBehaviour {
 
-   
     [HideInInspector]
     public Action action;
     [HideInInspector]
@@ -17,23 +15,20 @@ public class ActionButton : MonoBehaviour
 
     private Color _interactableColor;
     private Button buttonGUI;
-    
+
     TextMeshProUGUI[] texts;
-    
+
 
     private void Start() {
         buttonGUI = GetComponent<Button>();
-        texts = GetComponentsInChildren<TextMeshProUGUI>(); 
-        foreach (TextMeshProUGUI text in texts)
-        {
-            if(text.gameObject.name == "ActionName")
-            {
+        texts = GetComponentsInChildren<TextMeshProUGUI>();
+        foreach (TextMeshProUGUI text in texts) {
+            if (text.gameObject.name == "ActionName") {
                 text.SetText(action.actionName);
             }
 
-            if(text.gameObject.name == "ActionQtt")
-            {
-                text.SetText( action.actionBarsNeeded.ToString() + "A");
+            if (text.gameObject.name == "ActionQtt") {
+                text.SetText(action.actionBarsNeeded.ToString() + "A");
             }
         }
         _interactableColor = texts[0].color;
@@ -41,35 +36,30 @@ public class ActionButton : MonoBehaviour
 
 
     private void Update() {
-        if(action.actionBarsNeeded > ActionBar.instance.numActions)
-        {
+        if (action.actionBarsNeeded > ActionBar.instance.numActions) {
             buttonGUI.interactable = false;
-            foreach (TextMeshProUGUI text in texts)
-            {
+            foreach (TextMeshProUGUI text in texts) {
                 text.color = _uninteractableColor;
             }
         }
-        else
-        {
+        else {
             buttonGUI.interactable = true;
-            foreach (TextMeshProUGUI text in texts)
-            {
+            foreach (TextMeshProUGUI text in texts) {
                 text.color = _interactableColor;
             }
         }
     }
 
 
-    public void SelectAction()
-    {
+    public void SelectAction() {
         // if(action.actionBarsNeeded <= ActionBar.instance.numActions)
-        
+
         ActionBar.instance.SpendAction(action.actionBarsNeeded);
         ActionCaster.instance.CastAction(action);
 
         actionMenu.SetActionMenuActive(false);
-        
-        
+
+
     }
 
 }

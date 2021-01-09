@@ -4,40 +4,94 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 2652057481829278106
-    second: rato_0
+    second: rato_idle
   - first:
       213: -6857365722057251505
-    second: rato_1
+    second: rato_backing
   - first:
       213: -7243025832265123969
-    second: rato_2
+    second: rato_right_0
   - first:
       213: -7625609051572670080
-    second: rato_3
+    second: rato_right_1
   - first:
       213: 2584357004581408836
-    second: rato_0
+    second: rato_idle
   - first:
       213: 2571817569267207750
-    second: rato_1
+    second: rato_backing
   - first:
       213: 4520796699965705103
-    second: rato_2
+    second: rato_right_0
   - first:
       213: 6274723210276907695
-    second: rato_4
+    second: rato_left_0
   - first:
       213: 8271034547331896233
-    second: rato_5
+    second: rato_left_1
   - first:
       213: -9198630833449832903
-    second: rato_6
+    second: rato_down_0
   - first:
       213: 8691173552411300550
-    second: rato_7
+    second: rato_down1
   - first:
       213: 5584875705342678237
-    second: rato_8
+    second: rato_down_2
+  - first:
+      213: -1449337185416231887
+    second: rato_right_1
+  - first:
+      213: -4542526963133324687
+    second: rato_left_0
+  - first:
+      213: -6440080699116047624
+    second: rato_left_1
+  - first:
+      213: 8511102290690874808
+    second: rato_down_0
+  - first:
+      213: -1379557170891978297
+    second: rato_down1
+  - first:
+      213: -7523154938551393711
+    second: rato_down_2
+  - first:
+      213: -2804742829979994437
+    second: rato_charge_0
+  - first:
+      213: -3513409015488334653
+    second: rato_charge_1
+  - first:
+      213: -6571937824284494896
+    second: rato_charge_2
+  - first:
+      213: 2759688386951592679
+    second: rato_attack_0
+  - first:
+      213: 2858753236486134121
+    second: rato_attack_1
+  - first:
+      213: -3426297826315403812
+    second: rato_attack_2
+  - first:
+      213: 8013219721715851829
+    second: rato_attack_3
+  - first:
+      213: 1389563345350933622
+    second: rato_damage_0
+  - first:
+      213: -9129600988191455727
+    second: rato_damage_1
+  - first:
+      213: -1062250763825736072
+    second: rato_damage_2
+  - first:
+      213: 6009258148028547171
+    second: rato_damage_3
+  - first:
+      213: -3327328888834456803
+    second: rato_20
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -135,36 +189,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rato_3
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 96
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 081f10548f46c2690800000000000000
-      internalID: -7625609051572670080
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rato_0
+      name: rato_idle
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
+        y: 336
         width: 32
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -177,15 +210,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rato_1
+      name: rato_backing
       rect:
         serializedVersion: 2
         x: 0
-        y: 144
+        y: 288
         width: 32
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -198,15 +231,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rato_2
+      name: rato_right_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
+        y: 240
         width: 32
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -219,7 +252,196 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rato_4
+      name: rato_right_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 240
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 134408f328be2ebe0800000000000000
+      internalID: -1449337185416231887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rato_left_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 172edcb5bc3b5f0c0800000000000000
+      internalID: -4542526963133324687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rato_left_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f2b654a9bc30a6a0800000000000000
+      internalID: -6440080699116047624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rato_down_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bd94ab80728d1670800000000000000
+      internalID: 8511102290690874808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rato_down1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 144
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c904a1ff04dadce0800000000000000
+      internalID: -1379557170891978297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rato_down_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 144
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1522b695172689790800000000000000
+      internalID: -7523154938551393711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rato_charge_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb6f7bc914d8319d0800000000000000
+      internalID: -2804742829979994437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rato_charge_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c4b9218d1ddd3fc0800000000000000
+      internalID: -3513409015488334653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rato_charge_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d3b1915e59cbc4a0800000000000000
+      internalID: -6571937824284494896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rato_attack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -227,20 +449,20 @@ TextureImporter:
         width: 32
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: faa247cc38b441750800000000000000
-      internalID: 6274723210276907695
+      spriteID: 7ea350b67f16c4620800000000000000
+      internalID: 2759688386951592679
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rato_5
+      name: rato_attack_1
       rect:
         serializedVersion: 2
         x: 32
@@ -248,20 +470,62 @@ TextureImporter:
         width: 32
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a393b6591e98c270800000000000000
-      internalID: 8271034547331896233
+      spriteID: 96911491ce45ca720800000000000000
+      internalID: 2858753236486134121
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rato_6
+      name: rato_attack_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 48
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cddf6cfb7485370d0800000000000000
+      internalID: -3426297826315403812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rato_attack_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 532270c81eca43f60800000000000000
+      internalID: 8013219721715851829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rato_damage_0
       rect:
         serializedVersion: 2
         x: 0
@@ -269,20 +533,20 @@ TextureImporter:
         width: 32
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93e64405ef5e75080800000000000000
-      internalID: -9198630833449832903
+      spriteID: 67cbb881088b84310800000000000000
+      internalID: 1389563345350933622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rato_7
+      name: rato_damage_1
       rect:
         serializedVersion: 2
         x: 32
@@ -290,20 +554,20 @@ TextureImporter:
         width: 32
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c2deb05c404d9870800000000000000
-      internalID: 8691173552411300550
+      spriteID: 1160bcd95442d4180800000000000000
+      internalID: -9129600988191455727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rato_8
+      name: rato_damage_2
       rect:
         serializedVersion: 2
         x: 64
@@ -311,14 +575,35 @@ TextureImporter:
         width: 32
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd4d8a33dd6718d40800000000000000
-      internalID: 5584875705342678237
+      spriteID: 87697cfee802241f0800000000000000
+      internalID: -1062250763825736072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rato_damage_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3600ddc727c256350800000000000000
+      internalID: 6009258148028547171
       vertices: []
       indices: 
       edges: []

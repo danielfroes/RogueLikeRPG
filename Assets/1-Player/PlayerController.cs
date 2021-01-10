@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private Transform movePoint = null;
     //How much the player will move
     [SerializeField] private float offsetMovement = 1.2f;
-    [SerializeField] private float secondsToNextMove = 0.5f;
+    [SerializeField] private float secondsToNextMove = 0.5f; 
     [SerializeField] private Animator spriteAnimator = null;
 
     [SerializeField] private GameObject chargeEffect;

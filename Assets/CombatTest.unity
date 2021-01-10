@@ -2814,6 +2814,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231604426}
   m_CullTransparentMesh: 0
+--- !u!1 &1251112961 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6461843569583662093, guid: bda144f2ed7bc4d028b24efb44a0abcb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1950875021943169636}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1253898029
 GameObject:
   m_ObjectHideFlags: 0
@@ -5004,6 +5010,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1950875022806349093, guid: bda144f2ed7bc4d028b24efb44a0abcb,
+        type: 3}
+      propertyPath: chargeEffect
+      value: 
+      objectReference: {fileID: 1251112961}
     - target: {fileID: 1950875022806349146, guid: bda144f2ed7bc4d028b24efb44a0abcb,
         type: 3}
       propertyPath: m_Name
@@ -5158,6 +5169,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: aab25890a41f89843a41f828334d89c5, type: 2}
+    - target: {fileID: 8347672287624760204, guid: b609a6c0b9d3848bbabd833a6594d403,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8347672288028442651, guid: b609a6c0b9d3848bbabd833a6594d403,
         type: 3}
       propertyPath: m_Controller

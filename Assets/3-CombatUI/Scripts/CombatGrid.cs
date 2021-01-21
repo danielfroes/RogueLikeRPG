@@ -8,20 +8,20 @@ using UnityEngine.Tilemaps;
 public class CombatGrid : MonoBehaviour
 {
 
-    public static CombatGrid Instance{get; private set;} = null;
+    public static CombatGrid Instance { get; private set; } = null;
     private Tilemap _combatTilemap = null;
 
     private Grid _grid = null;
     void Awake()
     {
-        if(Instance == null || Instance == this)
+        if (Instance == null || Instance == this)
             Instance = this;
         else
-             Destroy(this);
+            Destroy(this);
 
         _combatTilemap = GetComponentInChildren<Tilemap>();
         _grid = GetComponent<Grid>();
-        
+
     }
 
     public bool IsPositionInGrid(Vector3 pos)
@@ -32,14 +32,19 @@ public class CombatGrid : MonoBehaviour
 
     public Vector3 PositionToCellCenter(Vector3 pos)
     {
-        return _grid.CellToLocal( _grid.LocalToCell(pos)) ;
+        return _grid.CellToLocal(_grid.LocalToCell(pos));
     }
-    
+
     public float GetSpacing()
     {
         return _grid.cellSize.x;
     }
-    
+
+    public Vector2 DistanceBetweenTiles()
+    {
+        return _grid.cellSize + _grid.cellGap;
+    }
+
     //RemoveTile()
     //ChangeTile()
     //GetCell()

@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DirectionSystem{
-    public enum Direction{
+namespace DirectionSystem
+{
+    public enum Direction
+    {
         up,
         down,
         left,
         right
     }
+
     public class DirectionUtils
     {
-        private static Dictionary<Direction,Vector3> dirToVec3 = 
+        private static Dictionary<Direction, Vector3> dirToVec3 =
             new Dictionary<Direction, Vector3>()
             {
                 {Direction.up, Vector3.up},
@@ -19,7 +22,6 @@ namespace DirectionSystem{
                 {Direction.right, Vector3.right},
                 {Direction.left, Vector3.left}
             };
-        
 
         public static Vector3 DirToVec3(Direction dir)
         {

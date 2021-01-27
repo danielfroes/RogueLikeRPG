@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DirectionSystem;
-
-
+using Squeak;
 
 namespace Enemy
 {

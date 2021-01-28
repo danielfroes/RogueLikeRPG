@@ -378,7 +378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   action: {fileID: 0}
   actionMenu: {fileID: 0}
-  _uninteractableColor: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
+  colorSettings: {fileID: 11400000, guid: aeb41c870fe244d358be807f3c76ca7e, type: 2}
 --- !u!1 &3444059435691816106
 GameObject:
   m_ObjectHideFlags: 0

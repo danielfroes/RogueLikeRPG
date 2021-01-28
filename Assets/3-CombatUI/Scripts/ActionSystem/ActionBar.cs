@@ -14,7 +14,7 @@ public class ActionBar : MonoBehaviour {
 
     //Color of the action bars; the first Color is the initial background Img;
     [SerializeField]private List<Color> barColors = null;
-    [SerializeField] private float fillSpeed;
+    [SerializeField] private float fillSpeed = 0.2f;
     public static ActionBar instance;
     private int colorIndex = 0;
     private bool _isFull;

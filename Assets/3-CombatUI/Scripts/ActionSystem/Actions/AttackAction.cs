@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "new Action", menuName = "Action/Attack")]
+[CreateAssetMenu(fileName = "new Action", menuName = "Action Menu SO/Action/Attack")]
 public class AttackAction : Action {
 
     public int BaseDamage;

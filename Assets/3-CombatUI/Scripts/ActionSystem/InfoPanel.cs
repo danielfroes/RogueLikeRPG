@@ -4,10 +4,10 @@ using UnityEngine;
 using TMPro;
 
 public class InfoPanel : MonoBehaviour {
-    [SerializeField] private TextMeshProUGUI title;
-    [SerializeField] private TextMeshProUGUI details;
-    [SerializeField] private TextMeshProUGUI castTime;
-    [SerializeField] private TextMeshProUGUI damage;
+    [SerializeField] private TextMeshProUGUI title = null;
+    [SerializeField] private TextMeshProUGUI details = null;
+    [SerializeField] private TextMeshProUGUI castTime = null;
+    [SerializeField] private TextMeshProUGUI damage = null;
     
     // Start is called before the first frame update
     public void SetInfoPanelText(Action action) {

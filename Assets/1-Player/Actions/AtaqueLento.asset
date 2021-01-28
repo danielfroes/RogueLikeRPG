@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Slow
   details: "Um ataque lento por\xE9m muito poderoso."
-  actionType: 0
+  actionType: 1
   effectType: 0
   castTime: 3
-  actionBarsNeeded: 0
+  actionBarsNeeded: 1
   BaseDamage: 100

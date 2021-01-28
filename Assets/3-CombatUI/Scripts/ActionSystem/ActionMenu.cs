@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using Scripts.ActionSystem;
 using TMPro;
 using UnityEngine.UI;
 
@@ -15,6 +16,7 @@ public class ActionMenu : MonoBehaviour {
     [SerializeField] private ActionButton genericButton = null;
     [SerializeField] private InfoPanel infoPanel = null;
     [SerializeField] private float transitionsTime = 0;
+    //**Refactor this to it separate script
     public Action[] availableActions;
     private EventSystem es;
     private Vector2 _secondaryInitPivot;
@@ -59,14 +61,15 @@ public class ActionMenu : MonoBehaviour {
     private void PopulateSecondaryMenu(ActionType type) {
         // List<Action> availableActionsWithType = new List<Action>();
         int cntActionsWithType = 0;
-        foreach (Action action in availableActions) {
+        foreach (var action in availableActions) {
             if (action.actionType == type) {
-                ActionButton newButton = Instantiate<ActionButton>(genericButton, secondaryOptionsButtonsContainer.transform);
+                var newButton = Instantiate<ActionButton>(genericButton, secondaryOptionsButtonsContainer.transform);
                 newButton.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, -1 * cntActionsWithType);
                 newButton.name = action.name;
                 newButton.action = action;
                 newButton.actionMenu = this;
-
+                
+                
                 _actionsIntantiated.Add(newButton);
                 //Auto Select the first button
                 if (cntActionsWithType == 0) {
@@ -84,7 +87,7 @@ public class ActionMenu : MonoBehaviour {
         // When action menu is activated
         if (status) {
             if (!ActionCaster.instance.isCasting) {
-                actionMenu.SetActive(status);
+                actionMenu.SetActive(true);
                 Vector2 bufferScale = actionMenu.transform.localScale;
                 actionMenu.transform.localScale = Vector2.one * 0.3f;
                 Time.timeScale = 0.0f;
@@ -100,14 +103,14 @@ public class ActionMenu : MonoBehaviour {
             }
         }
         else { //when action menu in deactivated
-            foreach (ActionButton action in _actionsIntantiated) {
+            foreach (var action in _actionsIntantiated) {
                 Destroy(action.gameObject);
             }
 
             _actionsIntantiated.Clear();
             infoPanel.gameObject.SetActive(false);
             Time.timeScale = 1f;
-            actionMenu.SetActive(status);
+            actionMenu.SetActive(false);
 
             isInSecondaryMenu = false;
         }

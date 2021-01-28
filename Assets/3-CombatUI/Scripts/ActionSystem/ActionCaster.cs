@@ -9,10 +9,10 @@ public class ActionCaster : MonoBehaviour {
 
     public bool isCasting = false;
     public static ActionCaster instance;
-    [SerializeField] private Slider castingBar;
+    [SerializeField] private Slider castingBar = null;
 
     //**Tirar isso depois do teste
-    [SerializeField] private Animator attackAnim;
+    [SerializeField] private Animator attackAnim = null;
 
     private void Awake() {
         if (instance == null)

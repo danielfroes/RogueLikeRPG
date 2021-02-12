@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using DG.Tweening;
+using UnityEditor;
 
 namespace Squeak
 {
@@ -59,6 +60,10 @@ namespace Squeak
 
         protected void Update()
         {
+            //TODO: Refatorar isso e pegar os inputs a partir de um sistema de maquina de estados para os estados do jogo
+            if (Time.timeScale == 0)
+                return;
+            
             if (!_isMoving)
             {
                 GetInput();
@@ -69,7 +74,7 @@ namespace Squeak
                 if (_currentInputDirection != Vector2.zero)
                     _bufferedMovement = true;
             }
-            Debug.Log($"Input direction {_currentInputDirection}");
+
         }
 
         protected void FixedUpdate()
@@ -78,7 +83,7 @@ namespace Squeak
                 _animator.Play("Idle");
 
             // Movement
-            if (!_isMoving && _currentInputDirection != Vector2.zero)
+            if (!_isMoving && _currentInputDirection != Vector2.zero )
             {
                 if (ActionCaster.instance.isCasting)
                 {
@@ -137,9 +142,8 @@ namespace Squeak
                 _bufferedMovement = false;
                 _currentInputDirection = Vector2.zero;
             }
-
         }
-
+        
         public void Damage()
         {
             transform.position = CombatGrid.Instance.PositionToCellCenter(transform.position);

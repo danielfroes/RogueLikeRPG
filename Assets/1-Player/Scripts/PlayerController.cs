@@ -8,7 +8,6 @@ namespace Squeak
 {
     public class PlayerController : MonoBehaviour
     {
-
         // Movement
         [SerializeField] private float _timeToComplete = 0.18f;
         [SerializeField] private float _bufferTime = 0.04f;
@@ -55,21 +54,6 @@ namespace Squeak
             _currentPosition = transform.position;
 
             PlayerStatusController.OnDamageEvent += Damage;
-        }
-
-        protected void Update()
-        {
-            if (!_isMoving)
-            {
-                GetInput();
-            }
-            else if (_movementTweener != null && _movementTweener.IsActive() && _movementTweener.Elapsed() >= _timeToComplete - _bufferTime)
-            {
-                GetInput();
-                if (_currentInputDirection != Vector2.zero)
-                    _bufferedMovement = true;
-            }
-            Debug.Log($"Input direction {_currentInputDirection}");
         }
 
         protected void FixedUpdate()
@@ -156,12 +140,26 @@ namespace Squeak
                 });
         }
 
+        public void GetInput(Vector2 direction)
+        {
+            if (!_isMoving)
+            {
+                HandleInput(direction);
+            }
+            else if (_movementTweener != null && _movementTweener.IsActive() && _movementTweener.Elapsed() >= _timeToComplete - _bufferTime)
+            {
+                HandleInput(direction);
+                if (_currentInputDirection != Vector2.zero)
+                    _bufferedMovement = true;
+            }
+        }
+
         // Other functions
-        private void GetInput()
+        private void HandleInput(Vector2 dir)
         {
             // Character movement
-            float dirX = Input.GetAxisRaw("Horizontal");
-            float dirY = Input.GetAxisRaw("Vertical");
+            float dirX = dir.x;
+            float dirY = dir.y;
 
             if (Mathf.Approximately(dirX, 0.0f) && Mathf.Approximately(dirY, 0.0f))
                 return;

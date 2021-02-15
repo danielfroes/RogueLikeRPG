@@ -32,11 +32,14 @@ public class ActionMenu : MonoBehaviour {
         _secondaryInitPivot = secondaryOptions.pivot;
     }
 
+    // Activation now handled by UnityEvent (InputListener) in ActionMenu GameObject
+    public void Activate()
+    {
+        SetActionMenuActive(!actionMenu.activeInHierarchy);
+    }
+
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Z)) {
-            SetActionMenuActive(!actionMenu.activeInHierarchy);
-        }
         //colocar para so mostrar se n tiver sido mostrado antes
         if (isInSecondaryMenu) {
             infoPanel.SetInfoPanelText(es.currentSelectedGameObject.GetComponent<ActionButton>().action);

@@ -33,16 +33,6 @@ namespace Squeak
             _defense = new Stat(_preset.defense);
         }
 
-        void Update() {
-
-            //TESTANDO
-            if (Input.GetKeyDown(KeyCode.K)) {
-                Debug.Log("dano dano");
-                PlayerStatusController.Instance.Damage(25f);
-            }
-
-        }
-
         // +-------------+
         // | Other stuff |
         // +-------------+

@@ -41,10 +41,10 @@ namespace Enemy
 
         void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                StopAttacks();
-            }
+            //if(Input.GetKeyDown(KeyCode.Space))
+            //{
+            //    StopAttacks();
+            //}
         }
         
 

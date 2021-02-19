@@ -126,6 +126,8 @@ namespace Squeak
 
         public void Damage()
         {
+            StartCoroutine(FreezeFrame(0.25f));
+
             transform.position = CombatGrid.Instance.PositionToCellCenter(transform.position);
             _currentPosition = transform.position;
 
@@ -195,6 +197,13 @@ namespace Squeak
             _invencibility = true;
             yield return new WaitForSecondsRealtime(time);
             _invencibility = false;
+        }
+
+        private IEnumerator FreezeFrame(float time)
+        {
+            Time.timeScale = 0f;
+            yield return new WaitForSecondsRealtime(time);
+            Time.timeScale = 1f;
         }
 
     }

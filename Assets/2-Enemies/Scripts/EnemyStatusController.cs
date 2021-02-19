@@ -31,17 +31,6 @@ namespace Squeak
             _health = new StatBar(_preset.maxHealth);
         }
 
-        void Update()
-        {
-            //TESTANDO
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                Debug.Log("dano dano");
-                EnemyStatusController.Instance.Damage(120f);
-            }
-
-        }
-
         public void Damage(float damage)
         {
             _health.Decrease(damage);

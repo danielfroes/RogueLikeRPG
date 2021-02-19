@@ -23,7 +23,7 @@ public class ActionMenuController : MonoBehaviour
 
     //TODO:Refactor this to it separate script
     public Action[] availableActions;
-    
+     
     private EventSystem eventSystem;
     private Vector2 _secondaryInitPivot;
     private Vector2 _mainInitPivot;
@@ -39,13 +39,16 @@ public class ActionMenuController : MonoBehaviour
         _mainInitPivot = _mainOptions.pivot;
         _secondaryInitPivot = _secondaryOptions.pivot;
     }
-
+    
+    
+    // Activation now handled by UnityEvent (InputListener) in ActionMenu GameObject
+    public void Activate()
+    {
+        SetActionMenuActive(!_actionMenu.activeInHierarchy);
+    }
     // TODO: Refatorar isso aqui
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z)) {
-            SetActionMenuActive(!_actionMenu.activeInHierarchy);
-        }
         //TODO: colocar para so mostrar se n tiver sido mostrado antes e
         if (isInSecondaryMenu && eventSystem.currentSelectedGameObject != null) {
             _infoPanel.SetInfoPanelText(eventSystem.currentSelectedGameObject.GetComponent<ActionButton>().action);

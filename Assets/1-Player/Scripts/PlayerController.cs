@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using DG.Tweening;
-using UnityEditor;
 
 namespace Squeak
 {
     public class PlayerController : MonoBehaviour
     {
-
         // Movement
         [SerializeField] private float _timeToComplete = 0.18f;
         [SerializeField] private float _bufferTime = 0.04f;
@@ -58,32 +56,13 @@ namespace Squeak
             PlayerStatusController.OnDamageEvent += Damage;
         }
 
-        protected void Update()
-        {
-            //TODO: Refatorar isso e pegar os inputs a partir de um sistema de maquina de estados para os estados do jogo
-            if (Time.timeScale == 0)
-                return;
-            
-            if (!_isMoving)
-            {
-                GetInput();
-            }
-            else if (_movementTweener != null && _movementTweener.IsActive() && _movementTweener.Elapsed() >= _timeToComplete - _bufferTime)
-            {
-                GetInput();
-                if (_currentInputDirection != Vector2.zero)
-                    _bufferedMovement = true;
-            }
-
-        }
-
         protected void FixedUpdate()
         {
             if (!_invencibility && !_isMoving && _currentInputDirection == Vector2.zero)
                 _animator.Play("Idle");
 
             // Movement
-            if (!_isMoving && _currentInputDirection != Vector2.zero )
+            if (!_isMoving && _currentInputDirection != Vector2.zero)
             {
                 if (ActionCaster.instance.isCasting)
                 {
@@ -142,10 +121,13 @@ namespace Squeak
                 _bufferedMovement = false;
                 _currentInputDirection = Vector2.zero;
             }
+
         }
-        
+
         public void Damage()
         {
+            StartCoroutine(FreezeFrame(0.25f));
+
             transform.position = CombatGrid.Instance.PositionToCellCenter(transform.position);
             _currentPosition = transform.position;
 
@@ -160,12 +142,26 @@ namespace Squeak
                 });
         }
 
+        public void GetInput(Vector2 direction)
+        {
+            if (!_isMoving)
+            {
+                HandleInput(direction);
+            }
+            else if (_movementTweener != null && _movementTweener.IsActive() && _movementTweener.Elapsed() >= _timeToComplete - _bufferTime)
+            {
+                HandleInput(direction);
+                if (_currentInputDirection != Vector2.zero)
+                    _bufferedMovement = true;
+            }
+        }
+
         // Other functions
-        private void GetInput()
+        private void HandleInput(Vector2 dir)
         {
             // Character movement
-            float dirX = Input.GetAxisRaw("Horizontal");
-            float dirY = Input.GetAxisRaw("Vertical");
+            float dirX = dir.x;
+            float dirY = dir.y;
 
             if (Mathf.Approximately(dirX, 0.0f) && Mathf.Approximately(dirY, 0.0f))
                 return;
@@ -201,6 +197,13 @@ namespace Squeak
             _invencibility = true;
             yield return new WaitForSecondsRealtime(time);
             _invencibility = false;
+        }
+
+        private IEnumerator FreezeFrame(float time)
+        {
+            Time.timeScale = 0f;
+            yield return new WaitForSecondsRealtime(time);
+            Time.timeScale = 1f;
         }
 
     }

@@ -16,7 +16,7 @@ MonoBehaviour:
   details: "Um ataque lento por\xE9m muito poderoso."
   actionType: 0
   effectType: 0
-  castTime: 3
-  actionBarsNeeded: 0
-  animationClip: {fileID: 7400000, guid: d548414ad3cfa4b90bd9ee8e76c46dc1, type: 2}
+  castTime: 2
+  actionBarsNeeded: 2
+  _animationClip: {fileID: 7400000, guid: d548414ad3cfa4b90bd9ee8e76c46dc1, type: 2}
   BaseDamage: 100

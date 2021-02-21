@@ -157,7 +157,7 @@ MonoBehaviour:
   _timeToComplete: 0.18
   _bufferTime: 0.9
   _easeFunction: 6
-  _invencibilityTime: 0.25
+  _invencibilityTime: 1
 --- !u!114 &5317840038220392902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5453,6 +5453,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ActionCaster - Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5487453022032987220, guid: 639cfc97cac814b07b6243da99da5ffd,
+        type: 3}
+      propertyPath: _playerStatusController
+      value: 
+      objectReference: {fileID: 5317840038220392902}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 639cfc97cac814b07b6243da99da5ffd, type: 3}
 --- !u!224 &1978943579512083361 stripped

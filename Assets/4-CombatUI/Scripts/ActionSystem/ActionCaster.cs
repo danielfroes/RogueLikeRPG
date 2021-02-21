@@ -4,29 +4,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using UnityEditor;
-using UnityEditorInternal;
-
+using Squeak;
 
 public class ActionCaster : MonoBehaviour {
 
     public bool isCasting = false;
     public static ActionCaster instance;
-    [SerializeField] private Slider castingBar = null;
-
-
-    //**Tirar isso depois do teste
-    [SerializeField] private Animator attackAnim = null;
-
-    private void Awake() {
+    [SerializeField] Slider castingBar = null;
+    
+    //TODO: Achar um jeito melhor de referenciar o enemyStatusController e o actionAnim(vai dar problema quando colocar mais de uma batalhat)
+    [SerializeField] Animator _actionAnim = null;
+    [SerializeField] EnemyStatusController _enemyStatusController = null;
+    [SerializeField] PlayerStatusController _playerStatusController = null;
+   
+    void Awake()
+    {
         if (instance == null)
             instance = this;
         else
             Destroy(this);
-        
     }
-
-
 
     public void CastAction(Action action) {
         castingBar.value = 0;
@@ -34,13 +31,7 @@ public class ActionCaster : MonoBehaviour {
         isCasting = true;
         castingBar.DOValue(castingBar.maxValue, action.castTime).OnComplete(() =>
         {
-
-            //TODO: Gambiarra
-           
-            action.DoAction(attackAnim);
-            
-            //TODO: Gambiarra
-            
+            action.DoAction(_actionAnim, _enemyStatusController, _playerStatusController);
             castingBar.gameObject.SetActive(false);
             isCasting = false;
         });

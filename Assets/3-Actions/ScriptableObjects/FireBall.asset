@@ -15,8 +15,7 @@ MonoBehaviour:
   actionName: FireBall
   details: Bola de Fogo
   actionType: 1
-  effectType: 0
   castTime: 1.2
   actionBarsNeeded: 1
   _animationClip: {fileID: 7400000, guid: 8e31a06f9a6ee4ce28a848d8b13e0959, type: 2}
-  BaseDamage: 50
+  magicalDamage: 350

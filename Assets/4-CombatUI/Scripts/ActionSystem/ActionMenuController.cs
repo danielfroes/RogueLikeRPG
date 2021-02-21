@@ -11,8 +11,8 @@ using UnityEngine.UI;
 
 public class ActionMenuController : MonoBehaviour
 {
-    [SerializeField] Button _attackButton;
-    [SerializeField] Button _spellButton;
+    [SerializeField] Button _attackButton = null;
+    [SerializeField] Button _spellButton = null;
     [SerializeField] GameObject _actionMenu = null;
     [SerializeField] RectTransform _mainOptions = null;
     [SerializeField] RectTransform _secondaryOptions = null;

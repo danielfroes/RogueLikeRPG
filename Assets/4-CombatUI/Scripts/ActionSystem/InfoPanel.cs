@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 using TMPro;
 
@@ -14,7 +15,12 @@ public class InfoPanel : MonoBehaviour {
         title.SetText(action.actionName);
         details.SetText(action.details);
         castTime.SetText(action.castTime + "s");
-        if (action is AttackAction)
-            damage.SetText((action as AttackAction).BaseDamage.ToString());
+        if (action is AttackAction attackAction)
+            damage.SetText(attackAction.physicalDamage.ToString());
+
+        if (action is SpellAction spellAction)
+        {
+            damage.SetText(spellAction.magicalDamage.ToString());
+        }
     }
 }

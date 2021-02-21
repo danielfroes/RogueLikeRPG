@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423b259271aa8344db9630c6199b20f5, type: 3}
   m_Name: CachorroPreset
   m_EditorClassIdentifier: 
-  maxHealth: 5000
+  maxHealth: 2000
   damage: 5

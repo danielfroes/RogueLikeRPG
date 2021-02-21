@@ -15,8 +15,7 @@ MonoBehaviour:
   actionName: Attack
   details: "ataque b\xE1sico normal"
   actionType: 0
-  effectType: 0
   castTime: 0.5
   actionBarsNeeded: 1
   _animationClip: {fileID: 7400000, guid: e05cbb0810858461c869cc2ccfe49c49, type: 2}
-  BaseDamage: 10
+  physicalDamage: 100

@@ -1,6 +1,7 @@
 ﻿    using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+    using Squeak;
+    using UnityEngine;
 
 //TODO: Tirar isso aqui
 public enum ActionType {
@@ -19,35 +20,37 @@ public abstract class Action : ScriptableObject {
     public string actionName;
     [TextArea(3, 10)] public string details;
     public ActionType actionType;
-    public EffectType effectType;
     public float castTime;
     public int actionBarsNeeded;
 
-    [SerializeField] AnimationClip _animationClip;
+    [SerializeField] AnimationClip _animationClip = null;
     AnimatorOverrideController _animatorController;
     
     static readonly int DoActionID = Animator.StringToHash("DoAction");
 
-    public virtual void DoAction(Animator anim)
+    public virtual void DoAction(Animator actionAnim, EnemyStatusController enemy , PlayerStatusController player )
     {
         if (_animatorController == null)
         {
-            _animatorController = new AnimatorOverrideController(anim.runtimeAnimatorController);
-            var anims = new List<KeyValuePair<AnimationClip, AnimationClip>>();
-            anims.Add(new KeyValuePair<AnimationClip, AnimationClip>(_animatorController.animationClips[0], _animationClip));
+            _animatorController = new AnimatorOverrideController(actionAnim.runtimeAnimatorController);
+            var anims = new List<KeyValuePair<AnimationClip, AnimationClip>>
+            {
+                new KeyValuePair<AnimationClip, AnimationClip>(_animatorController.animationClips[0],
+                    _animationClip)
+            };
             _animatorController.ApplyOverrides(anims);
         }
 
-        anim.runtimeAnimatorController = _animatorController;
+        actionAnim.runtimeAnimatorController = _animatorController;
             
-        anim.SetTrigger(DoActionID);
+        actionAnim.SetTrigger(DoActionID);
         
     }
     
     
     
     //O animator do ataque ta dentro do player
-    //Ele eh unico e compartilhado, entao a referencia dele pode ser pega de varias formas.
+    //Ele eh unico e compartilhado, entao a referencia dele pode ser pega de várias formas.
     //Posso colocoar ele no player e pegar a referencia do player
     //  O foda eh que eu precisaria fazer isso para cada acao sabe
     //Posso fazer um singleton sla

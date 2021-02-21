@@ -10,10 +10,7 @@ public enum ActionType {
     Item,
 };
 
-public enum EffectType {
-    Damage,
-    Heal,
-}
+
 
 public abstract class Action : ScriptableObject {
     

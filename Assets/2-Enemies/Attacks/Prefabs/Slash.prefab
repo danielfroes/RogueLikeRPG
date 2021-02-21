@@ -216,7 +216,7 @@ MonoBehaviour:
   baseSpawnSide: 0
   accuracy: 50
   timeToNextAttack: 2
-  _Up: 1
+  _Up: 0
   _Down: 1
   _Right: 1
   _Left: 1

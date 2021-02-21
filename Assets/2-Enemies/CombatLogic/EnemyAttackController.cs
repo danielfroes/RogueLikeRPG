@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DirectionSystem;
 using Squeak;
+using Unity.Collections.LowLevel.Unsafe;
 
 namespace Enemy
 {
@@ -10,10 +11,13 @@ namespace Enemy
     public class EnemyAttackController : MonoBehaviour
     {
         [SerializeField] private EnemyAttackData[] enemyAttacks = null;
+        [SerializeField] int attacksToTaunt = 4;
+        [SerializeField] Animator _animator = null;
         private Transform _playerTransform = null;
         private GameObject _attackContainer = null;
-        private IEnumerator _spawnAttacksCoroutine;
-
+        private IEnumerator _spawnAttacksCoroutine; 
+        
+        static readonly int TauntTriggerID = Animator.StringToHash("Taunt");
 
         private void Awake()
         {
@@ -38,28 +42,29 @@ namespace Enemy
         {
             StopCoroutine(_spawnAttacksCoroutine);
         }
-
-        void Update()
-        {
-            //if(Input.GetKeyDown(KeyCode.Space))
-            //{
-            //    StopAttacks();
-            //}
-        }
         
-
         //invoke the attacks
         private IEnumerator SpawnAttacks()
         {
+
+            var cnt = 0;
+
             while(true)
             {
-                int rand = Random.Range(0, enemyAttacks.Length);
-                EnemyAttackData attack = Instantiate<EnemyAttackData>(enemyAttacks[rand], _attackContainer.transform);
+                var rand = Random.Range(0, enemyAttacks.Length);
+                var attack = Instantiate<EnemyAttackData>(enemyAttacks[rand], _attackContainer.transform);
                 //Fetch a random possible direction for the attack
-                Direction attackDir = attack.GetRandomPossibleDirection();
+                var attackDir = attack.GetRandomPossibleDirection();
                 //fix position
                 AttackTransformFixer.FixPosition(attack, attackDir,_playerTransform.position);
                 AttackTransformFixer.FixRotation(attack, attackDir);
+
+                //TODO: Gambiarra (talvez colocar todas os triggers de animacao em uma classe separada, ou no state machine do inimigo)
+                if (cnt++ >= attacksToTaunt)
+                {
+                    cnt = 0;
+                    _animator.SetTrigger(TauntTriggerID);
+                }
 
                 yield return new WaitForSeconds(attack.timeToNextAttack);
             }

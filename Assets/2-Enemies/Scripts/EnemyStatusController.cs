@@ -9,7 +9,8 @@ namespace Squeak
     {
         public static EnemyStatusController Instance { get; private set; }
         public EnemyStatusPreset _preset;
-
+        public Slider _healthBar;
+        [SerializeField] Animator _animator = null;
         public delegate void OnEnemyDeath();
         public static event OnEnemyDeath OnDeathEvent;
 
@@ -17,9 +18,10 @@ namespace Squeak
         public static event OnEnemyDamage OnDamageEvent;
 
         private StatBar _health;
-
-        public Slider _healthBar;
-
+        
+        //TODO: Gambiarra (talvez colocar todas os triggers de animacao em uma classe separada, ou no state machine do inimigo)
+        static readonly int HitTriggerID = Animator.StringToHash("Hit");
+        
         // +-------------------------+
         // | MonoBehaviour lifecycle |
         // +-------------------------+
@@ -29,8 +31,10 @@ namespace Squeak
                 Instance = this;
 
             _health = new StatBar(_preset.maxHealth);
-        }
 
+            OnDamageEvent += () => _animator.SetTrigger(HitTriggerID);
+        }
+        
         public void Damage(float damage)
         {
             _health.Decrease(damage);
@@ -45,10 +49,8 @@ namespace Squeak
                 Debug.Log("Morte");
                 OnDeathEvent?.Invoke();
             }
-
+            
             _healthBar.value = _health.GetHealthPercentage();
         }
-
     }
-
 }

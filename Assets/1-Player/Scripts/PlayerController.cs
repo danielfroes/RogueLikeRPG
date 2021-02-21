@@ -54,11 +54,12 @@ namespace Squeak
             _currentPosition = transform.position;
 
             PlayerStatusController.OnDamageEvent += Damage;
+            PlayerStatusController.OnDeathEvent += Die;
         }
 
         protected void FixedUpdate()
         {
-            if (!_invencibility && !_isMoving && _currentInputDirection == Vector2.zero)
+            if (!_isMoving && _currentInputDirection == Vector2.zero)
                 _animator.Play("Idle");
 
             // Movement
@@ -124,9 +125,24 @@ namespace Squeak
 
         }
 
+        void OnTriggerEnter2D(Collider2D collider)
+        {
+            if (!_invencibility)
+            {
+                PlayerStatusController.Instance.Damage(25f);
+            }
+        }
+
+        public void Die()
+        {
+            _animator.Play("Death");
+            _invencibility = true;
+            enabled = false;
+        }
+
         public void Damage()
         {
-            StartCoroutine(FreezeFrame(0.25f));
+            StartCoroutine(FreezeFrame(0.15f));
 
             transform.position = CombatGrid.Instance.PositionToCellCenter(transform.position);
             _currentPosition = transform.position;
@@ -195,7 +211,7 @@ namespace Squeak
 
         private IEnumerator DamageTimer(float time) {
             _invencibility = true;
-            yield return new WaitForSecondsRealtime(time);
+            yield return new WaitForSeconds(time);
             _invencibility = false;
         }
 

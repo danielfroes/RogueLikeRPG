@@ -12,6 +12,9 @@ public class CombatGrid : MonoBehaviour
     private Tilemap _combatTilemap = null;
 
     private Grid _grid = null;
+    
+    public Vector2 DistanceBetweenTiles => _grid.cellSize + _grid.cellGap;
+    
     void Awake()
     {
         if (Instance == null || Instance == this)
@@ -38,11 +41,6 @@ public class CombatGrid : MonoBehaviour
     public float GetSpacing()
     {
         return _grid.cellSize.x;
-    }
-
-    public Vector2 DistanceBetweenTiles()
-    {
-        return _grid.cellSize + _grid.cellGap;
     }
 
     //RemoveTile()

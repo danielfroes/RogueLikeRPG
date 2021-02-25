@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Squeak;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Serialization;
@@ -63,6 +64,8 @@ namespace Scripts.ActionSystem
             ActionBar.instance.SpendAction(action.actionBarsNeeded);
             ActionCaster.instance.CastAction(action);
 
+            FindObjectOfType<PlayerController>().Cast(action);
+            
             _actionMenuController.SetActionMenuActive(false);
 
 

@@ -1,218 +1,189 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using DirectionSystem;
 using UnityEngine;
-using UnityEngine.Tilemaps;
-using DG.Tweening;
 
 namespace Squeak
 {
     public class PlayerController : MonoBehaviour
     {
-        // Movement
-        [SerializeField] private float _timeToComplete = 0.18f;
-        [SerializeField] private float _bufferTime = 0.04f;
-        private Vector2 _currentPosition = Vector2.zero;
-        private Vector2 _currentInputDirection = Vector2.zero;
-        private Tweener _movementTweener = null;
-        private bool _isMoving = false;
-        private bool _bufferedMovement = false;
+        public InputListener inputListener;
 
-        // Animation
-        [SerializeField] private EaseFunc _easeFunction = EaseFunc.Quad;
+        // movement stuff
+        public float movementDuration;
+        public float movementBufferTime;
+        public AnimationCurve transitionCurve;
+
+        private Vector2 currentInputDirection = Vector2.zero;
+
+        // lots of bools for state management
+        private bool _moving;
+        private bool _casting;
+        private bool _damaged;
+        private bool _canBuffer;
+        private bool _dead;
+
+        // components
         private Animator _animator;
-        private SpriteRenderer _renderer;
-        private bool _wasCasting;
 
-        // Damage
-        [SerializeField] private float _invencibilityTime = 2f;
-        private bool _invencibility;
+        // other stuff
+        private Vector2 Position => CombatGrid.Instance.PositionToCellCenter(transform.position);
 
-        // Values from DG.Tweening.Ease out functions
-        private enum EaseFunc
-        {
-            Linear = 1,
-            Quad = 6,
-            Cubic = 9,
-            Quart = 12,
-            Quint = 15,
-            Sine = 3,
-            Expo = 18,
-            Circ = 21,
-        }
-
-        // MonoBehaviour lifecycle functions
-
-        protected void Awake()
+        private void Awake()
         {
             _animator = GetComponentInChildren<Animator>();
-            _renderer = GetComponentInChildren<SpriteRenderer>();
         }
 
-        protected void Start()
+        void Start()
         {
-            transform.position = CombatGrid.Instance.PositionToCellCenter(transform.position);
-            _currentPosition = transform.position;
-
-            PlayerStatusController.OnDamageEvent += Damage;
+            PlayerStatusController.OnDamageEvent += () =>
+            {
+                CancelCasting();
+                StopAllCoroutines();
+                StartCoroutine(Damage());
+            };
             PlayerStatusController.OnDeathEvent += Die;
         }
 
-        protected void FixedUpdate()
+        private void Update()
         {
-            if (!_isMoving && _currentInputDirection == Vector2.zero)
+            if (!_moving && currentInputDirection != Vector2.zero)
+            {
+                StartCoroutine(Move(DirectionUtils.Vec3ToDir(currentInputDirection)));
+                currentInputDirection = Vector2.zero;
+            }
+        }
+
+        public void ManageInput(Vector2 direction)
+        {
+            if (Time.time == 0f)
+                return;
+
+            if (_damaged)
+                return;
+
+            if (_casting)
+            {
+                CancelCasting();
+                currentInputDirection = direction;
+            }
+
+            if (!_moving || _canBuffer)
+            {
+                currentInputDirection = direction;
+            }
+        }
+
+        private IEnumerator Move(Direction direction)
+        {
+            Vector2 origin = Position;
+            Vector2 destination =
+                Position + DirectionUtils.DirToVec3(direction) * CombatGrid.Instance.DistanceBetweenTiles;
+
+            if (!CombatGrid.Instance.IsPositionInGrid(destination))
+            {
                 _animator.Play("Idle");
+                yield break;
+            }
+
+            // Animation
+            switch (direction)
+            {
+                case Direction.up:
+                    _animator.Play("MovingUp");
+                    break;
+                case Direction.down:
+                    _animator.Play("MovingDown");
+                    break;
+                case Direction.left:
+                    _animator.Play("MovingLeft");
+                    break;
+                case Direction.right:
+                    _animator.Play("MovingRight");
+                    break;
+            }
 
             // Movement
-            if (!_isMoving && _currentInputDirection != Vector2.zero)
+            _moving = true;
+            float time = movementDuration;
+
+            while (time > 0f)
             {
-                if (ActionCaster.instance.isCasting)
-                {
-                    ActionCaster.instance.CancelCasting();
-                }
+                if (time <= movementBufferTime)
+                    _canBuffer = true;
 
-                _currentPosition += _currentInputDirection * CombatGrid.Instance.DistanceBetweenTiles();
+                float t = 1f - (time / movementDuration);
+                t = transitionCurve.Evaluate(t);
 
-                if (!CombatGrid.Instance.IsPositionInGrid(_currentPosition))
-                {
-                    _currentPosition -= _currentInputDirection * CombatGrid.Instance.DistanceBetweenTiles();
-                    _currentInputDirection = Vector2.zero;
-                    _bufferedMovement = false;
+                Vector3 currentPosition = Vector3.zero;
+                currentPosition.x = Mathf.Lerp(origin.x, destination.x, t);
+                currentPosition.y = Mathf.Lerp(origin.y, destination.y, t);
 
-                    _animator.Play("Idle");
-                }
+                transform.position = currentPosition;
 
-                if (_currentInputDirection == Vector2.left)
-                {
-                    _animator.Play("MovingLeft");
-                }
-                else if (_currentInputDirection == Vector2.right)
-                {
-                    _animator.Play("MovingRight");
-                }
-                else if (_currentInputDirection == Vector2.up)
-                {
-                    _animator.Play("Idle");
-                }
-                else if (_currentInputDirection == Vector2.down)
-                {
-                    _animator.Play("MovingDown");
-                }
-
-                if (_currentInputDirection == Vector2.up || _currentInputDirection == Vector2.down)
-                {
-                    SquashStretch(0.75f, 1.25f, _timeToComplete);
-                }
-                else if (_currentInputDirection == Vector2.left || _currentInputDirection == Vector2.right)
-                {
-                    SquashStretch(1.25f, 0.75f, _timeToComplete);
-                }
-
-                if (_bufferedMovement && _easeFunction != EaseFunc.Linear)
-                {
-                    // Debug.Log($"Buffered Movement");
-                    Move(_currentPosition, _timeToComplete, (Ease)_easeFunction + 1);
-                }
-                else
-                {
-                    // Debug.Log($"Regular Movement");
-                    Move(_currentPosition, _timeToComplete, (Ease)_easeFunction);
-                }
-
-                _isMoving = true;
-                _bufferedMovement = false;
-                _currentInputDirection = Vector2.zero;
+                yield return null;
+                time -= Time.deltaTime;
             }
 
+            transform.position = destination;
+            _canBuffer = false;
+
+            if (currentInputDirection == Vector2.zero)
+                _animator.Play("Idle");
+
+            _moving = false;
         }
 
-        void OnTriggerEnter2D(Collider2D collider)
+        private IEnumerator Damage()
         {
-            if (!_invencibility)
-            {
-                PlayerStatusController.Instance.Damage(25f);
-            }
+            inputListener.enabled = false;
+            _damaged = true;
+            _animator.Play("Damage");
+            transform.position = Position;
+
+            StartCoroutine(FreezeFrame(0.25f));
+
+            yield return new WaitForSeconds(0.25f);
+            currentInputDirection = Vector2.zero;
+            _moving = false;
+            _canBuffer = false;
+
+            _animator.Play("Idle");
+            _damaged = false;
+            inputListener.enabled = true;
         }
 
-        public void Die()
+        private void Die()
         {
+            inputListener.enabled = false;
+
+            CancelCasting();
+            StopAllCoroutines();
             _animator.Play("Death");
-            _invencibility = true;
             enabled = false;
         }
 
-        public void Damage()
+        public void Cast(Action action)
         {
-            StartCoroutine(FreezeFrame(0.15f));
-
-            transform.position = CombatGrid.Instance.PositionToCellCenter(transform.position);
-            _currentPosition = transform.position;
-
-            _animator.Play("Damage");
-            StartCoroutine(DamageTimer(_invencibilityTime));
-            
-            float originalY = transform.position.y;
-            transform.DOMoveY(originalY - CombatGrid.Instance.DistanceBetweenTiles().y / 2, 0.25f)
-                .OnComplete(() =>
-                {
-                    transform.DOMoveY(originalY, 0.25f);
-                });
+            _casting = true;
+            StartCoroutine(WaitCast((action)));
         }
 
-        public void GetInput(Vector2 direction)
+        private void CancelCasting()
         {
-            if (!_isMoving)
-            {
-                HandleInput(direction);
-            }
-            else if (_movementTweener != null && _movementTweener.IsActive() && _movementTweener.Elapsed() >= _timeToComplete - _bufferTime)
-            {
-                HandleInput(direction);
-                if (_currentInputDirection != Vector2.zero)
-                    _bufferedMovement = true;
-            }
-        }
-
-        // Other functions
-        private void HandleInput(Vector2 dir)
-        {
-            // Character movement
-            float dirX = dir.x;
-            float dirY = dir.y;
-
-            if (Mathf.Approximately(dirX, 0.0f) && Mathf.Approximately(dirY, 0.0f))
+            if (!_casting)
                 return;
-
-            if (Mathf.Abs(dirX) > Mathf.Abs(dirY))
-            {
-                _currentInputDirection = dirX > 0 ? Vector2.right : Vector2.left;
-            }
-            else
-            {
-                _currentInputDirection = dirY > 0 ? Vector2.up : Vector2.down;
-            }
+            _casting = false;
+            StopAllCoroutines();
+            ActionCaster.instance.CancelCasting();
         }
 
-        private void Move(Vector2 finalPosition, float duration, Ease easeFunction)
+        private IEnumerator WaitCast(Action action)
         {
-            _movementTweener = transform.DOMove(finalPosition, duration)
-                .SetEase(easeFunction)
-                .OnComplete(() => { _isMoving = false; });
-        }
-
-        private void SquashStretch(float x, float y, float time)
-        {
-            Vector2 originalScale = transform.localScale;
-            _renderer.transform.DOScale(new Vector2(x, y), time * 0.5f)
-                .OnComplete(() =>
-                {
-                    _renderer.transform.DOScale(originalScale, time * 0.5f);
-                });
-        }
-
-        private IEnumerator DamageTimer(float time) {
-            _invencibility = true;
-            yield return new WaitForSeconds(time);
-            _invencibility = false;
+            _animator.Play("Charge");
+            yield return new WaitForSeconds(action.castTime);
+            _animator.Play("Attack");
+            _casting = false;
         }
 
         private IEnumerator FreezeFrame(float time)
@@ -221,6 +192,5 @@ namespace Squeak
             yield return new WaitForSecondsRealtime(time);
             Time.timeScale = 1f;
         }
-
     }
 }

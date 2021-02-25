@@ -28,6 +28,13 @@ namespace DirectionSystem
             return dirToVec3[dir];
         }
 
+        public static Direction Vec3ToDir(Vector3 dir)
+        {
+            if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
+                return dir.x > 0f ? Direction.right : Direction.left;
+            return dir.y > 0f ? Direction.up : Direction.down;
+        }
+        
         public static float AngleBtwDirections(Direction dirA, Direction dirB)
         {
             return Vector3.SignedAngle(dirToVec3[dirA], dirToVec3[dirB], Vector3.back);

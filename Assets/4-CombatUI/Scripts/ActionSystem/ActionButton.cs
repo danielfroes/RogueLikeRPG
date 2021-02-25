@@ -16,6 +16,9 @@ namespace Scripts.ActionSystem
         public ActionMenuController _actionMenuController;
         [SerializeField]
         private ActionButtonColorSettings colorSettings = null;
+
+        //todo: mudar depois?
+        private PlayerController playerController;
         
         private Button buttonGUI;
         private 
@@ -38,6 +41,7 @@ namespace Scripts.ActionSystem
             }
             colorSettings.interactableTextColor = texts[0].color;
             GetComponent<Image>().color = colorSettings.GetActionColor(action);
+            playerController = FindObjectOfType<PlayerController>();
 
         }
 
@@ -64,7 +68,7 @@ namespace Scripts.ActionSystem
             ActionBar.instance.SpendAction(action.actionBarsNeeded);
             ActionCaster.instance.CastAction(action);
 
-            FindObjectOfType<PlayerController>().Cast(action);
+            playerController.Cast(action);
             
             _actionMenuController.SetActionMenuActive(false);
 

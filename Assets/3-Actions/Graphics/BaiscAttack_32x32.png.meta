@@ -14,6 +14,15 @@ TextureImporter:
   - first:
       213: 2149442737042496227
     second: BaiscAttack_32x32_3
+  - first:
+      213: -7868730346711302385
+    second: BaiscAttack_32x32_0
+  - first:
+      213: 1169498007242331632
+    second: BaiscAttack_32x32_1
+  - first:
+      213: -4477059654448815043
+    second: BaiscAttack_32x32_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -116,8 +125,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 92
+        height: 92
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +134,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75b90594217a09f00800000000000000
-      internalID: 1121580004196522839
+      spriteID: f0fbfe2a077acc290800000000000000
+      internalID: -7868730346711302385
       vertices: []
       indices: 
       edges: []
@@ -135,10 +144,10 @@ TextureImporter:
       name: BaiscAttack_32x32_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 92
         y: 0
-        width: 32
-        height: 32
+        width: 92
+        height: 92
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,8 +155,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7da1bb053ad41a4c0800000000000000
-      internalID: -4278052807195813161
+      spriteID: 0f5d437cd34ea3010800000000000000
+      internalID: 1169498007242331632
       vertices: []
       indices: 
       edges: []
@@ -156,10 +165,10 @@ TextureImporter:
       name: BaiscAttack_32x32_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 184
         y: 0
-        width: 32
-        height: 32
+        width: 92
+        height: 92
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,29 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d0c58e75d1ea2610800000000000000
-      internalID: 1597337324923240660
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BaiscAttack_32x32_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3ea1676f7ca54dd10800000000000000
-      internalID: 2149442737042496227
+      spriteID: d34685af6f94ed1c0800000000000000
+      internalID: -4477059654448815043
       vertices: []
       indices: 
       edges: []

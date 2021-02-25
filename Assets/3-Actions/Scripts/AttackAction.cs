@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Data.Util;
-using Squeak;
+﻿using Squeak;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "new Action", menuName = "Action Menu SO/Action/Attack")]
@@ -12,8 +9,6 @@ public class AttackAction : Action {
     {
         base.DoAction(anim, enemy, player);
         anim.transform.position = enemy.transform.position;
-
-        
         enemy.Damage(physicalDamage);
         
     }

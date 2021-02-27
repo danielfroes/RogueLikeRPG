@@ -21,14 +21,13 @@ namespace Scripts.ActionSystem
         private PlayerController playerController;
         
         private Button buttonGUI;
-        private 
-    
+        private TextMeshProUGUI[] texts;
 
-        TextMeshProUGUI[] texts;
-
+        public Sound select;
 
         private void Start() {
             buttonGUI = GetComponent<Button>();
+            
             texts = GetComponentsInChildren<TextMeshProUGUI>();
             foreach (TextMeshProUGUI text in texts) {
                 if (text.gameObject.name == "ActionName") {
@@ -67,8 +66,9 @@ namespace Scripts.ActionSystem
 
             ActionBar.instance.SpendAction(action.actionBarsNeeded);
             ActionCaster.instance.CastAction(action);
-
+            
             playerController.Cast(action);
+            AudioManager.Play(select);
             
             _actionMenuController.SetActionMenuActive(false);
 

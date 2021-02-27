@@ -14,14 +14,10 @@ namespace Enemy
         ///</summary>    
         public static void FixPosition(EnemyAttackData attack, Direction direction, Vector3 playerPos)
         {
-            float spacing;
-            Vector3 attackDir, playerPosTile, spawnOffset , accuracyOffset;
-
             //Fetch the equivalent vec3 to the side;
-            attackDir = DirectionUtils.DirToVec3(direction);
-            spacing = CombatGrid.Instance.GetSpacing();
-            spawnOffset = Vector3.zero;
-            accuracyOffset = Vector3.zero;
+            var attackDir = DirectionUtils.DirToVec3(direction);
+            var spacing = CombatGrid.Instance.GetSpacing();
+            var spawnOffset = Vector3.zero;
 
             if(attack.attackType == EnemyAttackData.AttackType.OuterGrid)
             {
@@ -29,9 +25,9 @@ namespace Enemy
                 
             }
             
-            accuracyOffset = GetOuterAccuracyOffset(attack, attackDir, spacing);
+            var accuracyOffset = GetOuterAccuracyOffset(attack, attackDir, spacing);
             //Position of the tile where the player stands
-            playerPosTile = CombatGrid.Instance.PositionToCellCenter(playerPos);  
+            var playerPosTile = CombatGrid.Instance.PositionToCellCenter(playerPos);  
 
             //applys offset
             attack.transform.position = playerPosTile + spawnOffset + accuracyOffset;
@@ -51,9 +47,8 @@ namespace Enemy
         ///</summary>
         private static Vector3 GetOuterSpawnOffset(EnemyAttackData attack, Vector3 attackDir, float gridSpacing)
         {
-            float gridOffset;
             //Calculate the offset to the outermost tile of the grid 
-            gridOffset = (0.5f * gridSpacing * attack.gridDimension - gridSpacing * 0.5f);
+            var gridOffset = (0.5f * gridSpacing * attack.gridDimension - gridSpacing * 0.5f);
             gridOffset += attack.offsetFromBoundary;
             return attackDir * gridOffset;
         }
@@ -65,8 +60,8 @@ namespace Enemy
         ///</summary>  
         private static Vector3 GetOuterAccuracyOffset(EnemyAttackData attack, Vector3 attackDir, float gridSpacing)
         {
-            float[] weights = new float[attack.gridDimension];
-            Vector3 accuracyOffset = Vector3.zero;
+            var weights = new float[attack.gridDimension];
+            var accuracyOffset = Vector3.zero;
             
             //**Generates the weights
             for (int i = 0; i < weights.Length; i++)
@@ -99,9 +94,6 @@ namespace Enemy
             }
             return accuracyOffset;
         }
-
-
-        private float[] GeneratesOuterWeights;
 
 
     }

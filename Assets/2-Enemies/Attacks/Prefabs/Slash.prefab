@@ -214,9 +214,9 @@ MonoBehaviour:
   gridDimension: 3
   offsetFromBoundary: 0
   baseSpawnSide: 0
-  accuracy: 50
+  accuracy: 40
   timeToNextAttack: 2
-  _Up: 0
+  _Up: 1
   _Down: 1
   _Right: 1
   _Left: 1

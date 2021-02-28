@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,7 +19,6 @@ public class ActionBar : MonoBehaviour {
     public static ActionBar instance;
     private int colorIndex = 0;
     private bool _isFull;
-
     //quantity of actions charged
     private int _numActions;
     public int numActions
@@ -31,7 +31,8 @@ public class ActionBar : MonoBehaviour {
             numActionsUI.text = numActions.ToString(); 
         }   
     }
-
+    
+    
     // Start is called before the first frame update
     private void Awake() {
         if(instance == null)
@@ -51,26 +52,24 @@ public class ActionBar : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
-      
+
         fillImg.fillAmount += fillSpeed*Time.deltaTime;
 
-        if(fillImg.fillAmount == 1 && !_isFull)
+        if (!(Math.Abs(fillImg.fillAmount - 1) < 0.01f) || _isFull) return;
+        
+        //changes the intermediary
+        if(colorIndex < barColors.Count)
         {
-            //changes the intermediary
-            if(colorIndex < barColors.Count)
-            {
 
-                ChangeBarColor();
-                fillImg.fillAmount = 0; //slider value goes to minimun
-                numActions++;
-            }
-            //Last bar is full
-            else if(colorIndex == barColors.Count)
-            {
-                numActions++;
-                _isFull = true;
-            }
-            
+            ChangeBarColor();
+            fillImg.fillAmount = 0; //slider value goes to minimun
+            numActions++;
+        }
+        //Last bar is full
+        else if(colorIndex == barColors.Count)
+        {
+            numActions++;
+            _isFull = true;
         }
 
     }

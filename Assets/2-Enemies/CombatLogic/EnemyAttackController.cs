@@ -13,7 +13,7 @@ namespace Enemy
         [SerializeField] private EnemyAttackData[] enemyAttacks = null;
         [SerializeField] int attacksToTaunt = 4;
         [SerializeField] Animator _animator = null;
-        private Transform _playerTransform = null;
+        [SerializeField] Transform _playerTransform = null;
         private GameObject _attackContainer = null;
         private IEnumerator _spawnAttacksCoroutine; 
         
@@ -21,13 +21,12 @@ namespace Enemy
 
         private void Awake()
         {
-            _playerTransform = FindObjectOfType<PlayerController>().gameObject.transform;
             _spawnAttacksCoroutine = SpawnAttacks();
         }
 
         private void Start()
         {
-            StartAttacks();
+            //StartAttacks();
         }
 
         public void StartAttacks()
@@ -48,7 +47,7 @@ namespace Enemy
         {
 
             var cnt = 0;
-
+            yield return new WaitForSeconds(2);
             while(true)
             {
                 var rand = Random.Range(0, enemyAttacks.Length);

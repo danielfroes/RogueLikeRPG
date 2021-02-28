@@ -8,7 +8,7 @@ namespace Scripts.UI
     //Class - Scroll the background texture with given speed
     public class RawImageScroller : MonoBehaviour
     {
-        [SerializeField] RawImage _image;
+        [SerializeField] RawImage _image = null;
 
         [SerializeField] bool _scrollHorizontally = true;
         [SerializeField] [Range(-1f, 1f)] float _horizontalSpeed = 0.2f;
@@ -21,8 +21,8 @@ namespace Scripts.UI
             var horizontalOffset = _image.uvRect.x;
             var verticalOffset = _image.uvRect.y;
 
-            horizontalOffset += _scrollHorizontally ? _horizontalSpeed * Time.fixedDeltaTime: 0;
-            verticalOffset += _scrollVertically ? _verticalSpeed * Time.fixedDeltaTime : 0;
+            horizontalOffset += _scrollHorizontally ? _horizontalSpeed * Time.deltaTime: 0;
+            verticalOffset += _scrollVertically ? _verticalSpeed * Time.deltaTime : 0;
 
             horizontalOffset %= 1;
             verticalOffset %= 1;

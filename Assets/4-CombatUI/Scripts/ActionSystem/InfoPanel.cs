@@ -5,16 +5,19 @@ using UnityEngine;
 using TMPro;
 
 public class InfoPanel : MonoBehaviour {
-    [SerializeField] private TextMeshProUGUI title = null;
-    [SerializeField] private TextMeshProUGUI details = null;
-    [SerializeField] private TextMeshProUGUI castTime = null;
-    [SerializeField] private TextMeshProUGUI damage = null;
-    
+    [SerializeField] TextMeshProUGUI title = null;
+    [SerializeField] TextMeshProUGUI details = null;
+    [SerializeField] TextMeshProUGUI castTime = null;
+    [SerializeField] TextMeshProUGUI damage = null;
+    [SerializeField] TextMeshProUGUI actionsNeeded = null;
+
     // Start is called before the first frame update
     public void SetInfoPanelText(Action action) {
         title.SetText(action.actionName);
         details.SetText(action.details);
-        castTime.SetText(action.castTime + "s");
+        castTime.SetText("<b>"+action.castTime + "</b>s");
+        actionsNeeded.SetText("<b>"+action.actionBarsNeeded + "</b>a");
+        
         if (action is AttackAction attackAction)
             damage.SetText(attackAction.physicalDamage.ToString());
 

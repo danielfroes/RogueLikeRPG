@@ -33,7 +33,6 @@ Transform:
   m_Children:
   - {fileID: 2741896068204057477}
   - {fileID: 7776414721506542309}
-  - {fileID: 1706745596405210404}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -113,6 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2741896068204057477}
   - component: {fileID: 2741896068204057483}
+  - component: {fileID: 8965126963292173015}
   m_Layer: 0
   m_Name: Impact - Sprite
   m_TagString: Untagged
@@ -173,73 +173,43 @@ SpriteRenderer:
   m_SortingLayerID: -286552053
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c87eb24d5c5474647ae2cc82e2a97a59, type: 3}
+  m_Sprite: {fileID: -3970674231315275598, guid: 59133c1c27b0843c6a111f40acf44152,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5, y: 5}
+  m_Size: {x: 2.4375, y: 6.875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &7873872909243961030
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1706745596405210404}
-  - component: {fileID: 205046785135410837}
-  m_Layer: 0
-  m_Name: impact - Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1706745596405210404
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7873872909243961030}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.885, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2741896067264995676}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &205046785135410837
+--- !u!61 &8965126963292173015
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7873872909243961030}
+  m_GameObject: {fileID: 2741896068204057476}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.036975265, y: -1.9194009}
+  m_Offset: {x: 0, y: -2.3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9375, y: 4.375}
-    newSize: {x: 5, y: 5}
+    oldSize: {x: 2.4375, y: 6.875}
+    newSize: {x: 2.4375, y: 6.875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8705244, y: 1.8612285}
+  m_Size: {x: 1.8, y: 1.8}
   m_EdgeRadius: 0
 --- !u!1 &8656113204503810769
 GameObject:

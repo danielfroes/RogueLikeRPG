@@ -9,11 +9,11 @@ using UnityEngine.InputSystem;
 
 public class StartTimer : MonoBehaviour
 {
-    [SerializeField] UnityEvent _onTimerBegin;
-    [SerializeField] UnityEvent _onTimerEnd;
-    [SerializeField] GameObject _mainMenu;
-    [SerializeField] TextMeshProUGUI _timerText;
-    [SerializeField] int countdownTime;
+    [SerializeField] UnityEvent _onTimerBegin = null;
+    [SerializeField] UnityEvent _onTimerEnd = null;
+    [SerializeField] GameObject _mainMenu = null;
+    [SerializeField] TextMeshProUGUI _timerText = null;
+    [SerializeField] int countdownTime = 0;
 
     bool _isTimerActive;
     void Awake()
@@ -24,28 +24,28 @@ public class StartTimer : MonoBehaviour
 
     void Update()
     {
-        if (_isTimerActive) return;
-        
-        if (Keyboard.current != null)
-        {
-            if (Keyboard.current.wasUpdatedThisFrame )
-            {
-                var startCountdownCoroutine = StartCountdown();
-                StartCoroutine(startCountdownCoroutine);
-            }
-        }
+        if (_isTimerActive ) return;
 
-        if (Gamepad.current != null)
+        if (CheckAnyInput())
         {
-            if (Gamepad.current.wasUpdatedThisFrame )
-            {
-                var startCountdownCoroutine = StartCountdown();
-                StartCoroutine(startCountdownCoroutine);
-            }
+            var startCountdownCoroutine = StartCountdown();
+            StartCoroutine(startCountdownCoroutine);
         }
     }
 
 
+    bool CheckAnyInput()
+    {
+        if (Keyboard.current != null)
+            return Keyboard.current.wasUpdatedThisFrame;
+
+        if (Gamepad.current != null)
+            return Gamepad.current.wasUpdatedThisFrame;
+
+        return false;
+    }
+    
+    
     IEnumerator StartCountdown()
     {
         _mainMenu.SetActive(false);

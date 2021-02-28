@@ -21,6 +21,7 @@ namespace Squeak
         
         //TODO: Gambiarra (talvez colocar todas os triggers de animacao em uma classe separada, ou no state machine do inimigo)
         static readonly int HitTriggerID = Animator.StringToHash("Hit");
+        static readonly int DieTriggerID = Animator.StringToHash("Die");
         
         // +-------------------------+
         // | MonoBehaviour lifecycle |
@@ -33,6 +34,7 @@ namespace Squeak
             _health = new StatBar(_preset.maxHealth);
 
             OnDamageEvent += () => _animator.SetTrigger(HitTriggerID);
+            OnDeathEvent += () => _animator.SetTrigger(DieTriggerID);
         }
         
         public void Damage(float damage)

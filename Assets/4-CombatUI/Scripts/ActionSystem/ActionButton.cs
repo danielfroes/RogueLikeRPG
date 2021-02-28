@@ -35,7 +35,7 @@ namespace Scripts.ActionSystem
                 }
 
                 if (text.gameObject.name == "ActionQtt") {
-                    text.SetText(action.actionBarsNeeded.ToString() + "A");
+                    text.SetText(action.actionBarsNeeded + "a");
                 }
             }
             colorSettings.interactableTextColor = texts[0].color;

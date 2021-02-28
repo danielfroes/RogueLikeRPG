@@ -21,6 +21,12 @@ public class ActionMenuController : MonoBehaviour
     [SerializeField] InfoPanel _infoPanel = null;
     [SerializeField] float _transitionsTime = 0;
 
+    public Sound open;
+    public Sound select;
+    public Sound submit;
+
+    private GameObject last;
+    
     //TODO:Refactor this to it separate script
     public Action[] availableActions;
      
@@ -44,11 +50,18 @@ public class ActionMenuController : MonoBehaviour
     // Activation now handled by UnityEvent (InputListener) in ActionMenu GameObject
     public void Activate()
     {
+        AudioManager.Play(open);
         SetActionMenuActive(!_actionMenu.activeInHierarchy);
     }
     // TODO: Refatorar isso aqui
     void Update()
     {
+        if (isInSecondaryMenu && eventSystem.currentSelectedGameObject != last)
+        {
+            AudioManager.Play(@select);
+            last = eventSystem.currentSelectedGameObject;
+        }
+        
         //TODO: colocar para so mostrar se n tiver sido mostrado antes e
         if (isInSecondaryMenu && eventSystem.currentSelectedGameObject != null) {
             _infoPanel.SetInfoPanelText(eventSystem.currentSelectedGameObject.GetComponent<ActionButton>().action);
@@ -57,6 +70,8 @@ public class ActionMenuController : MonoBehaviour
 
    void ChooseOption(ActionType actionType)
    {
+       AudioManager.Play(submit);
+       
         _mainOptions.DOPivotX(2f, _transitionsTime).SetUpdate(true).OnComplete(() => _mainOptions.gameObject.SetActive(false));
 
         PopulateSecondaryMenu(actionType);
@@ -79,8 +94,8 @@ public class ActionMenuController : MonoBehaviour
                 newButton.name = action.name;
                 newButton.action = action;
                 newButton._actionMenuController = this;
-                
-                
+                newButton.select = submit;
+
                 _actionsInstantiated.Add(newButton);
                 //Auto Select the first button
                 if (cntActionsWithType == 0) {

@@ -19,7 +19,8 @@ public abstract class Action : ScriptableObject {
     public ActionType actionType;
     public float castTime;
     public int actionBarsNeeded;
-
+    public Sound activeSound;
+    
     [SerializeField] AnimationClip _animationClip = null;
     AnimatorOverrideController _animatorController;
     

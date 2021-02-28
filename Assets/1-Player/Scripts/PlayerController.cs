@@ -7,6 +7,9 @@ namespace Squeak
 {
     public class PlayerController : MonoBehaviour
     {
+        public Sound dash;
+        public Sound damaged;
+
         public InputListener inputListener;
 
         // movement stuff
@@ -76,6 +79,8 @@ namespace Squeak
 
         private IEnumerator Move(Direction direction)
         {
+            AudioManager.Play(dash);
+            
             Vector2 origin = Position;
             Vector2 destination =
                 Position + DirectionUtils.DirToVec3(direction) * CombatGrid.Instance.DistanceBetweenTiles;
@@ -136,6 +141,8 @@ namespace Squeak
 
         private IEnumerator Damage()
         {
+            AudioManager.Play(damaged);
+            
             inputListener.enabled = false;
             _damaged = true;
             _animator.Play("Damage");
@@ -183,6 +190,7 @@ namespace Squeak
             _animator.Play("Charge");
             yield return new WaitForSeconds(action.castTime);
             _animator.Play("Attack");
+            AudioManager.Play(action.activeSound);
             _casting = false;
         }
 

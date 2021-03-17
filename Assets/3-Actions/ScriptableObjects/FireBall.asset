@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c634e2d7b48977742baca9227220e646, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
-  actionName: Fire Ball
+  actionName: FireBall
   details: Poderosa magia de fogo que pode fazer o inimigo queimar.
   actionType: 1
   castTime: 1.3

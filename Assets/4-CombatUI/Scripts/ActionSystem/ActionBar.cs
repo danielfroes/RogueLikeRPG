@@ -83,6 +83,7 @@ public class ActionBar : MonoBehaviour {
         {
             _isFull = false;
             fillImg.fillAmount = 0; //slider value goes to minimun
+            colorIndex -= amount-1;
         }
         else
         {

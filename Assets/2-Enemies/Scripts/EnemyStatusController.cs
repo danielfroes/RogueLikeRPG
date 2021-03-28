@@ -43,12 +43,12 @@ namespace Squeak
 
             if (_health.Value > 0.0f)
             {
-                Debug.Log($"{damage} de dano, vida atual {_health.Value}");
+                //Debug.Log($"{damage} de dano, vida atual {_health.Value}");
                 OnDamageEvent?.Invoke();
             }
             else
             {
-                Debug.Log("Morte");
+                //Debug.Log("Morte");
                 OnDeathEvent?.Invoke();
             }
             

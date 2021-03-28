@@ -9,14 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9658f1f1c146cce4e9a642a1d499ab00, type: 3}
-  m_Name: DoubleSlash
+  m_Script: {fileID: 11500000, guid: 0b744822ecc80411a88509c3693e2ccf, type: 3}
+  m_Name: Vampiric Revenge
   m_EditorClassIdentifier: 
-  actionName: Double
-  details: Corte duplo que causa bastante dano no inimigo.
+  actionName: Vamp. R
+  details: LIFESTEALLLLL
   actionType: 0
   castTime: 1.5
   actionBarsNeeded: 2
   activeSound: {fileID: 11400000, guid: 9728791d988ee3c4b9c370ac4e6bfb8d, type: 2}
-  _animationClip: {fileID: 7400000, guid: d548414ad3cfa4b90bd9ee8e76c46dc1, type: 2}
-  physicalDamage: 30
+  _animationClip: {fileID: 7400000, guid: e05cbb0810858461c869cc2ccfe49c49, type: 2}
+  _physicalDamage: 20
+  _lifeStealPercentage: 100
+  _healAnimation: {fileID: 0}

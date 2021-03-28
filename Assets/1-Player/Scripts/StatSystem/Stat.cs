@@ -141,6 +141,7 @@ namespace Squeak
         /// <param name="amount">Amount to be recovered.</param>
         public void Regen(float amount) {
             _currentValue += amount;
+            Debug.Log(_currentValue);
             if (_currentValue > _maxValue)
                 _currentValue = _maxValue;
         }

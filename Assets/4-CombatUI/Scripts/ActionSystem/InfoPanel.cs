@@ -19,7 +19,7 @@ public class InfoPanel : MonoBehaviour {
         actionsNeeded.SetText("<b>"+action.actionBarsNeeded + "</b>a");
         
         if (action is AttackAction attackAction)
-            damage.SetText(attackAction.physicalDamage.ToString());
+            damage.SetText(attackAction.PhysicalDamage.ToString());
 
         if (action is SpellAction spellAction)
         {

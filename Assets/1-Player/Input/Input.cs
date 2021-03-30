@@ -57,6 +57,22 @@ public class @Input : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Shortcut1"",
+                    ""type"": ""Button"",
+                    ""id"": ""78030527-394e-41ca-9048-0e5f35a65b67"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Shortcut2"",
+                    ""type"": ""Button"",
+                    ""id"": ""5431340d-dc68-4dbe-92f0-66a449d363e7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -411,6 +427,50 @@ public class @Input : IInputActionCollection, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ae514c9f-826b-4ecf-b178-21c858b9108f"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shortcut1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""687afb7d-bb4d-479a-9654-19a4ef52fbf4"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shortcut1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0eed8979-495f-424a-aa5b-ad8a242ab361"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shortcut2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""efbfba95-e2bf-4027-baf3-320f904875dc"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shortcut2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -474,6 +534,8 @@ public class @Input : IInputActionCollection, IDisposable
         m_Player_Cancel = m_Player.FindAction("Cancel", throwIfNotFound: true);
         m_Player_Menu = m_Player.FindAction("Menu", throwIfNotFound: true);
         m_Player_Escape = m_Player.FindAction("Escape", throwIfNotFound: true);
+        m_Player_Shortcut1 = m_Player.FindAction("Shortcut1", throwIfNotFound: true);
+        m_Player_Shortcut2 = m_Player.FindAction("Shortcut2", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_LeftClick = m_Menu.FindAction("LeftClick", throwIfNotFound: true);
@@ -531,6 +593,8 @@ public class @Input : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Cancel;
     private readonly InputAction m_Player_Menu;
     private readonly InputAction m_Player_Escape;
+    private readonly InputAction m_Player_Shortcut1;
+    private readonly InputAction m_Player_Shortcut2;
     public struct PlayerActions
     {
         private @Input m_Wrapper;
@@ -540,6 +604,8 @@ public class @Input : IInputActionCollection, IDisposable
         public InputAction @Cancel => m_Wrapper.m_Player_Cancel;
         public InputAction @Menu => m_Wrapper.m_Player_Menu;
         public InputAction @Escape => m_Wrapper.m_Player_Escape;
+        public InputAction @Shortcut1 => m_Wrapper.m_Player_Shortcut1;
+        public InputAction @Shortcut2 => m_Wrapper.m_Player_Shortcut2;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -564,6 +630,12 @@ public class @Input : IInputActionCollection, IDisposable
                 @Escape.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEscape;
                 @Escape.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEscape;
                 @Escape.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEscape;
+                @Shortcut1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShortcut1;
+                @Shortcut1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShortcut1;
+                @Shortcut1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShortcut1;
+                @Shortcut2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShortcut2;
+                @Shortcut2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShortcut2;
+                @Shortcut2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShortcut2;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -583,6 +655,12 @@ public class @Input : IInputActionCollection, IDisposable
                 @Escape.started += instance.OnEscape;
                 @Escape.performed += instance.OnEscape;
                 @Escape.canceled += instance.OnEscape;
+                @Shortcut1.started += instance.OnShortcut1;
+                @Shortcut1.performed += instance.OnShortcut1;
+                @Shortcut1.canceled += instance.OnShortcut1;
+                @Shortcut2.started += instance.OnShortcut2;
+                @Shortcut2.performed += instance.OnShortcut2;
+                @Shortcut2.canceled += instance.OnShortcut2;
             }
         }
     }
@@ -645,6 +723,8 @@ public class @Input : IInputActionCollection, IDisposable
         void OnCancel(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
         void OnEscape(InputAction.CallbackContext context);
+        void OnShortcut1(InputAction.CallbackContext context);
+        void OnShortcut2(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

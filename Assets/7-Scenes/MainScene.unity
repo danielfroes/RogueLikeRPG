@@ -3891,6 +3891,16 @@ PrefabInstance:
       propertyPath: onConfirmPerformed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1772182537, guid: bda144f2ed7bc4d028b24efb44a0abcb, type: 3}
+      propertyPath: shortcut1
+      value: 
+      objectReference: {fileID: 11400000, guid: 8eb6e451bf1d2694eada4e3741674250,
+        type: 2}
+    - target: {fileID: 1772182537, guid: bda144f2ed7bc4d028b24efb44a0abcb, type: 3}
+      propertyPath: shortcut2
+      value: 
+      objectReference: {fileID: 11400000, guid: e6c2acbc2690d469cb17655b4b06793a,
+        type: 2}
     - target: {fileID: 614138010159255802, guid: bda144f2ed7bc4d028b24efb44a0abcb,
         type: 3}
       propertyPath: m_Camera

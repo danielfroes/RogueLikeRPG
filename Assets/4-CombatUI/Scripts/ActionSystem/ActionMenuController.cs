@@ -21,6 +21,8 @@ public class ActionMenuController : MonoBehaviour
     [SerializeField] InfoPanel _infoPanel = null;
     [SerializeField] float _transitionsTime = 0;
 
+    private bool isMenuOpen = false;
+    
     public Sound open;
     public Sound select;
     public Sound submit;
@@ -50,9 +52,23 @@ public class ActionMenuController : MonoBehaviour
     // Activation now handled by UnityEvent (InputListener) in ActionMenu GameObject
     public void Activate()
     {
+        if (_actionMenu.activeInHierarchy)
+            return;
+
+        isMenuOpen = true;
         AudioManager.Play(open);
         SetActionMenuActive(!_actionMenu.activeInHierarchy);
     }
+
+    public void Deactivate()
+    {
+        if (!_actionMenu.activeInHierarchy)
+            return;
+
+        isMenuOpen = false;
+        SetActionMenuActive(!_actionMenu.activeInHierarchy);
+    }
+    
     // TODO: Refatorar isso aqui
     void Update()
     {

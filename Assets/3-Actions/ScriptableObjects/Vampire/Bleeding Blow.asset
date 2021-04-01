@@ -15,7 +15,7 @@ MonoBehaviour:
   actionName: Bleed. Blow
   details: 'Da muito dano mas voce perde 10% da sua vida '
   actionType: 0
-  castTime: 1
+  castTime: 0.75
   actionBarsNeeded: 1
   activeSound: {fileID: 11400000, guid: 9728791d988ee3c4b9c370ac4e6bfb8d, type: 2}
   _animationClip: {fileID: 7400000, guid: d548414ad3cfa4b90bd9ee8e76c46dc1, type: 2}

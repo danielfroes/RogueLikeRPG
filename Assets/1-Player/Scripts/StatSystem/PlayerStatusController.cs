@@ -77,6 +77,26 @@ namespace Squeak
 
         }
 
+        public void SelfDamage(float damage){
+            //Qual a diferenca desse pro TrueDamage normal? Ele nao chama o evento de animacao;
+            damageCnt++;
+            if (damage > 0)
+                _health.Decrease(damage);
+
+            if (_health.Value > 0.0f)
+            {
+                //Debug.Log($"{damage} de dano, vida atual {_health.Value}");
+                //OnDamageEvent?.Invoke();
+            }
+            else
+            {
+                //Debug.Log("Morte");
+                OnDeathEvent?.Invoke();
+            }
+
+            _healthBar.value = _health.GetHealthPercentage();
+        }
+
         void OnDestroy()
         {
             damageCnt = 1;

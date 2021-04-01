@@ -13,6 +13,14 @@ public class DoubleEdgeAttack : AttackAction {
 
         var damageAmount = player.preset.maxHealth * _playerDamageLifePercentage / 100;
         
-        player.TrueDamage(damageAmount);
+        //Modificacoes Lucas:
+        /*Habilidade não deveri tocar a animacao de dano quando castada*/
+        //player._healthBar.Decrease(damageAmount);
+        /*
+            Criacao de uma nova funcao no jogador: HealthDecrease (meio cagado, psé) Para permitir
+            Essa mudanca sem chamar o evento se não peciso faze-lo;
+        */
+        //player.TrueDamage(damageAmount);
+        player.SelfDamage(damageAmount);
     }
 }

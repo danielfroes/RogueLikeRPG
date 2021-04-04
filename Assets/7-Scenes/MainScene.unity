@@ -3906,6 +3906,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 61797577}
+    - target: {fileID: 1950875022806349094, guid: bda144f2ed7bc4d028b24efb44a0abcb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1950875022806349146, guid: bda144f2ed7bc4d028b24efb44a0abcb,
         type: 3}
       propertyPath: m_Name
@@ -3998,6 +4003,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: f3d12c98a9aaa49e69fc1c33542a7640,
         type: 3}
+    - target: {fileID: 4922231373654037319, guid: bda144f2ed7bc4d028b24efb44a0abcb,
+        type: 3}
+      propertyPath: availableActions.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922231373654037319, guid: bda144f2ed7bc4d028b24efb44a0abcb,
+        type: 3}
+      propertyPath: availableActions.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: edadce371461cd442b8cb4d913e87c99,
+        type: 2}
     - target: {fileID: 5317840038220392902, guid: bda144f2ed7bc4d028b24efb44a0abcb,
         type: 3}
       propertyPath: _healthBar

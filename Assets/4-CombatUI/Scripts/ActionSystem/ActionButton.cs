@@ -46,7 +46,8 @@ namespace Scripts.ActionSystem
 
 
         private void Update() {
-            if (action.actionBarsNeeded > ActionBar.instance.numActions) {
+            if (action.actionBarsNeeded > ActionBar.instance.numActions
+                || (action is PotionAction && PotionAction.stepCounter < PotionAction.NumOfSteps)) {
                 buttonGUI.interactable = false;
                 foreach (var text in texts) {
                     text.color = colorSettings.uniteractableTextColor;
@@ -63,7 +64,14 @@ namespace Scripts.ActionSystem
 
         public void SelectAction() {
             // if(action.actionBarsNeeded <= ActionBar.instance.numActions)
-
+            if (PlayerController.moved && action is ComboAction a)
+            {
+                a.damageMultiplier = 1f;
+                a.castTimeMultiplier = 1f;
+                PlayerController.moved = false;
+            }
+            
+            ActionMenuController.isMenuOpen = false;
             ActionBar.instance.SpendAction(action.actionBarsNeeded);
             ActionCaster.instance.CastAction(action);
             

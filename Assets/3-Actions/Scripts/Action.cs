@@ -42,7 +42,6 @@ public abstract class Action : ScriptableObject {
         actionAnim.runtimeAnimatorController = _animatorController;
             
         actionAnim.SetTrigger(DoActionID);
-        
     }
     
     

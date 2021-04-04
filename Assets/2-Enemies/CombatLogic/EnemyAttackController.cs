@@ -19,6 +19,8 @@ namespace Enemy
         
         static readonly int TauntTriggerID = Animator.StringToHash("Taunt");
 
+        public static bool stun = false;
+        
         private void Awake()
         {
             _spawnAttacksCoroutine = SpawnAttacks();
@@ -66,13 +68,14 @@ namespace Enemy
                 }
 
                 yield return new WaitForSeconds(attack.timeToNextAttack);
+                
+                if (stun)
+                {
+                    stun = false;
+                    yield return new WaitForSeconds(2f);
+                }
             }
 
         }
-
-       
-
-
-
     }
 }

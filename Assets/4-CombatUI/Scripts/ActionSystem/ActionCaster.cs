@@ -26,6 +26,26 @@ public class ActionCaster : MonoBehaviour {
     }
 
     public void CastAction(Action action) {
+        if (action is ComboAction combo)
+        {
+            castingBar.value = 0;
+            castingBar.gameObject.SetActive(true);
+            isCasting = true;
+
+            float time = combo.castTime * combo.castTimeMultiplier;
+            if (Mathf.Approximately(0f, time))
+                time = 0f;
+            
+            castingBar.DOValue(castingBar.maxValue, time).OnComplete(() =>
+            {
+                action.DoAction(_actionAnim, _enemyStatusController, _playerStatusController);
+                castingBar.gameObject.SetActive(false);
+                isCasting = false;
+            });
+            
+            return;
+        }
+        
         castingBar.value = 0;
         castingBar.gameObject.SetActive(true);
         isCasting = true;
@@ -39,6 +59,7 @@ public class ActionCaster : MonoBehaviour {
 
     public void CancelCasting() {
         isCasting = false;
+        ActionMenuController.isMenuOpen = false;
         castingBar.gameObject.SetActive(false);
         castingBar.DOKill();
     }

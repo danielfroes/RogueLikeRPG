@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 using Scripts.ActionSystem;
 using TMPro;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -21,8 +22,6 @@ public class ActionMenuController : MonoBehaviour
     [SerializeField] InfoPanel _infoPanel = null;
     [SerializeField] float _transitionsTime = 0;
 
-    private bool isMenuOpen = false;
-    
     public Sound open;
     public Sound select;
     public Sound submit;
@@ -38,6 +37,8 @@ public class ActionMenuController : MonoBehaviour
     private List<ActionButton> _actionsInstantiated = new List<ActionButton>();
     private bool isInSecondaryMenu = false;
 
+    public static bool isMenuOpen = false;
+    
     private void Awake() {
         eventSystem = GameObject.FindObjectOfType<EventSystem>();
         _attackButton.onClick.AddListener(() => ChooseOption(ActionType.Attack));
@@ -52,21 +53,21 @@ public class ActionMenuController : MonoBehaviour
     // Activation now handled by UnityEvent (InputListener) in ActionMenu GameObject
     public void Activate()
     {
-        if (_actionMenu.activeInHierarchy)
+        if (isMenuOpen)
             return;
-
-        isMenuOpen = true;
+        
         AudioManager.Play(open);
-        SetActionMenuActive(!_actionMenu.activeInHierarchy);
+        SetActionMenuActive(true);
+        isMenuOpen = true;
     }
+
 
     public void Deactivate()
     {
-        if (!_actionMenu.activeInHierarchy)
+        if (!isMenuOpen)
             return;
-
+        SetActionMenuActive(false);
         isMenuOpen = false;
-        SetActionMenuActive(!_actionMenu.activeInHierarchy);
     }
     
     // TODO: Refatorar isso aqui
@@ -82,6 +83,7 @@ public class ActionMenuController : MonoBehaviour
         if (isInSecondaryMenu && eventSystem.currentSelectedGameObject != null) {
             _infoPanel.SetInfoPanelText(eventSystem.currentSelectedGameObject.GetComponent<ActionButton>().action);
         }
+
     }
 
    void ChooseOption(ActionType actionType)

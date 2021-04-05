@@ -41,7 +41,7 @@ public class ActionBar : MonoBehaviour {
             Destroy(this);
     }
 
-    private void Start() {
+    void Start() {
         numActions = 0;
         _isFull = false;
         backgroundImg.color = barColors[0];
@@ -101,5 +101,10 @@ public class ActionBar : MonoBehaviour {
         colorIndex++;
         // numActions++;
         // colorIndex++;
+    }
+
+    void OnDestroy()
+    {
+        instance = null;
     }
 }

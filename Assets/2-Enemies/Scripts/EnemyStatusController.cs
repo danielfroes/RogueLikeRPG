@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -53,6 +54,12 @@ namespace Squeak
             }
             
             _healthBar.value = _health.GetHealthPercentage();
+        }
+
+        void OnDestroy()
+        {
+            OnDeathEvent = null;
+            OnDamageEvent = null;
         }
     }
 }

@@ -43,4 +43,8 @@ public class ActionCaster : MonoBehaviour {
         castingBar.DOKill();
     }
 
+    void OnDestroy()
+    {
+        instance = null;
+    }
 }

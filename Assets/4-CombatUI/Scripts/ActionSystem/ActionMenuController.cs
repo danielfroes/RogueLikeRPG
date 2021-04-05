@@ -41,8 +41,11 @@ public class ActionMenuController : MonoBehaviour
     
     private void Awake() {
         eventSystem = GameObject.FindObjectOfType<EventSystem>();
-        _attackButton.onClick.AddListener(() => ChooseOption(ActionType.Attack));
-        _spellButton.onClick.AddListener(() => ChooseOption(ActionType.Spell));
+        //_attackButton.onClick.AddListener(() => ChooseOption(ActionType.Attack));
+        //_spellButton.onClick.AddListener(() => ChooseOption(ActionType.Spell));
+
+        //ChooseOption(ActionType.Attack);
+        //ChooseOption(ActionType.Spell);
     }
     private void Start() {
         _mainInitPivot = _mainOptions.pivot;
@@ -86,13 +89,13 @@ public class ActionMenuController : MonoBehaviour
 
     }
 
-   void ChooseOption(ActionType actionType)
+   void ChooseOption()
    {
        AudioManager.Play(submit);
        
         _mainOptions.DOPivotX(2f, _transitionsTime).SetUpdate(true).OnComplete(() => _mainOptions.gameObject.SetActive(false));
 
-        PopulateSecondaryMenu(actionType);
+        PopulateSecondaryMenu();
         
         isInSecondaryMenu = true;
         _secondaryOptions.DOPivotX(0.5f, _transitionsTime).SetUpdate(true);
@@ -100,28 +103,26 @@ public class ActionMenuController : MonoBehaviour
     }
 
     
-   void PopulateSecondaryMenu(ActionType type)
+   void PopulateSecondaryMenu()
    {
 
         int cntActionsWithType = 0; 
         foreach (var action in availableActions) {
-            if (action.actionType == type) {
           
-                var newButton = Instantiate<ActionButton>(_genericButton, _secondaryOptionsButtonsContainer.transform);
-                newButton.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, -1 * cntActionsWithType);
-                newButton.name = action.name;
-                newButton.action = action;
-                newButton._actionMenuController = this;
-                newButton.select = submit;
+            var newButton = Instantiate<ActionButton>(_genericButton, _secondaryOptionsButtonsContainer.transform);
+            newButton.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, -1 * cntActionsWithType);
+            newButton.name = action.name;
+            newButton.action = action;
+            newButton._actionMenuController = this;
+            newButton.select = submit;
 
-                _actionsInstantiated.Add(newButton);
-                //Auto Select the first button
-                if (cntActionsWithType == 0) {
-                    eventSystem.SetSelectedGameObject(null);
-                    eventSystem.SetSelectedGameObject(newButton.gameObject);
-                }
-                cntActionsWithType++;
+            _actionsInstantiated.Add(newButton);
+            //Auto Select the first button
+            if (cntActionsWithType == 0) {
+                eventSystem.SetSelectedGameObject(null);
+                eventSystem.SetSelectedGameObject(newButton.gameObject);
             }
+            cntActionsWithType++;
         }
     }
 
@@ -137,7 +138,8 @@ public class ActionMenuController : MonoBehaviour
                 Vector2 bufferScale = _actionMenu.transform.localScale;
                 _actionMenu.transform.localScale = Vector2.one * 0.3f;
                 Time.timeScale = 0.0f;
-                _mainOptions.gameObject.SetActive(true);
+                //_mainOptions.gameObject.SetActive(true);
+                _secondaryOptions.gameObject.SetActive(true);
 
                 eventSystem.SetSelectedGameObject(null);
                 eventSystem.SetSelectedGameObject(eventSystem.firstSelectedGameObject);
@@ -147,6 +149,8 @@ public class ActionMenuController : MonoBehaviour
 
                 _actionMenu.transform.DOScale(bufferScale, _transitionsTime).SetUpdate(true);
             }
+
+            ChooseOption();
         }
         else { //when action menu in deactivated
             foreach (var action in _actionsInstantiated) {

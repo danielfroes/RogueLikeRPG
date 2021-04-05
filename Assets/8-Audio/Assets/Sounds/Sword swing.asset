@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Sword swing
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 9433496c6ae391740afe757cca17f9d8, type: 3}
-  group: {fileID: 0}
+  group: {fileID: -8732218913031730458, guid: 6f775cf678f4aee439a461d5db2f56d8, type: 2}
   loop: 0
   volume: 1

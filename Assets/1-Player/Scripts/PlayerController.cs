@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections;
 using DirectionSystem;
+using Enemy;
 using UnityEngine;
 
 namespace Squeak
 {
     public class PlayerController : MonoBehaviour
     {
+        public static int stepCounter = 0; // desculpa
+        public static bool moved = false;
+        
         public Sound dash;
         public Sound damaged;
 
@@ -26,6 +30,9 @@ namespace Squeak
         private bool _canBuffer;
         private bool _dead;
 
+        public static bool riposte;
+        public static bool activateRiposteCoroutine;
+        
         // components
         private Animator _animator;
 
@@ -35,6 +42,7 @@ namespace Squeak
         private void Awake()
         {
             _animator = GetComponentInChildren<Animator>();
+            stepCounter = 0;
         }
 
         void Start()
@@ -48,10 +56,28 @@ namespace Squeak
             PlayerStatusController.OnDeathEvent += Die;
         }
 
+        private IEnumerator RiposteTimer()
+        {
+            yield return new WaitForSeconds(5f);
+            riposte = false;
+        }
+        
         private void Update()
         {
+            if (riposte)
+                Debug.Log("eita");
+
+            if (activateRiposteCoroutine)
+            {
+                activateRiposteCoroutine = false;               
+                StartCoroutine(RiposteTimer());
+            }
+            
             if (!_moving && currentInputDirection != Vector2.zero)
             {
+                stepCounter++;
+                moved = true;
+                
                 StartCoroutine(Move(DirectionUtils.Vec3ToDir(currentInputDirection)));
                 currentInputDirection = Vector2.zero;
             }
@@ -79,7 +105,12 @@ namespace Squeak
 
         private IEnumerator Move(Direction direction)
         {
+            if (riposte)
+                DisableRiposte();
+            
             AudioManager.Play(dash);
+
+            PotionAction.stepCounter++;
             
             Vector2 origin = Position;
             Vector2 destination =
@@ -139,8 +170,20 @@ namespace Squeak
             _moving = false;
         }
 
+        public void DisableRiposte()
+        {
+            riposte = false;
+        }
+        
         private IEnumerator Damage()
         {
+            if (riposte)
+            {
+                DisableRiposte();
+                EnemyAttackController.stun = true;
+                yield break;
+            }
+
             AudioManager.Play(damaged);
             
             inputListener.enabled = false;
@@ -188,7 +231,15 @@ namespace Squeak
         private IEnumerator WaitCast(Action action)
         {
             _animator.Play("Charge");
-            yield return new WaitForSeconds(action.castTime);
+
+            if (action is ComboAction c)
+            {
+                yield return new WaitForSeconds(c.castTime * c.castTimeMultiplier);
+            }
+            else
+            {
+                yield return new WaitForSeconds(action.castTime);
+            }
             _animator.Play("Attack");
             AudioManager.Play(action.activeSound);
             _casting = false;

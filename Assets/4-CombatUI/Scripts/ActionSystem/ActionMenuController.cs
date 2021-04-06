@@ -21,7 +21,7 @@ public class ActionMenuController : MonoBehaviour
     [SerializeField] InfoPanel _infoPanel = null;
     [SerializeField] float _transitionsTime = 0;
 
-    private bool isMenuOpen = false;
+    public static bool isMenuOpen = false;
     
     public Sound open;
     public Sound select;

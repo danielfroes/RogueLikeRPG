@@ -1,0 +1,308 @@
+fileFormatVersion: 2
+guid: 5cbf2b9fa42901d4ead259419bdc8a52
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7451048025297315429
+    second: Vampirc_bite_92x92_0
+  - first:
+      213: 7071759821874855583
+    second: Vampirc_bite_92x92_1
+  - first:
+      213: -3643743152493878238
+    second: Vampirc_bite_92x92_2
+  - first:
+      213: 5516909617644460729
+    second: Vampirc_bite_92x92_3
+  - first:
+      213: 216635445235912471
+    second: Vampirc_bite_92x92_4
+  - first:
+      213: -3526215796736101712
+    second: Vampirc_bite_92x92_5
+  - first:
+      213: -7746000922492969052
+    second: Vampirc_bite_92x92_6
+  - first:
+      213: -8552208918618443009
+    second: Vampirc_bite_92x92_7
+  - first:
+      213: -7533315908630236573
+    second: Vampirc_bite_92x92_8
+  - first:
+      213: 2374934464073069554
+    second: Vampirc_bite_92x92_9
+  - first:
+      213: 575822632692106457
+    second: Vampirc_bite_92x92_10
+  - first:
+      213: 7681291798645541338
+    second: Vampirc_bite_92x92_11
+  - first:
+      213: -2075940929343144972
+    second: Vampirc_bite_92x92_12
+  - first:
+      213: 5248471075202338335
+    second: Vampirc_bite_92x92_13
+  - first:
+      213: 3980660348211077096
+    second: Vampirc_bite_92x92_14
+  - first:
+      213: -8355574506589568594
+    second: Vampirc_bite_92x92_15
+  - first:
+      213: 3980646268093337634
+    second: Vampirc_bite_92x92_16
+  - first:
+      213: 6633226391896093279
+    second: Vampirc_bite_92x92_17
+  - first:
+      213: 3846572597720199929
+    second: Vampirc_bite_92x92_18
+  - first:
+      213: -7082295280992666713
+    second: Vampirc_bite_92x92_19
+  - first:
+      213: -4612247181081090224
+    second: Vampirc_bite_92x92_20
+  - first:
+      213: 42163849441048583
+    second: Vampirc_bite_92x92_21
+  - first:
+      213: -2399471434446939287
+    second: Vampirc_bite_92x92_0
+  - first:
+      213: 8310338157488838354
+    second: Vampirc_bite_92x92_1
+  - first:
+      213: 7977947472541496620
+    second: Vampirc_bite_92x92_2
+  - first:
+      213: -4226846950602580387
+    second: Vampirc_bite_92x92_3
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Vampirc_bite_92x92_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96bd71d717d53bed0800000000000000
+      internalID: -2399471434446939287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampirc_bite_92x92_1
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 0
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d61f703680445370800000000000000
+      internalID: 8310338157488838354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampirc_bite_92x92_2
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 0
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c25bf8115fc57be60800000000000000
+      internalID: 7977947472541496620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampirc_bite_92x92_3
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 0
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5ed36dd7193755c0800000000000000
+      internalID: -4226846950602580387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampirc_bite_92x92_4
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 0
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71f8b072ac4a10300800000000000000
+      internalID: 216635445235912471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampirc_bite_92x92_5
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 0
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b27c226a6d501fc0800000000000000
+      internalID: -3526215796736101712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: bee223587418e1642b7b202a55e17f79
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

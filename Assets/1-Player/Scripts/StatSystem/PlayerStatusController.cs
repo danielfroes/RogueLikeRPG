@@ -23,6 +23,7 @@ namespace Squeak
         private Stat _defense;
 
         public Slider _healthBar;
+        public static int damageCnt = 1;
 
         void Awake()
         {
@@ -42,25 +43,43 @@ namespace Squeak
         /// <summary>
         /// Damages player based on defense calculations.
         /// </summary>
-        /// <param name="rawDamage">Raw damage value.</param>
-        public void Damage(float rawDamage)
+        /// <param name="damage">Raw damage value.</param>
+        public void TrueDamage(float damage)
         {
-            float damage = rawDamage - _defense.Value;
+            damageCnt++;
             if (damage > 0)
                 _health.Decrease(damage);
 
             if (_health.Value > 0.0f)
             {
-                Debug.Log($"{damage} de dano, vida atual {_health.Value}");
+                //Debug.Log($"{damage} de dano, vida atual {_health.Value}");
                 OnDamageEvent?.Invoke();
             }
             else
             {
-                Debug.Log("Morte");
+                //Debug.Log("Morte");
                 OnDeathEvent?.Invoke();
             }
 
             _healthBar.value = _health.GetHealthPercentage();
+        }
+
+        public void Damage(float rawDamage)
+        {
+            float damage = rawDamage - _defense.Value;
+            TrueDamage(damage);
+        }
+
+        public void Heal(float rawHeal)
+        {
+            _health.Regen(rawHeal);
+            _healthBar.value = _health.GetHealthPercentage();
+
+        }
+
+        void OnDestroy()
+        {
+            damageCnt = 1;
         }
     }
 }

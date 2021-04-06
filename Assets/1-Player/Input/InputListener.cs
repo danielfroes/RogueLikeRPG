@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Squeak;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,9 @@ public class InputListener : MonoBehaviour
     public UnityEvent onCancelPerformed;
     public UnityEvent onMenuPerformed;
     public UnityEvent onEscapePerformed;
+    
+    public Action shortcut1;
+    public Action shortcut2;
 
     private Input _input;
 
@@ -27,6 +31,9 @@ public class InputListener : MonoBehaviour
         _input.Player.Cancel.performed += OnCancelPerformed;
         _input.Player.Menu.performed += OnMenuPerformed;
         _input.Player.Escape.performed += OnEscapePerformed;
+
+        _input.Player.Shortcut1.performed += PerformS1;
+        _input.Player.Shortcut2.performed += PerformS2;
     }
 
     void OnDisable()
@@ -69,5 +76,25 @@ public class InputListener : MonoBehaviour
         onEscapePerformed.Invoke();
     }
 
+    private void PerformS1(InputAction.CallbackContext ctx)
+    {
+        if (ActionBar.instance.numActions < shortcut1.actionBarsNeeded)
+            return;
+
+        ActionBar.instance.SpendAction(shortcut1.actionBarsNeeded);
+        ActionCaster.instance.CastAction(shortcut1);
+        FindObjectOfType<PlayerController>().Cast(shortcut1);
+    }
+    
+    private void PerformS2(InputAction.CallbackContext ctx)
+    {
+        if (ActionBar.instance.numActions < shortcut2.actionBarsNeeded)
+            return;
+
+        ActionBar.instance.SpendAction(shortcut2.actionBarsNeeded);
+        ActionCaster.instance.CastAction(shortcut2);
+        FindObjectOfType<PlayerController>().Cast(shortcut2);
+    }
+    
     [System.Serializable] public class OnMoveEvent : UnityEvent<Vector2> { }
 }

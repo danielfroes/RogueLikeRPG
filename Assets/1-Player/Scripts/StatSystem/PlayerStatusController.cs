@@ -80,6 +80,8 @@ namespace Squeak
         void OnDestroy()
         {
             damageCnt = 1;
+            OnDeathEvent = null;
+            OnDamageEvent = null;
         }
     }
 }

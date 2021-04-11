@@ -11,8 +11,6 @@ public enum ActionType {
     Item,
 };
 
-
-
 public abstract class Action : ScriptableObject {
     
     public string actionName;
@@ -47,16 +45,5 @@ public abstract class Action : ScriptableObject {
     }
     
     
-    
-    //O animator do ataque ta dentro do player
-    //Ele eh unico e compartilhado, entao a referencia dele pode ser pega de várias formas.
-    //Posso colocoar ele no player e pegar a referencia do player
-    //  O foda eh que eu precisaria fazer isso para cada acao sabe
-    //Posso fazer um singleton sla
-    //Eu posso colocar o animator base como propiedade do SO
-    //  Dai eu crio o aoc dentro do scriptable object no OnEnable
-    //  O problema eh que eu teria que criar ainda assim que passar a referencia do animator no DoAction para aplicar aoc
-    //Da pra instanciar eu mesmo o prefab do attack animator
-    // Mas dai eu precisaria de colocar no mesmo negocio vei horroroso
 
 }

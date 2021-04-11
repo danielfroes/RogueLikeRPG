@@ -9,4 +9,9 @@ public class TriggerSound : MonoBehaviour
     {
         AudioManager.Play(sound);
     }
+
+    void OnDestroy()
+    {
+        AudioManager.Stop(sound);
+    }
 }

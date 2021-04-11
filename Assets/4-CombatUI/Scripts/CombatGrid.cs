@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -41,6 +42,11 @@ public class CombatGrid : MonoBehaviour
     public float GetSpacing()
     {
         return _grid.cellSize.x;
+    }
+
+    void OnDestroy()
+    {
+        Instance = null;
     }
 
     //RemoveTile()

@@ -14,7 +14,7 @@ namespace Scripts.ActionSystem
 
         public Color GetActionColor(Action action)
         {
-            return action.actionType == ActionType.Attack ? attackColor : spellColor;
+            return action is AttackAction? attackColor : spellColor;
         }
     }
 }

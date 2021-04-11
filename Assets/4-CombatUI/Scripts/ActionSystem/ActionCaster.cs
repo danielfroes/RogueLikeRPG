@@ -31,14 +31,13 @@ public class ActionCaster : MonoBehaviour {
         castingBar.value = 0;
         castingBar.gameObject.SetActive(true);
         isCasting = true;
-
         float time = action.castTime;
 
         if (action is ComboAction c)
             time *= c.castTimeMultiplier;
             
         
-        castingBar.DOValue(castingBar.maxValue, time).OnComplete(() =>
+        castingBar.DOValue(castingBar.maxValue * 95/100, time).OnComplete(() =>
         {
             action.DoAction(_actionAnim, _enemyStatusController, _playerStatusController);
             castingBar.gameObject.SetActive(false);
@@ -54,4 +53,8 @@ public class ActionCaster : MonoBehaviour {
         controller.module.enabled = false;
     }
 
+    void OnDestroy()
+    {
+        instance = null;
+    }
 }

@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
-
 public static class AudioManager
 {
-    private const int PoolSize = 32;
-    private static readonly Queue<AudioSource> Pool;
-    private static readonly Dictionary<int, AudioSource> BG;
+    const int PoolSize = 32;
+    static readonly Queue<AudioSource> Pool;
+    static readonly Dictionary<int, AudioSource> BG;
 
     static AudioManager()
     {
@@ -14,7 +13,7 @@ public static class AudioManager
         Pool = new Queue<AudioSource>();
         
         Transform parent = new GameObject("AudioSources").transform;
-
+        Object.DontDestroyOnLoad(parent);
         for (int i = 0; i < PoolSize; i++)
         {
             GameObject o = new GameObject($"AudioSource {i + 1}");

@@ -12,6 +12,7 @@ public class MainMenuHandler : MonoBehaviour
 	private void Start()
 	{
 		rectTransform = GetComponent<RectTransform>();
+		Time.timeScale = 1;
 	}
 
 
@@ -29,6 +30,7 @@ public class MainMenuHandler : MonoBehaviour
 
 	public void OpenArchetype()
 	{
+		print("entrou");
 		StartCoroutine(MoveMenu(-1));
 	}
 

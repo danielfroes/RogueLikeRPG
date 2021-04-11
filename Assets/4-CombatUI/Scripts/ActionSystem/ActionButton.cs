@@ -78,7 +78,7 @@ namespace Scripts.ActionSystem
             ActionBar.instance.SpendAction(action.actionBarsNeeded);
             ActionCaster.instance.CastAction(action);
             
-            playerController.Cast(action);
+            //playerController.Cast(action);
             AudioManager.Play(select);
             
             _actionMenuController.SetActionMenuActive(false);

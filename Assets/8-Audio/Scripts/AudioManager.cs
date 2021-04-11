@@ -30,7 +30,7 @@ public static class AudioManager
     public static void Play(Sound sound)
     {
         AudioSource src = Pool.Dequeue();
-        
+
         src.clip = sound.clip;
         src.outputAudioMixerGroup = sound.@group;
         src.loop = sound.loop;

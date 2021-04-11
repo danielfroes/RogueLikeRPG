@@ -37,6 +37,7 @@ namespace Squeak
         private void OnTriggerEnter2D(Collider2D other)
         {
             Damage(25f);
+            ActionCaster.instance.CancelCasting();
             Destroy(other.gameObject);
         }
 

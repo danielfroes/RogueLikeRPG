@@ -64,9 +64,6 @@ namespace Squeak
         
         private void Update()
         {
-            if (riposte)
-                Debug.Log("eita");
-
             if (activateRiposteCoroutine)
             {
                 activateRiposteCoroutine = false;               
@@ -183,7 +180,7 @@ namespace Squeak
                 EnemyAttackController.stun = true;
                 yield break;
             }
-
+            
             AudioManager.Play(damaged);
             
             inputListener.enabled = false;

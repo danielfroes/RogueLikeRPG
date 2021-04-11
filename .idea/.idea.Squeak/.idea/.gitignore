@@ -1,0 +1,11 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/contentModel.xml
+/.idea.Squeak.iml
+/modules.xml
+/projectSettingsUpdater.xml
+# Datasource local storage ignored files
+/../../../../../../../../../../:\Users\murilo\Desktop\UnityWorkspace\Squeak\Squeak\.idea\.idea.Squeak\.idea/dataSources/
+/dataSources.local.xml

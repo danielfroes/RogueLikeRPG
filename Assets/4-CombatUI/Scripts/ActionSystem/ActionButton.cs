@@ -62,7 +62,10 @@ namespace Scripts.ActionSystem
         }
 
 
-        public void SelectAction() {
+        public void SelectAction()
+        {
+            _actionMenuController.module.enabled = false;
+
             if (PlayerController.moved && action is ComboAction a)
             {
                 a.damageMultiplier = 1f;

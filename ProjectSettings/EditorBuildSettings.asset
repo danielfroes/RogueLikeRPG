@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/7-Scenes/MainMenu.unity
+    guid: a177fa7c0c2f9c248a4757565a844423
+  - enabled: 1
     path: Assets/7-Scenes/Vampiric Archetype.unity
     guid: fd02f422dfdcf2a41991b4ff69355402
   - enabled: 1
     path: Assets/7-Scenes/Combo Archetype.unity
     guid: a961fc8f6a503484391202a72a0de66e
-  - enabled: 1
-    path: Assets/7-Scenes/MainMenu.unity
-    guid: a177fa7c0c2f9c248a4757565a844423
   m_configObjects: {}

@@ -15,7 +15,9 @@ namespace Enemy
         [SerializeField] Animator _animator = null;
         [SerializeField] Transform _playerTransform = null;
         private GameObject _attackContainer = null;
-        private IEnumerator _spawnAttacksCoroutine; 
+        private IEnumerator _spawnAttacksCoroutine;
+
+        public RiposteAction riposteAction;
         
         static readonly int TauntTriggerID = Animator.StringToHash("Taunt");
 
@@ -72,7 +74,7 @@ namespace Enemy
                 if (stun)
                 {
                     stun = false;
-                    yield return new WaitForSeconds(RiposteAction.stunTime);
+                    yield return new WaitForSeconds(riposteAction.stunTime);
                 }
             }
 

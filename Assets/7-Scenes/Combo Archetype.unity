@@ -2342,7 +2342,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.018467586, y: 0.16000001}
   m_AnchorMax: {x: 0.15563656, y: 0.7686953}
-  m_AnchoredPosition: {x: -0.2079773, y: 0.08191681}
+  m_AnchoredPosition: {x: -0.20794678, y: 0.08191681}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &574409215
@@ -2665,7 +2665,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15563656, y: 0.16000001}
   m_AnchorMax: {x: 0.28500003, y: 0.8675297}
-  m_AnchoredPosition: {x: 0.16001892, y: -0.35998535}
+  m_AnchoredPosition: {x: 0.16000366, y: -0.35998535}
   m_SizeDelta: {x: 0.1351242, y: 0.391634}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &582647688
@@ -2834,7 +2834,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15563656, y: 0.16000001}
   m_AnchorMax: {x: 0.28500003, y: 0.8675297}
-  m_AnchoredPosition: {x: 0.16001892, y: -0.35998535}
+  m_AnchoredPosition: {x: 0.16000366, y: -0.35998535}
   m_SizeDelta: {x: 0.1351242, y: 0.391634}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &642409638
@@ -3906,6 +3906,12 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 61797577}
+    - target: {fileID: 1950875022806349093, guid: bda144f2ed7bc4d028b24efb44a0abcb,
+        type: 3}
+      propertyPath: riposteAction
+      value: 
+      objectReference: {fileID: 11400000, guid: edadce371461cd442b8cb4d913e87c99,
+        type: 2}
     - target: {fileID: 1950875022806349094, guid: bda144f2ed7bc4d028b24efb44a0abcb,
         type: 3}
       propertyPath: m_Enabled
@@ -4691,7 +4697,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.018467586, y: 0.16000001}
   m_AnchorMax: {x: 0.15563656, y: 0.7686953}
-  m_AnchoredPosition: {x: -0.2079773, y: 0.08191681}
+  m_AnchoredPosition: {x: -0.20794678, y: 0.08191681}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &931254555
@@ -10346,6 +10352,12 @@ PrefabInstance:
       propertyPath: _playerTransform
       value: 
       objectReference: {fileID: 411368761}
+    - target: {fileID: 8347672287196291254, guid: b609a6c0b9d3848bbabd833a6594d403,
+        type: 3}
+      propertyPath: riposteAction
+      value: 
+      objectReference: {fileID: 11400000, guid: edadce371461cd442b8cb4d913e87c99,
+        type: 2}
     - target: {fileID: 8347672288594766997, guid: b609a6c0b9d3848bbabd833a6594d403,
         type: 3}
       propertyPath: m_Color.a

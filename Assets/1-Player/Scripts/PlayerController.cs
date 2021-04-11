@@ -14,6 +14,8 @@ namespace Squeak
         public Sound dash;
         public Sound damaged;
 
+        public RiposteAction riposteAction;
+        
         public InputListener inputListener;
 
         // movement stuff
@@ -58,7 +60,7 @@ namespace Squeak
 
         private IEnumerator RiposteTimer()
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(riposteAction.activeTime);
             riposte = false;
         }
         
@@ -177,9 +179,12 @@ namespace Squeak
             if (riposte)
             {
                 DisableRiposte();
+                StopCoroutine(RiposteTimer());
                 EnemyAttackController.stun = true;
                 yield break;
             }
+            
+            PlayerStatusController.Instance.Damage(25f);
             
             AudioManager.Play(damaged);
             

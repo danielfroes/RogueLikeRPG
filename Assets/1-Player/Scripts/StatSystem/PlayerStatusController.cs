@@ -36,8 +36,8 @@ namespace Squeak
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Damage(25f);
             ActionCaster.instance.CancelCasting();
+            Damage(25f);
             Destroy(other.gameObject);
         }
 
@@ -48,7 +48,7 @@ namespace Squeak
         public void TrueDamage(float damage)
         {
             damageCnt++;
-            if (damage > 0)
+            if (damage > 0 && !PlayerController.riposte)
                 _health.Decrease(damage);
 
             if (_health.Value > 0.0f)

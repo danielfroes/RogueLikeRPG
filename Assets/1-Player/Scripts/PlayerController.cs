@@ -64,9 +64,6 @@ namespace Squeak
         
         private void Update()
         {
-            if (riposte)
-                Debug.Log("eita");
-
             if (activateRiposteCoroutine)
             {
                 activateRiposteCoroutine = false;               

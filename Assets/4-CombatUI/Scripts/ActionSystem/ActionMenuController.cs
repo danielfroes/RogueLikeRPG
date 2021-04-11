@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 using Scripts.ActionSystem;
 using TMPro;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -27,6 +28,8 @@ public class ActionMenuController : MonoBehaviour
     public Sound select;
     public Sound submit;
 
+    public InputSystemUIInputModule module;
+    
     private GameObject last;
     
     //TODO:Refactor this to it separate script
@@ -58,6 +61,8 @@ public class ActionMenuController : MonoBehaviour
         if (_actionMenu.activeInHierarchy)
             return;
 
+        module.enabled = true;
+        
         isMenuOpen = true;
         AudioManager.Play(open);
         SetActionMenuActive(!_actionMenu.activeInHierarchy);
@@ -68,6 +73,8 @@ public class ActionMenuController : MonoBehaviour
         if (!_actionMenu.activeInHierarchy)
             return;
 
+        module.enabled = false;
+        
         isMenuOpen = false;
         SetActionMenuActive(!_actionMenu.activeInHierarchy);
     }
@@ -90,8 +97,7 @@ public class ActionMenuController : MonoBehaviour
    void ChooseOption()
    {
        AudioManager.Play(submit);
-       
-        _mainOptions.DOPivotX(2f, _transitionsTime).SetUpdate(true).OnComplete(() => _mainOptions.gameObject.SetActive(false));
+       _mainOptions.DOPivotX(2f, _transitionsTime).SetUpdate(true).OnComplete(() => _mainOptions.gameObject.SetActive(false));
 
         PopulateSecondaryMenu();
         

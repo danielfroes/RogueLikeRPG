@@ -21,6 +21,7 @@ public class ActionBar : MonoBehaviour {
     public bool _isFull;
     //quantity of actions charged
     private int _numActions;
+    
     public int numActions
     {
         get { return _numActions;}

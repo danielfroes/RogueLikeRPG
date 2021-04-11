@@ -17,6 +17,8 @@ public class ActionCaster : MonoBehaviour {
     [SerializeField] EnemyStatusController _enemyStatusController = null;
     [SerializeField] PlayerStatusController _playerStatusController = null;
    
+
+    public ActionMenuController controller;
     void Awake()
     {
         if (instance == null)
@@ -44,10 +46,12 @@ public class ActionCaster : MonoBehaviour {
         });
     }
 
-    public void CancelCasting() {
+    public void CancelCasting()
+    {
         isCasting = false;
         castingBar.gameObject.SetActive(false);
         castingBar.DOKill();
+        controller.module.enabled = false;
     }
 
 }

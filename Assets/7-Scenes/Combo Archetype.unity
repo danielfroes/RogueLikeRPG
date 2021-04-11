@@ -3991,6 +3991,11 @@ PrefabInstance:
       propertyPath: _enemyStatusController
       value: 
       objectReference: {fileID: 1943938505}
+    - target: {fileID: 1978943579512083389, guid: bda144f2ed7bc4d028b24efb44a0abcb,
+        type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 924302370}
     - target: {fileID: 4922231372646609294, guid: bda144f2ed7bc4d028b24efb44a0abcb,
         type: 3}
       propertyPath: m_Sprite

@@ -18,4 +18,5 @@ MonoBehaviour:
   castTime: 0
   actionBarsNeeded: 0
   activeSound: {fileID: 11400000, guid: 9782a73e86d27d84ea059ae2023096fb, type: 2}
-  _animationClip: {fileID: 7400000, guid: c6ca6aa279b8336429708fa2560e2545, type: 2}
+  _animationClip: {fileID: 0}
+  _effectAnimation: {fileID: 7400000, guid: 510d5195c61174a928d1b8021868fd51, type: 2}

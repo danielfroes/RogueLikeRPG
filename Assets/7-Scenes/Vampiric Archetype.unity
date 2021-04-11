@@ -2625,6 +2625,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!95 &580589397 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 815271815, guid: bda144f2ed7bc4d028b24efb44a0abcb,
+    type: 3}
+  m_PrefabInstance: {fileID: 924302368}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &582647686
 GameObject:
   m_ObjectHideFlags: 0
@@ -3935,6 +3941,16 @@ PrefabInstance:
       propertyPath: _enemyStatusController
       value: 
       objectReference: {fileID: 1943938505}
+    - target: {fileID: 1978943579512083389, guid: bda144f2ed7bc4d028b24efb44a0abcb,
+        type: 3}
+      propertyPath: _playerEffectAnim
+      value: 
+      objectReference: {fileID: 580589397}
+    - target: {fileID: 4922231373654037319, guid: bda144f2ed7bc4d028b24efb44a0abcb,
+        type: 3}
+      propertyPath: module
+      value: 
+      objectReference: {fileID: 1944021166}
     - target: {fileID: 5317840038220392902, guid: bda144f2ed7bc4d028b24efb44a0abcb,
         type: 3}
       propertyPath: _healthBar
@@ -7895,9 +7911,9 @@ MonoBehaviour:
   m_PointAction: {fileID: 0}
   m_MoveAction: {fileID: 6859173016298201456, guid: 2706ad2ecadaa124fa83dd98d8d59ab5,
     type: 3}
-  m_SubmitAction: {fileID: -7790103749826601535, guid: 2706ad2ecadaa124fa83dd98d8d59ab5,
+  m_SubmitAction: {fileID: 5462439752712733634, guid: 2706ad2ecadaa124fa83dd98d8d59ab5,
     type: 3}
-  m_CancelAction: {fileID: 5462439752712733634, guid: 2706ad2ecadaa124fa83dd98d8d59ab5,
+  m_CancelAction: {fileID: -7790103749826601535, guid: 2706ad2ecadaa124fa83dd98d8d59ab5,
     type: 3}
   m_LeftClickAction: {fileID: 0}
   m_MiddleClickAction: {fileID: 0}

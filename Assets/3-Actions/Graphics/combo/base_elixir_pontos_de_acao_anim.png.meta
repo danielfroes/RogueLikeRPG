@@ -1,7 +1,46 @@
 fileFormatVersion: 2
 guid: 06732ab1a886547f7b16d556bbd320d1
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7801376248155216599
+    second: base_elixir_pontos_de_acao_anim_0
+  - first:
+      213: 2239167409031742115
+    second: base_elixir_pontos_de_acao_anim_1
+  - first:
+      213: -1296085754582011775
+    second: base_elixir_pontos_de_acao_anim_2
+  - first:
+      213: -1346157510432860193
+    second: base_elixir_pontos_de_acao_anim_3
+  - first:
+      213: 1307646813599008316
+    second: base_elixir_pontos_de_acao_anim_4
+  - first:
+      213: 8576207747506554344
+    second: base_elixir_pontos_de_acao_anim_5
+  - first:
+      213: 8652052762025729425
+    second: base_elixir_pontos_de_acao_anim_6
+  - first:
+      213: -8521634479117494679
+    second: base_elixir_pontos_de_acao_anim_7
+  - first:
+      213: -1722399575612964226
+    second: base_elixir_pontos_de_acao_anim_8
+  - first:
+      213: 3725489447735188812
+    second: base_elixir_pontos_de_acao_anim_9
+  - first:
+      213: -8537000082634335101
+    second: base_elixir_pontos_de_acao_anim_10
+  - first:
+      213: 7160799898847931072
+    second: base_elixir_pontos_de_acao_anim_11
+  - first:
+      213: 9188298798842788945
+    second: base_elixir_pontos_de_acao_anim_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,11 +148,284 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: base_elixir_pontos_de_acao_anim_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 925e981c2a1fbb390800000000000000
+      internalID: -7801376248155216599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base_elixir_pontos_de_acao_anim_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a208f715ee131f10800000000000000
+      internalID: 2239167409031742115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base_elixir_pontos_de_acao_anim_2
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 180f1b78fd0630ee0800000000000000
+      internalID: -1296085754582011775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base_elixir_pontos_de_acao_anim_3
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd7dce260ec715de0800000000000000
+      internalID: -1346157510432860193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base_elixir_pontos_de_acao_anim_4
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c368d3849d1b52210800000000000000
+      internalID: 1307646813599008316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base_elixir_pontos_de_acao_anim_5
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e5c416f18fc40770800000000000000
+      internalID: 8576207747506554344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base_elixir_pontos_de_acao_anim_6
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19d1b728524421870800000000000000
+      internalID: 8652052762025729425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base_elixir_pontos_de_acao_anim_7
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9661b7e37921db980800000000000000
+      internalID: -8521634479117494679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base_elixir_pontos_de_acao_anim_8
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e724e4e26bec818e0800000000000000
+      internalID: -1722399575612964226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base_elixir_pontos_de_acao_anim_9
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4dd8ba0ae893b330800000000000000
+      internalID: 3725489447735188812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base_elixir_pontos_de_acao_anim_10
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38c9913e7ab768980800000000000000
+      internalID: -8537000082634335101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base_elixir_pontos_de_acao_anim_11
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0caeb768195406360800000000000000
+      internalID: 7160799898847931072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base_elixir_pontos_de_acao_anim_12
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15c3c2b6315638f70800000000000000
+      internalID: 9188298798842788945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4b3936d94727641578ea0e4b989623c0
     internalID: 0
     vertices: []
     indices: 

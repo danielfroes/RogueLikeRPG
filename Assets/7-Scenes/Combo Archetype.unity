@@ -778,7 +778,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.75, y: 5.75}
+  m_Size: {x: 5.3125, y: 3.6875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -3954,11 +3954,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 815271814, guid: bda144f2ed7bc4d028b24efb44a0abcb, type: 3}
       propertyPath: m_Size.x
-      value: 5.3125
+      value: 2.3125
       objectReference: {fileID: 0}
     - target: {fileID: 815271814, guid: bda144f2ed7bc4d028b24efb44a0abcb, type: 3}
       propertyPath: m_Size.y
-      value: 3.6875
+      value: 2.5625
       objectReference: {fileID: 0}
     - target: {fileID: 815271814, guid: bda144f2ed7bc4d028b24efb44a0abcb, type: 3}
       propertyPath: m_WasSpriteAssigned
@@ -4014,6 +4014,30 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: e6c2acbc2690d469cb17655b4b06793a,
         type: 2}
+    - target: {fileID: 2035480623, guid: bda144f2ed7bc4d028b24efb44a0abcb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035480623, guid: bda144f2ed7bc4d028b24efb44a0abcb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035480624, guid: bda144f2ed7bc4d028b24efb44a0abcb, type: 3}
+      propertyPath: m_Size.x
+      value: 2.3125
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035480624, guid: bda144f2ed7bc4d028b24efb44a0abcb, type: 3}
+      propertyPath: m_Size.y
+      value: 2.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035480624, guid: bda144f2ed7bc4d028b24efb44a0abcb, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035480624, guid: bda144f2ed7bc4d028b24efb44a0abcb, type: 3}
+      propertyPath: m_SortingOrder
+      value: -12
+      objectReference: {fileID: 0}
     - target: {fileID: 2042517885, guid: bda144f2ed7bc4d028b24efb44a0abcb, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -4113,6 +4137,11 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 924302370}
+    - target: {fileID: 1978943579512083389, guid: bda144f2ed7bc4d028b24efb44a0abcb,
+        type: 3}
+      propertyPath: _playerEffectAnim
+      value: 
+      objectReference: {fileID: 1232688127}
     - target: {fileID: 4922231372646609294, guid: bda144f2ed7bc4d028b24efb44a0abcb,
         type: 3}
       propertyPath: m_Sprite
@@ -6341,6 +6370,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222136800}
   m_CullTransparentMesh: 0
+--- !u!95 &1232688127 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 815271815, guid: bda144f2ed7bc4d028b24efb44a0abcb,
+    type: 3}
+  m_PrefabInstance: {fileID: 924302368}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1253898029
 GameObject:
   m_ObjectHideFlags: 0
@@ -9313,9 +9348,9 @@ MonoBehaviour:
   m_PointAction: {fileID: 0}
   m_MoveAction: {fileID: 6859173016298201456, guid: 2706ad2ecadaa124fa83dd98d8d59ab5,
     type: 3}
-  m_SubmitAction: {fileID: -7790103749826601535, guid: 2706ad2ecadaa124fa83dd98d8d59ab5,
+  m_SubmitAction: {fileID: 5462439752712733634, guid: 2706ad2ecadaa124fa83dd98d8d59ab5,
     type: 3}
-  m_CancelAction: {fileID: 5462439752712733634, guid: 2706ad2ecadaa124fa83dd98d8d59ab5,
+  m_CancelAction: {fileID: -7790103749826601535, guid: 2706ad2ecadaa124fa83dd98d8d59ab5,
     type: 3}
   m_LeftClickAction: {fileID: 0}
   m_MiddleClickAction: {fileID: 0}

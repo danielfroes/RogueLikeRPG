@@ -20,5 +20,5 @@ MonoBehaviour:
   activeSound: {fileID: 11400000, guid: 9728791d988ee3c4b9c370ac4e6bfb8d, type: 2}
   _animationClip: {fileID: 7400000, guid: 565c089f222414b3c9804a72facd2571, type: 2}
   _physicalDamage: 20
+  _effectAnimation: {fileID: 7400000, guid: ae25f25f77b1845b8b72bb8dcedc8c3f, type: 2}
   _lifeStealPercentage: 100
-  _healAnimation: {fileID: 7400000, guid: ae25f25f77b1845b8b72bb8dcedc8c3f, type: 2}

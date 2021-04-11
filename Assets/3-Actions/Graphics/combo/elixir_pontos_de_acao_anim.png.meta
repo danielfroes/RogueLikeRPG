@@ -1,7 +1,40 @@
 fileFormatVersion: 2
 guid: 44fd36c89bdf64993b7d5824a0eba779
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7124677585318080982
+    second: elixir_pontos_de_acao_anim_0
+  - first:
+      213: 9176617817377482724
+    second: elixir_pontos_de_acao_anim_1
+  - first:
+      213: -1715528046580525859
+    second: elixir_pontos_de_acao_anim_2
+  - first:
+      213: 5532175395911664511
+    second: elixir_pontos_de_acao_anim_3
+  - first:
+      213: 3384583934341085754
+    second: elixir_pontos_de_acao_anim_4
+  - first:
+      213: 506601093409227100
+    second: elixir_pontos_de_acao_anim_5
+  - first:
+      213: -7016290402695223969
+    second: elixir_pontos_de_acao_anim_6
+  - first:
+      213: -1234855255099097424
+    second: elixir_pontos_de_acao_anim_7
+  - first:
+      213: 2828037385957505175
+    second: elixir_pontos_de_acao_anim_8
+  - first:
+      213: -8528799060141972552
+    second: elixir_pontos_de_acao_anim_9
+  - first:
+      213: -8845395890702832238
+    second: elixir_pontos_de_acao_anim_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,11 +142,242 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: elixir_pontos_de_acao_anim_0
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2e8debfb7f002d90800000000000000
+      internalID: -7124677585318080982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elixir_pontos_de_acao_anim_1
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e72e4cf845e95f70800000000000000
+      internalID: 9176617817377482724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elixir_pontos_de_acao_anim_2
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd41955b4583138e0800000000000000
+      internalID: -1715528046580525859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elixir_pontos_de_acao_anim_3
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f73887c363c36cc40800000000000000
+      internalID: 5532175395911664511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elixir_pontos_de_acao_anim_4
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3af4eee72578fe20800000000000000
+      internalID: 3384583934341085754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elixir_pontos_de_acao_anim_5
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c514b77a20fc70700800000000000000
+      internalID: 506601093409227100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elixir_pontos_de_acao_anim_6
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f556e5a7d0121ae90800000000000000
+      internalID: -7016290402695223969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elixir_pontos_de_acao_anim_7
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0be3bc220b9ecdee0800000000000000
+      internalID: -1234855255099097424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elixir_pontos_de_acao_anim_8
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7987589d4053f3720800000000000000
+      internalID: 2828037385957505175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elixir_pontos_de_acao_anim_9
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b36d8b317e93a980800000000000000
+      internalID: -8528799060141972552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elixir_pontos_de_acao_anim_10
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 0
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29d25f46d47de3580800000000000000
+      internalID: -8845395890702832238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b1e9645ee48eb43899dca656ed990ff1
     internalID: 0
     vertices: []
     indices: 

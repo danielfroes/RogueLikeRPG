@@ -13,6 +13,5 @@ public class RiposteAction : AttackWithStatusAnimation
         PlayerController.riposte = true;
         PlayerController.activateRiposteCoroutine = true;
         base.DoAction(actionAnim, enemy, player, playerAnim);
-        actionAnim.transform.position = player.transform.position;
     }
 }

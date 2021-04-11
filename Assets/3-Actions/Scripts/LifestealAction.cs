@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Squeak;
-using UnityEditor.IMGUI.Controls;
+﻿using Squeak;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "new Action", menuName = "Action Menu SO/Action/LifeSteal")]

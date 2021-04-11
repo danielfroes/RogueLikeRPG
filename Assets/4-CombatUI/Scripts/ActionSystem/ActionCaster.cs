@@ -14,6 +14,7 @@ public class ActionCaster : MonoBehaviour {
     
     //TODO: Achar um jeito melhor de referenciar o enemyStatusController e o actionAnim(vai dar problema quando colocar mais de uma batalhat)
     [SerializeField] Animator _actionAnim = null;
+    [SerializeField] Animator _playerEffectAnim = null;
     [SerializeField] EnemyStatusController _enemyStatusController = null;
     [SerializeField] PlayerStatusController _playerStatusController = null;
    
@@ -39,7 +40,7 @@ public class ActionCaster : MonoBehaviour {
         
         castingBar.DOValue(castingBar.maxValue * 95/100, time).OnComplete(() =>
         {
-            action.DoAction(_actionAnim, _enemyStatusController, _playerStatusController);
+            action.DoAction(_actionAnim, _enemyStatusController, _playerStatusController, _playerEffectAnim);
             castingBar.gameObject.SetActive(false);
             isCasting = false;
         });

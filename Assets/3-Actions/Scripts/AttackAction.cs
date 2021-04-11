@@ -1,13 +1,10 @@
-﻿using System.Runtime.Remoting.Messaging;
-using Squeak;
+﻿using Squeak;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "new Action", menuName = "Action Menu SO/Action/Attack")]
 public class AttackAction : Action
 {
-
-
     [FormerlySerializedAs("physicalDamage")] [SerializeField] int _physicalDamage;
     public virtual int PhysicalDamage => _physicalDamage;
 
@@ -16,7 +13,5 @@ public class AttackAction : Action
         base.DoAction(anim, enemy, player);
         anim.transform.position = enemy.transform.position;
         enemy.Damage(PhysicalDamage);
-        
     }
-
 }

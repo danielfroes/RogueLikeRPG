@@ -9,7 +9,7 @@ public class ActionBar : MonoBehaviour {
     //Text component of the number of actions
     [SerializeField] private TextMeshProUGUI numActionsUI = null;
     //Fillable image 
-    [SerializeField] private Image fillImg = null;
+    [SerializeField] public Image fillImg = null;
     //Background of the slider
     [SerializeField] private Image backgroundImg = null;
 
@@ -18,7 +18,7 @@ public class ActionBar : MonoBehaviour {
     [SerializeField] private float fillSpeed = 0.2f;
     public static ActionBar instance;
     private int colorIndex = 0;
-    private bool _isFull;
+    public bool _isFull;
     //quantity of actions charged
     private int _numActions;
     public int numActions

@@ -29,7 +29,13 @@ public class ActionCaster : MonoBehaviour {
         castingBar.value = 0;
         castingBar.gameObject.SetActive(true);
         isCasting = true;
-        castingBar.DOValue(castingBar.maxValue * 95/100, action.castTime).OnComplete(() =>
+        float time = action.castTime;
+
+        if (action is ComboAction c)
+            time *= c.castTimeMultiplier;
+            
+        
+        castingBar.DOValue(castingBar.maxValue * 95/100, time).OnComplete(() =>
         {
             action.DoAction(_actionAnim, _enemyStatusController, _playerStatusController);
             castingBar.gameObject.SetActive(false);

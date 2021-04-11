@@ -39,9 +39,7 @@ public class PotionAction : Action
         
         
         stepCounter = 0;
-        ActionBar.instance.numActions = 4;
-        ActionBar.instance._isFull = true;
-        ActionBar.instance.fillImg.fillAmount = 1;
+        ActionBar.instance.FillAllBars();
         base.DoAction(actionAnim, enemy, player, playerAnim);
         actionAnim.transform.position = player.transform.position;
     }

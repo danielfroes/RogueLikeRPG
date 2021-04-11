@@ -53,10 +53,12 @@ public class ActionBar : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        print(colorIndex);
         fillImg.fillAmount += fillSpeed*Time.deltaTime;
-
+        
         if (!(Math.Abs(fillImg.fillAmount - 1) < 0.01f) || _isFull) return;
+        
+        
         
         //changes the intermediary
         if(colorIndex < barColors.Count)
@@ -74,6 +76,17 @@ public class ActionBar : MonoBehaviour {
         }
 
     }
+    
+    
+    public void FillAllBars()
+    {
+        numActions = barColors.Count - 1;
+        _isFull = true;
+        fillImg.fillAmount = 1;
+        colorIndex = barColors.Count ;
+        //ChangeBarColor();
+    }
+
 
 
     public void SpendAction(int amount)
@@ -93,6 +106,9 @@ public class ActionBar : MonoBehaviour {
         }
     }
 
+
+
+    
 
     private void ChangeBarColor()
     {

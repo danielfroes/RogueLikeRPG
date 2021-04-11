@@ -4,8 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Action Menu SO/Action/Riposte")]
 public class RiposteAction : AttackWithStatusAnimation
 {
-    public static float stunTime = 5f;
-    public float time = 2f;
+    public float stunTime = 5f;
+    public float activeTime = 2f;
     
     public override void DoAction(Animator actionAnim, EnemyStatusController enemy, PlayerStatusController player,
         Animator playerAnim)

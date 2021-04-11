@@ -1,22 +1,19 @@
-﻿using Squeak;
+﻿using System.Collections.Generic;
+using Squeak;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "new Action", menuName = "Action Menu SO/Action/LifeSteal")]
 
-public class LifestealAction : AttackAction
+public class LifestealAction : AttackWithStatusAnimation
 {
-
     [Range(0f, 100f)] [SerializeField] float _lifeStealPercentage;
-    [SerializeField] Animation _healAnimation;
-    
-    public override void DoAction(Animator anim, EnemyStatusController enemy, PlayerStatusController player)
+    public override void DoAction(Animator attackAnim, EnemyStatusController enemy, PlayerStatusController player,
+        Animator playerAnim)
     {
-        base.DoAction(anim, enemy, player);
-        var healAmount = _lifeStealPercentage/100 * PhysicalDamage;
-  
+        base.DoAction(attackAnim, enemy, player, playerAnim);
+        
+        var healAmount = _lifeStealPercentage/100 * PhysicalDamage; 
         player.Heal(healAmount);
-
     }
-
 }

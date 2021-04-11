@@ -3867,6 +3867,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1083339986, guid: bda144f2ed7bc4d028b24efb44a0abcb, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1260863566, guid: bda144f2ed7bc4d028b24efb44a0abcb, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272828850, guid: bda144f2ed7bc4d028b24efb44a0abcb, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452278906, guid: bda144f2ed7bc4d028b24efb44a0abcb, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042517885, guid: bda144f2ed7bc4d028b24efb44a0abcb, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 614138010159255802, guid: bda144f2ed7bc4d028b24efb44a0abcb,
         type: 3}
       propertyPath: m_Camera
@@ -9170,7 +9190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 2071820390}
+  m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1944021168
@@ -9966,12 +9986,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2071820390 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7058663579022176875, guid: bda144f2ed7bc4d028b24efb44a0abcb,
-    type: 3}
-  m_PrefabInstance: {fileID: 924302368}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2073186728
 GameObject:
   m_ObjectHideFlags: 0

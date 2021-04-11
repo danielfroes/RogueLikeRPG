@@ -17,9 +17,10 @@ namespace Scripts
             _initialBaseDamage = PhysicalDamage;
         }
 
-        public override void DoAction(Animator anim, EnemyStatusController enemy, PlayerStatusController player)
+        public override void DoAction(Animator anim, EnemyStatusController enemy, PlayerStatusController player,
+            Animator playerAnim)
         {
-            base.DoAction(anim, enemy, player);
+            base.DoAction(anim, enemy, player, playerAnim);
             PlayerStatusController.damageCnt = 1;
         }
         

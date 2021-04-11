@@ -13,13 +13,14 @@ public class PotionAction : Action
         stepCounter = 0;
     }
 
-    public override void DoAction(Animator actionAnim, EnemyStatusController enemy, PlayerStatusController player)
+    public override void DoAction(Animator actionAnim, EnemyStatusController enemy, PlayerStatusController player,
+        Animator playerAnim)
     {
         stepCounter = 0;
         ActionBar.instance.numActions = 4;
         ActionBar.instance._isFull = true;
         ActionBar.instance.fillImg.fillAmount = 1;
-        base.DoAction(actionAnim, enemy, player);
+        base.DoAction(actionAnim, enemy, player, playerAnim);
         actionAnim.transform.position = player.transform.position;
     }
 }

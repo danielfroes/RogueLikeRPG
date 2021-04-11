@@ -117,7 +117,7 @@ public class ActionMenuController : MonoBehaviour
             _actionsInstantiated.Add(newButton);
             //Auto Select the first button
             if (cntActionsWithType == 0) {
-                eventSystem.SetSelectedGameObject(null);
+                eventSystem.SetSelectedGameObject(null); 
                 eventSystem.SetSelectedGameObject(newButton.gameObject);
             }
             cntActionsWithType++;
@@ -140,7 +140,7 @@ public class ActionMenuController : MonoBehaviour
                 _secondaryOptions.gameObject.SetActive(true);
 
                 eventSystem.SetSelectedGameObject(null);
-                eventSystem.SetSelectedGameObject(eventSystem.firstSelectedGameObject);
+                //eventSystem.SetSelectedGameObject(eventSystem.firstSelectedGameObject);
 
                 _mainOptions.pivot = _mainInitPivot;
                 _secondaryOptions.pivot = _secondaryInitPivot;

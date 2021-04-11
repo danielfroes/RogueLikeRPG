@@ -23,9 +23,10 @@ public abstract class Action : ScriptableObject {
     [SerializeField] AnimationClip _animationClip = null;
     AnimatorOverrideController _animatorController;
     
-    static readonly int DoActionID = Animator.StringToHash("DoAction");
+    protected static readonly int DoActionID = Animator.StringToHash("DoAction");
 
-    public virtual void DoAction(Animator actionAnim, EnemyStatusController enemy , PlayerStatusController player )
+    public virtual void DoAction(Animator actionAnim, EnemyStatusController enemy, PlayerStatusController player,
+        Animator playerAnim)
     {
         if (_animatorController == null)
         {

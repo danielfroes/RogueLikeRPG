@@ -180,7 +180,7 @@ namespace Squeak
                 EnemyAttackController.stun = true;
                 yield break;
             }
-
+            
             AudioManager.Play(damaged);
             
             inputListener.enabled = false;

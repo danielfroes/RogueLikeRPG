@@ -65,6 +65,27 @@ namespace Squeak
             _healthBar.value = _health.GetHealthPercentage();
         }
 
+        public void SelfDamage(float damage)
+        {
+            damageCnt++;
+            if (damage > 0 && !PlayerController.riposte)
+                _health.Decrease(damage);
+
+            if (_health.Value > 0.0f)
+            {
+                //Debug.Log($"{damage} de dano, vida atual {_health.Value}");
+                //OnDamageEvent?.Invoke();
+            }
+            else
+            {
+                //Debug.Log("Morte");
+                OnDeathEvent?.Invoke();
+            }
+
+            _healthBar.value = _health.GetHealthPercentage();
+        }
+
+
         public void Damage(float rawDamage)
         {
             float damage = rawDamage - _defense.Value;

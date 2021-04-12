@@ -15,12 +15,12 @@ MonoBehaviour:
   actionName: Combo Punchs
   details: The more you attack, the quicker they are!
   actionType: 0
-  castTime: 2
+  castTime: 1
   actionBarsNeeded: 1
   activeSound: {fileID: 11400000, guid: cd816e628dc0ce240bae3fc2c7c0c7b7, type: 2}
   _animationClip: {fileID: 7400000, guid: e05cbb0810858461c869cc2ccfe49c49, type: 2}
-  _physicalDamage: 10
-  damageIncreasePercentage: 0
+  _physicalDamage: 15
+  damageIncreasePercentage: 0.25
   cooldownReductionPercentage: 0.5
   damageMultiplier: 1
   castTimeMultiplier: 1

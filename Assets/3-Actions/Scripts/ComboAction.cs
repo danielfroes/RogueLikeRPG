@@ -26,7 +26,7 @@ public class ComboAction : AttackAction
         anim.transform.position = enemy.transform.position;
         enemy.Damage(PhysicalDamage * damageMultiplier);
 
-        damageMultiplier += damageIncreasePercentage;
+        damageMultiplier += (damageMultiplier*damageIncreasePercentage);
         castTimeMultiplier *= cooldownReductionPercentage;
     }
 }

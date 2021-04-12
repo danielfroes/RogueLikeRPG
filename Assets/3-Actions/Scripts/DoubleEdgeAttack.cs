@@ -14,6 +14,7 @@ public class DoubleEdgeAttack : AttackAction {
 
         var damageAmount = player.preset.maxHealth * _playerDamageLifePercentage / 100;
         
-        player.TrueDamage(damageAmount);
+        player.SelfDamage(damageAmount);
+        //player.TrueDamage(damageAmount);
     }
 }

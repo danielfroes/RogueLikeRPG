@@ -2,6 +2,10 @@
 using System.Collections;
 using DirectionSystem;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
+// SORT OUT CODES IN ACTION MENU
+// SWAP ACTION-MAPS WHEN ACTIVATING MENU
 
 namespace Squeak
 {
@@ -18,6 +22,9 @@ namespace Squeak
         public AnimationCurve transitionCurve;
 
         private Vector2 currentInputDirection = Vector2.zero;
+        public Input inputManager;
+		public ActionMenuController actionMenu;
+		[SerializeField] private GameObject _actionMenu;
 
         // lots of bools for state management
         private bool _moving;
@@ -32,9 +39,31 @@ namespace Squeak
         // other stuff
         private Vector2 Position => CombatGrid.Instance.PositionToCellCenter(transform.position);
 
+        private void OnEnable()
+        {
+        	inputManager.Player.Enable();
+        	inputManager.ActionMenu.Disable();
+        }
+		private void OnDisable()
+		{
+			inputManager.Player.Disable();
+			inputManager.ActionMenu.Disable();
+		}
+        
         private void Awake()
         {
             _animator = GetComponentInChildren<Animator>();
+
+            // New input system logic
+			inputManager = new Input();
+
+			inputManager.Player.Move.performed += _0 =>
+				ManageInput(_0.ReadValue<Vector2>());
+
+			// Activates the ActionMenu when proper input is performed
+			inputManager.Player.Menu.performed += _0 => ActivateActionMenu();
+			inputManager.ActionMenu.Menu.performed += _0 => ActivateActionMenu();
+				
         }
 
         void Start()
@@ -55,6 +84,22 @@ namespace Squeak
                 StartCoroutine(Move(DirectionUtils.Vec3ToDir(currentInputDirection)));
                 currentInputDirection = Vector2.zero;
             }
+        }
+
+        private void ActivateActionMenu()
+        {
+        	if (!_actionMenu.activeInHierarchy)
+        	{
+        		inputManager.ActionMenu.Enable();
+            	inputManager.Player.Disable();
+        	}
+        	else
+        	{
+        		inputManager.Player.Enable();
+            	inputManager.ActionMenu.Disable();
+        	}
+
+        	actionMenu.Activate();
         }
 
         public void ManageInput(Vector2 direction)
@@ -173,6 +218,8 @@ namespace Squeak
         public void Cast(Action action)
         {
             _casting = true;
+            inputManager.Player.Enable();
+            inputManager.ActionMenu.Disable();
             StartCoroutine(WaitCast((action)));
         }
 

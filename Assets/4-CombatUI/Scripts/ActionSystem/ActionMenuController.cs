@@ -1,12 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
-using DG.Tweening;
-using Scripts.ActionSystem;
-using TMPro;
+﻿using System.Collections.Generic;
 using UnityEngine.Serialization;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using Scripts.ActionSystem;
+using System.Collections;
 using UnityEngine.UI;
+using UnityEngine;
+using DG.Tweening;
+using TMPro;
 
 
 public class ActionMenuController : MonoBehaviour
@@ -20,6 +21,8 @@ public class ActionMenuController : MonoBehaviour
     [SerializeField] ActionButton _genericButton = null;
     [SerializeField] InfoPanel _infoPanel = null;
     [SerializeField] float _transitionsTime = 0;
+
+    [SerializeField] private PlayerInput inputComponent;
 
     public Sound open;
     public Sound select;

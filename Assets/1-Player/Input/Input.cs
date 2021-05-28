@@ -73,17 +73,6 @@ public class @Input : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ad8c3f24-37d7-47c1-955c-a062267d3a8c"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Confirm"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""275204af-a892-4927-bf3c-ee7882a0a957"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
@@ -360,6 +349,148 @@ public class @Input : IInputActionCollection, IDisposable
             ]
         },
         {
+            ""name"": ""ActionMenu"",
+            ""id"": ""dcd210c7-e25a-4771-80f4-8dcfbb85b687"",
+            ""actions"": [
+                {
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""d6fceee2-f93a-491a-9361-e49732e13a3b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Confirm"",
+                    ""type"": ""Button"",
+                    ""id"": ""37fe8c45-c6c8-47ad-b2cd-b68c8c855215"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""e9661349-e98d-40e8-a001-1fd8d3244696"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""010e1cdd-8771-458f-83f5-5924e7bef22e"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""217d4789-ec7b-437a-831d-13067963001f"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f270a278-ad04-4e85-9047-45d0e94cfe9f"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f6d38033-c62f-40c5-993e-1e27cc383049"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9d9665ee-35d4-4f28-9f84-4719d7345563"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f7088ffa-c358-4941-a78f-e101d09b1248"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a6aeb209-71a7-47e0-b54c-6e72b5410568"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea6a349a-d7ab-4886-9d1c-1daced296b05"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b313d9b4-1fc3-46ca-84a5-98321c67a50c"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2af4a993-1bbf-4671-88e7-e58c9f1a69ac"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
             ""name"": ""Menu"",
             ""id"": ""68330e44-ab20-4d5f-88bf-4997cdc7f477"",
             ""actions"": [
@@ -419,6 +550,11 @@ public class @Input : IInputActionCollection, IDisposable
         m_Player_Cancel = m_Player.FindAction("Cancel", throwIfNotFound: true);
         m_Player_Menu = m_Player.FindAction("Menu", throwIfNotFound: true);
         m_Player_Escape = m_Player.FindAction("Escape", throwIfNotFound: true);
+        // ActionMenu
+        m_ActionMenu = asset.FindActionMap("ActionMenu", throwIfNotFound: true);
+        m_ActionMenu_Cancel = m_ActionMenu.FindAction("Cancel", throwIfNotFound: true);
+        m_ActionMenu_Confirm = m_ActionMenu.FindAction("Confirm", throwIfNotFound: true);
+        m_ActionMenu_Menu = m_ActionMenu.FindAction("Menu", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_LeftClick = m_Menu.FindAction("LeftClick", throwIfNotFound: true);
@@ -533,6 +669,55 @@ public class @Input : IInputActionCollection, IDisposable
     }
     public PlayerActions @Player => new PlayerActions(this);
 
+    // ActionMenu
+    private readonly InputActionMap m_ActionMenu;
+    private IActionMenuActions m_ActionMenuActionsCallbackInterface;
+    private readonly InputAction m_ActionMenu_Cancel;
+    private readonly InputAction m_ActionMenu_Confirm;
+    private readonly InputAction m_ActionMenu_Menu;
+    public struct ActionMenuActions
+    {
+        private @Input m_Wrapper;
+        public ActionMenuActions(@Input wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Cancel => m_Wrapper.m_ActionMenu_Cancel;
+        public InputAction @Confirm => m_Wrapper.m_ActionMenu_Confirm;
+        public InputAction @Menu => m_Wrapper.m_ActionMenu_Menu;
+        public InputActionMap Get() { return m_Wrapper.m_ActionMenu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ActionMenuActions set) { return set.Get(); }
+        public void SetCallbacks(IActionMenuActions instance)
+        {
+            if (m_Wrapper.m_ActionMenuActionsCallbackInterface != null)
+            {
+                @Cancel.started -= m_Wrapper.m_ActionMenuActionsCallbackInterface.OnCancel;
+                @Cancel.performed -= m_Wrapper.m_ActionMenuActionsCallbackInterface.OnCancel;
+                @Cancel.canceled -= m_Wrapper.m_ActionMenuActionsCallbackInterface.OnCancel;
+                @Confirm.started -= m_Wrapper.m_ActionMenuActionsCallbackInterface.OnConfirm;
+                @Confirm.performed -= m_Wrapper.m_ActionMenuActionsCallbackInterface.OnConfirm;
+                @Confirm.canceled -= m_Wrapper.m_ActionMenuActionsCallbackInterface.OnConfirm;
+                @Menu.started -= m_Wrapper.m_ActionMenuActionsCallbackInterface.OnMenu;
+                @Menu.performed -= m_Wrapper.m_ActionMenuActionsCallbackInterface.OnMenu;
+                @Menu.canceled -= m_Wrapper.m_ActionMenuActionsCallbackInterface.OnMenu;
+            }
+            m_Wrapper.m_ActionMenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Cancel.started += instance.OnCancel;
+                @Cancel.performed += instance.OnCancel;
+                @Cancel.canceled += instance.OnCancel;
+                @Confirm.started += instance.OnConfirm;
+                @Confirm.performed += instance.OnConfirm;
+                @Confirm.canceled += instance.OnConfirm;
+                @Menu.started += instance.OnMenu;
+                @Menu.performed += instance.OnMenu;
+                @Menu.canceled += instance.OnMenu;
+            }
+        }
+    }
+    public ActionMenuActions @ActionMenu => new ActionMenuActions(this);
+
     // Menu
     private readonly InputActionMap m_Menu;
     private IMenuActions m_MenuActionsCallbackInterface;
@@ -590,6 +775,12 @@ public class @Input : IInputActionCollection, IDisposable
         void OnCancel(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
         void OnEscape(InputAction.CallbackContext context);
+    }
+    public interface IActionMenuActions
+    {
+        void OnCancel(InputAction.CallbackContext context);
+        void OnConfirm(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

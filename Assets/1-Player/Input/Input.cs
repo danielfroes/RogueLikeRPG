@@ -57,6 +57,22 @@ public class @Input : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""SelectLeftEnemy"",
+                    ""type"": ""Button"",
+                    ""id"": ""45aa3f74-8810-47c8-9bd8-96b0e3074698"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""SelectRightEnemy"",
+                    ""type"": ""Button"",
+                    ""id"": ""c97c11b5-69f2-4938-94e3-71face3f6a21"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -345,6 +361,28 @@ public class @Input : IInputActionCollection, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7470cd68-5c38-487d-b686-9bf92b749ebe"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectRightEnemy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6e81c1ca-aff3-432b-93e9-baa2b9f5a47e"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectLeftEnemy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -550,6 +588,8 @@ public class @Input : IInputActionCollection, IDisposable
         m_Player_Cancel = m_Player.FindAction("Cancel", throwIfNotFound: true);
         m_Player_Menu = m_Player.FindAction("Menu", throwIfNotFound: true);
         m_Player_Escape = m_Player.FindAction("Escape", throwIfNotFound: true);
+        m_Player_SelectLeftEnemy = m_Player.FindAction("SelectLeftEnemy", throwIfNotFound: true);
+        m_Player_SelectRightEnemy = m_Player.FindAction("SelectRightEnemy", throwIfNotFound: true);
         // ActionMenu
         m_ActionMenu = asset.FindActionMap("ActionMenu", throwIfNotFound: true);
         m_ActionMenu_Cancel = m_ActionMenu.FindAction("Cancel", throwIfNotFound: true);
@@ -612,6 +652,8 @@ public class @Input : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Cancel;
     private readonly InputAction m_Player_Menu;
     private readonly InputAction m_Player_Escape;
+    private readonly InputAction m_Player_SelectLeftEnemy;
+    private readonly InputAction m_Player_SelectRightEnemy;
     public struct PlayerActions
     {
         private @Input m_Wrapper;
@@ -621,6 +663,8 @@ public class @Input : IInputActionCollection, IDisposable
         public InputAction @Cancel => m_Wrapper.m_Player_Cancel;
         public InputAction @Menu => m_Wrapper.m_Player_Menu;
         public InputAction @Escape => m_Wrapper.m_Player_Escape;
+        public InputAction @SelectLeftEnemy => m_Wrapper.m_Player_SelectLeftEnemy;
+        public InputAction @SelectRightEnemy => m_Wrapper.m_Player_SelectRightEnemy;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -645,6 +689,12 @@ public class @Input : IInputActionCollection, IDisposable
                 @Escape.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEscape;
                 @Escape.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEscape;
                 @Escape.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEscape;
+                @SelectLeftEnemy.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelectLeftEnemy;
+                @SelectLeftEnemy.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelectLeftEnemy;
+                @SelectLeftEnemy.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelectLeftEnemy;
+                @SelectRightEnemy.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelectRightEnemy;
+                @SelectRightEnemy.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelectRightEnemy;
+                @SelectRightEnemy.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelectRightEnemy;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -664,6 +714,12 @@ public class @Input : IInputActionCollection, IDisposable
                 @Escape.started += instance.OnEscape;
                 @Escape.performed += instance.OnEscape;
                 @Escape.canceled += instance.OnEscape;
+                @SelectLeftEnemy.started += instance.OnSelectLeftEnemy;
+                @SelectLeftEnemy.performed += instance.OnSelectLeftEnemy;
+                @SelectLeftEnemy.canceled += instance.OnSelectLeftEnemy;
+                @SelectRightEnemy.started += instance.OnSelectRightEnemy;
+                @SelectRightEnemy.performed += instance.OnSelectRightEnemy;
+                @SelectRightEnemy.canceled += instance.OnSelectRightEnemy;
             }
         }
     }
@@ -775,6 +831,8 @@ public class @Input : IInputActionCollection, IDisposable
         void OnCancel(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
         void OnEscape(InputAction.CallbackContext context);
+        void OnSelectLeftEnemy(InputAction.CallbackContext context);
+        void OnSelectRightEnemy(InputAction.CallbackContext context);
     }
     public interface IActionMenuActions
     {

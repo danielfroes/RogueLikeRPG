@@ -7,21 +7,25 @@ namespace Squeak
 {
     public class EnemyStatusController : MonoBehaviour
     {
-        public static EnemyStatusController Instance { get; private set; }
+        public EnemyStatusController Instance { get; private set; }
         public EnemyStatusPreset _preset;
         public Slider _healthBar;
         [SerializeField] Animator _animator = null;
         public delegate void OnEnemyDeath();
-        public static event OnEnemyDeath OnDeathEvent;
+        public event OnEnemyDeath OnDeathEvent;
 
         public delegate void OnEnemyDamage();
-        public static event OnEnemyDamage OnDamageEvent;
+        public event OnEnemyDamage OnDamageEvent;
 
         private StatBar _health;
         
         //TODO: Gambiarra (talvez colocar todas os triggers de animacao em uma classe separada, ou no state machine do inimigo)
-        static readonly int HitTriggerID = Animator.StringToHash("Hit");
-        static readonly int DieTriggerID = Animator.StringToHash("Die");
+        readonly int HitTriggerID = Animator.StringToHash("Hit");
+        readonly int DieTriggerID = Animator.StringToHash("Die");
+
+
+        public bool isDead = false;
+        public EnemySelector _enemySelector;
         
         // +-------------------------+
         // | MonoBehaviour lifecycle |
@@ -48,6 +52,8 @@ namespace Squeak
             }
             else
             {
+                isDead = true;
+                StartCoroutine(_enemySelector.UpdateEnemyList());
                 Debug.Log("Morte");
                 OnDeathEvent?.Invoke();
             }

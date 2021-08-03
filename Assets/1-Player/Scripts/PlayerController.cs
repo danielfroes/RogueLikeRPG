@@ -25,6 +25,7 @@ namespace Squeak
         public Input inputManager;
 		public ActionMenuController actionMenu;
 		[SerializeField] private GameObject _actionMenu;
+        private EnemySelector enemySelector;
 
         // lots of bools for state management
         private bool _moving;
@@ -63,6 +64,11 @@ namespace Squeak
 			// Activates the ActionMenu when proper input is performed
 			inputManager.Player.Menu.performed += _0 => ActivateActionMenu();
 			inputManager.ActionMenu.Menu.performed += _0 => ActivateActionMenu();
+
+            inputManager.Player.SelectLeftEnemy.performed += _0 => 
+                enemySelector.SelectEnemy(Direction.left);
+            inputManager.Player.SelectRightEnemy.performed += _0 => 
+                enemySelector.SelectEnemy(Direction.right);
 				
         }
 
@@ -75,6 +81,8 @@ namespace Squeak
                 StartCoroutine(Damage());
             };
             PlayerStatusController.OnDeathEvent += Die;
+
+            enemySelector = GetComponent<EnemySelector>();
         }
 
         private void Update()

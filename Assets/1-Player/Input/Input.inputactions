@@ -44,6 +44,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "SelectLeftEnemy",
+                    "type": "Button",
+                    "id": "45aa3f74-8810-47c8-9bd8-96b0e3074698",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SelectRightEnemy",
+                    "type": "Button",
+                    "id": "c97c11b5-69f2-4938-94e3-71face3f6a21",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -332,6 +348,28 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "7470cd68-5c38-487d-b686-9bf92b749ebe",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectRightEnemy",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6e81c1ca-aff3-432b-93e9-baa2b9f5a47e",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectLeftEnemy",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

@@ -358,6 +358,8 @@ GameObject:
   - component: {fileID: 8347672287196291249}
   - component: {fileID: 8347672287196291248}
   - component: {fileID: 1943938505}
+  - component: {fileID: 72825632}
+  - component: {fileID: 72825634}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -418,6 +420,38 @@ MonoBehaviour:
   _animator: {fileID: 8347672287196291248}
   isDead: 0
   _enemySelector: {fileID: 0}
+--- !u!114 &72825632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8347672287196291251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 646639a0f9564c4280ffa438fe215436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyAttacks:
+  - {fileID: 1761183727007726823, guid: e3f6ae01ae37a4496952b4a956799df9, type: 3}
+  - {fileID: 5583865214162740787, guid: e82889c5d96431f43b6ceebf501ae031, type: 3}
+  - {fileID: -1058362162210021440, guid: 8d941026962d5ae4fb95b7f07799dc18, type: 3}
+  attacksToTaunt: 3
+  _animator: {fileID: 8347672287196291248}
+  _statusController: {fileID: 1943938505}
+  _spawnerController: {fileID: 0}
+--- !u!114 &72825634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8347672287196291251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f124bc637ae49b1418c2c149500fd59b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8347672287624760204
 GameObject:
   m_ObjectHideFlags: 0

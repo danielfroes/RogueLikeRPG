@@ -1886,12 +1886,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389314456}
   m_CullTransparentMesh: 0
---- !u!4 &411368761 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1950875022806349147, guid: bda144f2ed7bc4d028b24efb44a0abcb,
-    type: 3}
-  m_PrefabInstance: {fileID: 924302368}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &443566053
 GameObject:
   m_ObjectHideFlags: 0
@@ -3461,17 +3455,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 924302371}
         m_MethodName: set_enabled
         m_Mode: 6
@@ -3497,7 +3480,7 @@ MonoBehaviour:
   _onTimerEnd:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1177632581}
+      - m_Target: {fileID: 1486344642}
         m_MethodName: StartAttacks
         m_Mode: 1
         m_Arguments:
@@ -3532,7 +3515,7 @@ MonoBehaviour:
         m_CallState: 2
   _mainMenu: {fileID: 30373047}
   _timerText: {fileID: 562062903}
-  countdownTime: 4
+  countdownTime: 1
 --- !u!114 &695874461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5495,18 +5478,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1177632581 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8347672287196291254, guid: 435d5d3cd52904460b825723754a9823,
-    type: 3}
-  m_PrefabInstance: {fileID: 1188802507}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1da289f7f9a1844fb199323e8b5f52a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1183496109
 GameObject:
   m_ObjectHideFlags: 0
@@ -5599,6 +5570,11 @@ PrefabInstance:
       propertyPath: _enemySelector
       value: 
       objectReference: {fileID: 1516081536}
+    - target: {fileID: 381334003976362717, guid: 435d5d3cd52904460b825723754a9823,
+        type: 3}
+      propertyPath: _spawnerController
+      value: 
+      objectReference: {fileID: 1486344642}
     - target: {fileID: 1987448642415499195, guid: 435d5d3cd52904460b825723754a9823,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -5669,34 +5645,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Salsichinha
       objectReference: {fileID: 0}
-    - target: {fileID: 8347672287196291254, guid: 435d5d3cd52904460b825723754a9823,
-        type: 3}
-      propertyPath: enemyAttacks.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8347672287196291254, guid: 435d5d3cd52904460b825723754a9823,
-        type: 3}
-      propertyPath: _playerTransform
-      value: 
-      objectReference: {fileID: 411368761}
-    - target: {fileID: 8347672287196291254, guid: 435d5d3cd52904460b825723754a9823,
-        type: 3}
-      propertyPath: enemyAttacks.Array.data[0]
-      value: 
-      objectReference: {fileID: 1761183727007726823, guid: c28efc6b070ec48d8b17a6960152743d,
-        type: 3}
-    - target: {fileID: 8347672287196291254, guid: 435d5d3cd52904460b825723754a9823,
-        type: 3}
-      propertyPath: enemyAttacks.Array.data[1]
-      value: 
-      objectReference: {fileID: 1761183727007726823, guid: 9b9f18fe7a4f142e294ed008dfc955d5,
-        type: 3}
-    - target: {fileID: 8347672287196291254, guid: 435d5d3cd52904460b825723754a9823,
-        type: 3}
-      propertyPath: enemyAttacks.Array.data[2]
-      value: 
-      objectReference: {fileID: 1761183727007726823, guid: 5c3006dc157e44a2da3ff47632605fe7,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 435d5d3cd52904460b825723754a9823, type: 3}
 --- !u!1 &1213404534
@@ -7198,6 +7146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1486344641}
+  - component: {fileID: 1486344642}
   m_Layer: 0
   m_Name: EnemyHolder
   m_TagString: Untagged
@@ -7221,6 +7170,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1486344642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486344640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1da289f7f9a1844fb199323e8b5f52a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeToWaitSubtractionPerEnemy: 0.2
 --- !u!1 &1516081530 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1950875022806349146, guid: bda144f2ed7bc4d028b24efb44a0abcb,
@@ -7840,7 +7802,7 @@ MonoBehaviour:
   _onGameOver:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1819661781}
+      - m_Target: {fileID: 0}
         m_MethodName: StopAttacks
         m_Mode: 1
         m_Arguments:
@@ -8211,18 +8173,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1819661781 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8347672287196291254, guid: b609a6c0b9d3848bbabd833a6594d403,
-    type: 3}
-  m_PrefabInstance: {fileID: 8347672288117230074}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1da289f7f9a1844fb199323e8b5f52a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1868397314
 GameObject:
   m_ObjectHideFlags: 0
@@ -8873,7 +8823,7 @@ MonoBehaviour:
   _onWin:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1819661781}
+      - m_Target: {fileID: 0}
         m_MethodName: StopAttacks
         m_Mode: 1
         m_Arguments:
@@ -9629,6 +9579,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1486344641}
     m_Modifications:
+    - target: {fileID: 72825632, guid: b609a6c0b9d3848bbabd833a6594d403, type: 3}
+      propertyPath: _spawnerController
+      value: 
+      objectReference: {fileID: 1486344642}
     - target: {fileID: 1943938505, guid: b609a6c0b9d3848bbabd833a6594d403, type: 3}
       propertyPath: _enemySelector
       value: 
@@ -9708,10 +9662,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 8347672287196291254, guid: b609a6c0b9d3848bbabd833a6594d403,
-        type: 3}
-      propertyPath: _playerTransform
-      value: 
-      objectReference: {fileID: 411368761}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b609a6c0b9d3848bbabd833a6594d403, type: 3}

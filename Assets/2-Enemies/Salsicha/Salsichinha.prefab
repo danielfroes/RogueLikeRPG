@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 8347672287196291248}
   - component: {fileID: 1943938505}
   - component: {fileID: 381334003976362717}
+  - component: {fileID: 1775668417}
   m_Layer: 8
   m_Name: Salsichinha
   m_TagString: Untagged
@@ -437,6 +438,20 @@ MonoBehaviour:
   - {fileID: 1761183727007726823, guid: 9b9f18fe7a4f142e294ed008dfc955d5, type: 3}
   attacksToTaunt: 3
   _animator: {fileID: 8347672287196291248}
+  _statusController: {fileID: 1943938505}
+  _spawnerController: {fileID: 0}
+--- !u!114 &1775668417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8347672287196291251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f124bc637ae49b1418c2c149500fd59b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8347672287624760204
 GameObject:
   m_ObjectHideFlags: 0

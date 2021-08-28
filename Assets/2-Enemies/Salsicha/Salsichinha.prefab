@@ -358,8 +358,9 @@ GameObject:
   - component: {fileID: 8347672287196291249}
   - component: {fileID: 8347672287196291248}
   - component: {fileID: 1943938505}
+  - component: {fileID: 381334003976362717}
   m_Layer: 8
-  m_Name: Enemy
+  m_Name: Salsichinha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -392,7 +393,7 @@ Animator:
   m_GameObject: {fileID: 8347672287196291251}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8329f591a93c840cfbdbbd4529f9bc1d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1d7df6c713e8b46d3bcc1039fa71357a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -418,6 +419,24 @@ MonoBehaviour:
   _animator: {fileID: 8347672287196291248}
   isDead: 0
   _enemySelector: {fileID: 0}
+--- !u!114 &381334003976362717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8347672287196291251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 646639a0f9564c4280ffa438fe215436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyAttacks:
+  - {fileID: 1761183727007726823, guid: c28efc6b070ec48d8b17a6960152743d, type: 3}
+  - {fileID: 1761183727007726823, guid: 5c3006dc157e44a2da3ff47632605fe7, type: 3}
+  - {fileID: 1761183727007726823, guid: 9b9f18fe7a4f142e294ed008dfc955d5, type: 3}
+  attacksToTaunt: 3
+  _animator: {fileID: 8347672287196291248}
 --- !u!1 &8347672287624760204
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,7 +537,8 @@ SpriteRenderer:
   m_SortingLayerID: -643734443
   m_SortingLayer: 3
   m_SortingOrder: 20
-  m_Sprite: {fileID: 21300000, guid: 971ad603868964701b74e40011565ab0, type: 3}
+  m_Sprite: {fileID: -7152313001097826590, guid: bc6cf18355f90434887d4cc0f8fdfc39,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -565,7 +585,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.1, y: 2.64}
+  m_AnchoredPosition: {x: 0.17, y: 2.66}
   m_SizeDelta: {x: 272.2309, y: 76.248505}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7599329638723299610

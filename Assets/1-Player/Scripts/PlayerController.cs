@@ -14,7 +14,6 @@ namespace Squeak
         public Sound dash;
         public Sound damaged;
 
-        public InputListener inputListener;
 
         // movement stuff
         public float movementDuration;
@@ -196,7 +195,6 @@ namespace Squeak
         {
             AudioManager.Play(damaged);
             
-            inputListener.enabled = false;
             _damaged = true;
             _animator.Play("Damage");
             transform.position = Position;
@@ -210,12 +208,10 @@ namespace Squeak
 
             _animator.Play("Idle");
             _damaged = false;
-            inputListener.enabled = true;
         }
 
         private void Die()
         {
-            inputListener.enabled = false;
 
             CancelCasting();
             StopAllCoroutines();

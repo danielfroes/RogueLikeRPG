@@ -1,5 +1,5 @@
 ﻿    using System.Collections;
-using System.Collections.Generic;
+    using System.Collections.Generic;
     using Squeak;
     using UnityEngine;
 
@@ -20,6 +20,8 @@ public abstract class Action : ScriptableObject {
     public float castTime;
     public int actionBarsNeeded;
     public Sound activeSound;
+    public float totalDmgOverTime;
+    public float timeOfDmgOverTime;
     
     [SerializeField] AnimationClip _animationClip = null;
     AnimatorOverrideController _animatorController;
@@ -40,13 +42,16 @@ public abstract class Action : ScriptableObject {
         }
 
         actionAnim.runtimeAnimatorController = _animatorController;
-            
+        
+
         actionAnim.SetTrigger(DoActionID);
         
     }
+
     
+   
     
-    
+
     //O animator do ataque ta dentro do player
     //Ele eh unico e compartilhado, entao a referencia dele pode ser pega de várias formas.
     //Posso colocoar ele no player e pegar a referencia do player

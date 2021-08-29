@@ -10,7 +10,7 @@ public class AttackAction : Action {
         base.DoAction(anim, enemy, player);
         anim.transform.position = enemy.transform.position;
         enemy.Damage(physicalDamage);
-        
+        enemy.DamageOverTime(totalDmgOverTime, timeOfDmgOverTime);
     }
 
 }

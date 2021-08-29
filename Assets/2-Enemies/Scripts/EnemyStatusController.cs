@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 namespace Squeak
 {
@@ -57,6 +58,25 @@ namespace Squeak
             }
             
             _healthBar.value = _health.GetHealthPercentage();
+        }
+
+        public void DamageOverTime(float damageAmount, float duration)
+        {
+            StartCoroutine(DamageOverTimeCoroutine(damageAmount, duration));
+        }
+
+        public IEnumerator DamageOverTimeCoroutine(float damageAmount, float duration)
+        {
+            float amountDamaged = 0;
+            float damagePerLoop = damageAmount / duration;
+
+            while (amountDamaged < damageAmount)
+            {
+                Damage(damagePerLoop);
+                amountDamaged += damagePerLoop;
+                yield return new WaitForSeconds(1f);
+            }
+
         }
     }
 }

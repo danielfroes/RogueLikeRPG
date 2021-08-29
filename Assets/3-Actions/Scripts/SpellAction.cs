@@ -12,6 +12,8 @@ public class SpellAction : Action
         base.DoAction(anim, enemy, player);
         anim.transform.position = enemy.transform.position;
         enemy.Damage(magicalDamage);
-        
+        enemy.DamageOverTime(totalDmgOverTime, timeOfDmgOverTime);
     }
+
 }
+

@@ -13,7 +13,7 @@ namespace Enemy
         [SerializeField] int attacksToTaunt = 4;
         [SerializeField] Animator _animator = null;
         [SerializeField] EnemyStatusController _statusController;
-        [SerializeField] EnemyAttackSpawnerController _spawnerController;
+        EnemyAttackSpawnerController _spawnerController;
         GameObject _attackContainer = null;
         int cntToTaunt = 0;
         Transform _playerTransform;
@@ -26,9 +26,15 @@ namespace Enemy
             
             _playerTransform = FindObjectOfType<PlayerController>().transform;
 
+            
+
+        }
+
+        public void Setup(EnemyAttackSpawnerController spawnerController)
+        {
+            _spawnerController = spawnerController;
             _spawnerController.RegisterAttackSpawner(this);
             _statusController.OnDeathEvent += (() => _spawnerController.UnregisterAttackSpawner(this));
-
         }
 
 

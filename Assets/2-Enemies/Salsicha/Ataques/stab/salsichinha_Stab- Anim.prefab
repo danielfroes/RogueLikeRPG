@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7724343481255648601}
   - component: {fileID: 5556212447833097808}
   m_Layer: 0
-  m_Name: salsichinha_Impact- Anim
+  m_Name: salsichinha_Stab- Anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

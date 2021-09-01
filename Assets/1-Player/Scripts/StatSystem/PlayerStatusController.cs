@@ -19,8 +19,13 @@ namespace Squeak
 
         public static event OnPlayerDamage OnDamageEvent;
 
+        public int combo;
         private StatBar _health;
         private Stat _defense;
+        private Stat _attack;
+        public Stat _velocity;
+        public Stat _cast_velocity;
+        public Stat _energy_charge_speed;
 
         public Slider _healthBar;
 
@@ -29,8 +34,13 @@ namespace Squeak
             if (Instance == null)
                 Instance = this;
 
+            combo = 0;
             _health = new StatBar(preset.maxHealth);
             _defense = new Stat(preset.defense);
+            _attack = new Stat(preset.attack);
+            _velocity = new Stat(preset.velocity);
+            _cast_velocity = new Stat(preset.castVelocity);
+            _energy_charge_speed = new Stat(preset.energyChargeSpeed);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -45,7 +55,7 @@ namespace Squeak
         /// <param name="rawDamage">Raw damage value.</param>
         public void Damage(float rawDamage)
         {
-            float damage = rawDamage - _defense.Value;
+            float damage = rawDamage / _defense.Value;
             if (damage > 0)
                 _health.Decrease(damage);
 
@@ -62,5 +72,68 @@ namespace Squeak
 
             _healthBar.value = _health.GetHealthPercentage();
         }
+
+
+        public void ComboIncrement()
+        {
+            StartCoroutine(ComboIncrementCoroutine());
+        }
+
+        public IEnumerator ComboIncrementCoroutine()
+        {
+            combo++;
+            yield return new WaitForSeconds(0.5f);
+            combo--;
+        }
+
+
+        public void SkillStatusUpdate(int type, float amount, float duration)
+        {
+            StatModifier modifier;
+            modifier.type = ModifierType.PERCENTAGE_MUL;
+            modifier.value = amount;
+            switch (type)
+            {
+                case 1:
+                    StatusUpdate(_attack, modifier, duration);
+                    break;
+                case 2:
+                    StatusUpdate(_defense, modifier, duration);
+                    break;
+                case 3:
+                    Debug.Log("case velocity");
+                    break;
+                case 4:
+                    StatusUpdate(_cast_velocity, modifier, duration);
+                    break;
+                case 5:
+                    Debug.Log("case energy charge speed");
+                    break;
+                default:
+                    Debug.Log("default case");
+                    break;
+            }
+
+        }
+
+        public void StatusUpdate(Stat status, StatModifier mod, float duration)
+        {
+            StartCoroutine(SkillStatusUpdateCoroutine(status, mod, duration));
+        }
+
+        public IEnumerator SkillStatusUpdateCoroutine(Stat status, StatModifier mod, float duration)
+        {
+            status.AddModifier(mod);
+            yield return new WaitForSeconds(duration);
+            status.RemoveModifier(mod);
+            yield break;
+        }
+
+
+        public float get_player_attack()
+        {
+            return _attack.Value;
+        }
+
     }
 }

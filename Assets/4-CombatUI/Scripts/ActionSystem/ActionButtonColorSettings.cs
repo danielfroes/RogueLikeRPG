@@ -10,10 +10,16 @@ namespace Scripts.ActionSystem
         public Color uniteractableTextColor;
         public Color attackColor;
         public Color spellColor;
+        public Color comboColor;
 
 
+        //public Color GetActionColor(Action action)
+        //{
+        //    return action.actionType == ActionType.Attack ? attackColor : spellColor;
+        //}
         public Color GetActionColor(Action action)
         {
+            if (ActionCaster.instance.GonnaCombo() && (action.comboDamage>0 || action.hasComboExtraStuff)) { return comboColor; }
             return action.actionType == ActionType.Attack ? attackColor : spellColor;
         }
     }

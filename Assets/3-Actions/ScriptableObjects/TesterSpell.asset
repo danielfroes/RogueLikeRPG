@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c634e2d7b48977742baca9227220e646, type: 3}
-  m_Name: PoisonDrop
+  m_Name: TesterSpell
   m_EditorClassIdentifier: 
-  actionName: PosionDrop
-  details: poisons the enemy and deal damage over time
-  actionType: 0
-  castTime: 1
+  actionName: testeSpell
+  details: testeSpell
+  actionType: 1
+  castTime: 0.5
   actionBarsNeeded: 1
   activeSound: {fileID: 0}
-  totalDmgOverTime: 200
-  timeOfDmgOverTime: 5
+  totalDmgOverTime: 0
+  timeOfDmgOverTime: 0
   statusType: 0
   statusAmount: 0
   statusDuration: 0
   comboDamage: 0
-  hasComboExtraStuff: 0
-  combo: {fileID: 0}
-  _animationClip: {fileID: 7400000, guid: a9e53f3f03ce0c3498cc19e63ae14a55, type: 2}
-  magicalDamage: 0
+  hasComboExtraStuff: 1
+  combo: {fileID: 11400000, guid: c24bc2f1b176c814da35ab3c27b971d7, type: 2}
+  _animationClip: {fileID: 0}
+  magicalDamage: 100

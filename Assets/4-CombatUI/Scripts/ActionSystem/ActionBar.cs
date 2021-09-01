@@ -53,6 +53,8 @@ public class ActionBar : MonoBehaviour {
     void FixedUpdate()
     {
 
+        //float _fillSpeed = PlayerStatusController._energy_charge_speed;
+
         fillImg.fillAmount += fillSpeed*Time.deltaTime;
 
         if (!(Math.Abs(fillImg.fillAmount - 1) < 0.01f) || _isFull) return;
@@ -101,4 +103,6 @@ public class ActionBar : MonoBehaviour {
         // numActions++;
         // colorIndex++;
     }
+
+    
 }

@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: DefaultStat
   m_EditorClassIdentifier: 
   maxHealth: 100
-  defense: 5
+  defense: 1
+  attack: 1
+  velocity: 1
+  castVelocity: 1
+  energyChargeSpeed: 1

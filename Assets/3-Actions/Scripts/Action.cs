@@ -10,6 +10,15 @@ public enum ActionType {
     Item,
 };
 
+public enum StatusUpdateType
+{
+    None,
+    Attack,
+    Defense,
+    Velocity,
+    CastSpeed,
+    StaminaChargeSpeed,
+}
 
 
 public abstract class Action : ScriptableObject {
@@ -22,13 +31,20 @@ public abstract class Action : ScriptableObject {
     public Sound activeSound;
     public float totalDmgOverTime;
     public float timeOfDmgOverTime;
-    
+    public StatusUpdateType statusType;
+    public float statusAmount;
+    public float statusDuration;
+    public int comboDamage;
+    public bool hasComboExtraStuff;
+    public Action combo;
+
+
     [SerializeField] AnimationClip _animationClip = null;
     AnimatorOverrideController _animatorController;
     
     static readonly int DoActionID = Animator.StringToHash("DoAction");
 
-    public virtual void DoAction(Animator actionAnim, EnemyStatusController enemy , PlayerStatusController player )
+    public virtual void DoAction(Animator actionAnim, EnemyStatusController enemy , PlayerStatusController player, bool gonnaCombo)
     {
         if (_animatorController == null)
         {
@@ -42,15 +58,29 @@ public abstract class Action : ScriptableObject {
         }
 
         actionAnim.runtimeAnimatorController = _animatorController;
-        
 
         actionAnim.SetTrigger(DoActionID);
         
     }
 
-    
-   
-    
+    public void DoCombo(EnemyStatusController enemy, PlayerStatusController player)
+    {
+        if (comboDamage != 0)
+        {
+            int DamageAmount = (int)(comboDamage * player.get_player_attack());
+            enemy.Damage(DamageAmount);
+        }
+        if (hasComboExtraStuff)
+        {
+            Debug.Log("do combo");
+            int DamageOverTimeAmount = (int)(combo.totalDmgOverTime * player.get_player_attack());
+            enemy.DamageOverTime(DamageOverTimeAmount, combo.timeOfDmgOverTime);
+            int something = (int)combo.statusType;
+            player.SkillStatusUpdate(something, combo.statusAmount, combo.statusDuration);
+        }
+    }
+
+
 
     //O animator do ataque ta dentro do player
     //Ele eh unico e compartilhado, entao a referencia dele pode ser pega de várias formas.

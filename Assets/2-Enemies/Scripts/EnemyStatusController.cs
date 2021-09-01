@@ -70,12 +70,25 @@ namespace Squeak
             float amountDamaged = 0;
             float damagePerLoop = damageAmount / duration;
 
-            while (amountDamaged < damageAmount)
+            if (damageAmount > 0)
             {
-                Damage(damagePerLoop);
-                amountDamaged += damagePerLoop;
-                yield return new WaitForSeconds(1f);
+                while (amountDamaged < damageAmount)
+                {
+                    Damage(damagePerLoop);
+                    amountDamaged += damagePerLoop;
+                    yield return new WaitForSeconds(1f);
+                }
             }
+            if (damageAmount < 0)
+            {
+                while (amountDamaged > damageAmount)
+                {
+                    Damage(damagePerLoop);
+                    amountDamaged += damagePerLoop;
+                    yield return new WaitForSeconds(1f);
+                }
+            }
+
 
         }
     }

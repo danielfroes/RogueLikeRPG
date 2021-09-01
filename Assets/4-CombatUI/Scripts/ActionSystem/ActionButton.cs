@@ -65,7 +65,8 @@ namespace Scripts.ActionSystem
             // if(action.actionBarsNeeded <= ActionBar.instance.numActions)
 
             ActionBar.instance.SpendAction(action.actionBarsNeeded);
-            ActionCaster.instance.CastAction(action);
+            bool gonnaCombo = ActionCaster.instance.GonnaCombo();
+            ActionCaster.instance.CastAction(action, gonnaCombo);
             
             playerController.Cast(action);
             AudioManager.Play(select);

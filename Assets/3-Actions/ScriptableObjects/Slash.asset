@@ -18,5 +18,13 @@ MonoBehaviour:
   castTime: 1
   actionBarsNeeded: 1
   activeSound: {fileID: 11400000, guid: 9728791d988ee3c4b9c370ac4e6bfb8d, type: 2}
+  totalDmgOverTime: 0
+  timeOfDmgOverTime: 0
+  statusType: 0
+  statusAmount: 0
+  statusDuration: 0
+  comboDamage: 0
+  hasComboScript: 0
+  combo: {fileID: 0}
   _animationClip: {fileID: 7400000, guid: e05cbb0810858461c869cc2ccfe49c49, type: 2}
   physicalDamage: 150

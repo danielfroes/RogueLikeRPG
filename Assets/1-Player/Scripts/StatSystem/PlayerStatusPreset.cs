@@ -7,4 +7,8 @@ public class PlayerStatusPreset : ScriptableObject
 {
     public float maxHealth;
     public float defense;
+    public float attack;
+    public float velocity;
+    public float castVelocity;
+    public float energyChargeSpeed;
 }

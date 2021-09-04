@@ -1,25 +1,16 @@
 fileFormatVersion: 2
-guid: eb33688d5a0caeb488d51cc72dfbf29c
+guid: ebcef10e6f9b9bd4b952f25bb0768f24
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7306880930898271056
-    second: ataque_shuriken_80x80_0
+      213: -7605200983896642737
+    second: Sangue_92x92_0
   - first:
-      213: 6620572361274488850
-    second: ataque_shuriken_80x80_1
+      213: -1862704184003854423
+    second: Sangue_92x92_1
   - first:
-      213: -2526726005732192635
-    second: ataque_shuriken_80x80_2
-  - first:
-      213: 7027835268999505427
-    second: ataque_shuriken_80x80_3
-  - first:
-      213: 2877277409114172460
-    second: ataque_shuriken_80x80_4
-  - first:
-      213: 1639573530747652194
-    second: ataque_shuriken_80x80_5
+      213: -3773937659724183509
+    second: Sangue_92x92_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -101,131 +92,80 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ataque_shuriken_80x80_0
+      name: Sangue_92x92_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 80
-        height: 80
-      alignment: 9
-      pivot: {x: 0.5, y: 0.7}
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05b544e3e71476560800000000000000
-      internalID: 7306880930898271056
+      spriteID: f4ba36dcff5e47690800000000000000
+      internalID: -7605200983896642737
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ataque_shuriken_80x80_1
+      name: Sangue_92x92_1
       rect:
         serializedVersion: 2
-        x: 80
+        x: 92
         y: 0
-        width: 80
-        height: 80
-      alignment: 9
-      pivot: {x: 0.5, y: 0.7}
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 218f88b3c7ff0eb50800000000000000
-      internalID: 6620572361274488850
+      spriteID: 9aff0d6e9685626e0800000000000000
+      internalID: -1862704184003854423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ataque_shuriken_80x80_2
+      name: Sangue_92x92_2
       rect:
         serializedVersion: 2
-        x: 160
+        x: 184
         y: 0
-        width: 80
-        height: 80
-      alignment: 9
-      pivot: {x: 0.5, y: 0.7}
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58e479fb5144fecd0800000000000000
-      internalID: -2526726005732192635
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ataque_shuriken_80x80_3
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 0
-        width: 80
-        height: 80
-      alignment: 9
-      pivot: {x: 0.5, y: 0.7}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3166dac21f2e78160800000000000000
-      internalID: 7027835268999505427
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ataque_shuriken_80x80_4
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 80
-        height: 80
-      alignment: 9
-      pivot: {x: 0.5, y: 0.7}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c2ca1822f842ee720800000000000000
-      internalID: 2877277409114172460
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ataque_shuriken_80x80_5
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 0
-        width: 80
-        height: 80
-      alignment: 9
-      pivot: {x: 0.5, y: 0.7}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 268c85b707fe0c610800000000000000
-      internalID: 1639573530747652194
+      spriteID: b28cba391b740abc0800000000000000
+      internalID: -3773937659724183509
       vertices: []
       indices: 
       edges: []
@@ -233,7 +173,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 4ac5f48093186e44fae6b4a476bbccf0
+    spriteID: acc5e517fc6e7c44caf0b63708d13133
     internalID: 0
     vertices: []
     indices: 

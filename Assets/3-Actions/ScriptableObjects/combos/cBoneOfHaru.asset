@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c634e2d7b48977742baca9227220e646, type: 3}
-  m_Name: FireBall
+  m_Name: cBoneOfHaru
   m_EditorClassIdentifier: 
-  actionName: FireBall
-  details: Poderosa magia de fogo que pode fazer o inimigo queimar.
-  actionType: 1
-  castTime: 1.6
-  actionBarsNeeded: 1
-  activeSound: {fileID: 11400000, guid: 329ac693d0a41574bafcc8962c40ff9f, type: 2}
+  actionName: comboBoneOfHaru
+  details: 
+  actionType: 0
+  castTime: 0
+  actionBarsNeeded: 0
+  activeSound: {fileID: 0}
   totalDmgOverTime: 0
   timeOfDmgOverTime: 0
-  statusType: 0
-  statusAmount: 0
+  statusType: 6
+  statusAmount: 25
   statusDuration: 0
   divineShield: 0
   comboDamage: 0
   combo: {fileID: 0}
   animateOnPlayer: 0
-  _animationClip: {fileID: 7400000, guid: 8e31a06f9a6ee4ce28a848d8b13e0959, type: 2}
-  magicalDamage: 70
+  _animationClip: {fileID: 7400000, guid: 02d45acfc83812f4784e5db301bfe247, type: 2}
+  magicalDamage: 0

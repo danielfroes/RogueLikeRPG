@@ -13,12 +13,18 @@ MonoBehaviour:
   m_Name: ShadowDagger
   m_EditorClassIdentifier: 
   actionName: ShadowDagger
-  details: a slash of shadow energy
+  details: a swing of shadow energy
   actionType: 0
   castTime: 0.5
   actionBarsNeeded: 1
   activeSound: {fileID: 11400000, guid: 9728791d988ee3c4b9c370ac4e6bfb8d, type: 2}
   totalDmgOverTime: 0
   timeOfDmgOverTime: 0
+  statusType: 0
+  statusAmount: 0
+  statusDuration: 0
+  comboDamage: 0
+  hasComboExtraStuff: 0
+  combo: {fileID: 0}
   _animationClip: {fileID: 7400000, guid: f1e7e560ea6301a419e2f738b2e174c3, type: 2}
   physicalDamage: 100

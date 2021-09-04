@@ -23,8 +23,9 @@ MonoBehaviour:
   statusType: 0
   statusAmount: 0
   statusDuration: 0
+  divineShield: 0
   comboDamage: 0
-  hasComboScript: 0
   combo: {fileID: 0}
+  animateOnPlayer: 0
   _animationClip: {fileID: 7400000, guid: e05cbb0810858461c869cc2ccfe49c49, type: 2}
-  physicalDamage: 150
+  physicalDamage: 35

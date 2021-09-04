@@ -31,11 +31,10 @@ public class ActionCaster : MonoBehaviour {
         castingBar.value = 0;
         castingBar.gameObject.SetActive(true);
         isCasting = true;
-        castingBar.DOValue(castingBar.maxValue, (float)(action.castTime / _playerStatusController._cast_velocity.Value)).OnComplete(() =>
+        castingBar.DOValue(castingBar.maxValue, (float)(action.castTime / _playerStatusController.GetCastVelocity())).OnComplete(() =>
         {
             _enemyStatusController = _enemySelector.selectedEnemy.GetComponent<EnemyStatusController>();
             action.DoAction(_actionAnim, _enemyStatusController, _playerStatusController, gonnaCombo);
-            //action.DoAction(_actionAnim, _enemyStatusController, _playerStatusController);
             castingBar.gameObject.SetActive(false);
             isCasting = false;
         });

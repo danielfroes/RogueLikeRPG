@@ -18,7 +18,9 @@ public enum StatusUpdateType
     Velocity,
     CastSpeed,
     StaminaChargeSpeed,
+    Hp,
 }
+
 
 
 public abstract class Action : ScriptableObject {
@@ -34,9 +36,10 @@ public abstract class Action : ScriptableObject {
     public StatusUpdateType statusType;
     public float statusAmount;
     public float statusDuration;
+    public bool divineShield;
     public int comboDamage;
-    public bool hasComboExtraStuff;
     public Action combo;
+    public bool animateOnPlayer;
 
 
     [SerializeField] AnimationClip _animationClip = null;
@@ -46,13 +49,14 @@ public abstract class Action : ScriptableObject {
 
     public virtual void DoAction(Animator actionAnim, EnemyStatusController enemy , PlayerStatusController player, bool gonnaCombo)
     {
+        AnimationClip _animToPlay = _animationClip;
         if (_animatorController == null)
         {
             _animatorController = new AnimatorOverrideController(actionAnim.runtimeAnimatorController);
             var anims = new List<KeyValuePair<AnimationClip, AnimationClip>>
             {
                 new KeyValuePair<AnimationClip, AnimationClip>(_animatorController.animationClips[0],
-                    _animationClip)
+                    _animToPlay)
             };
             _animatorController.ApplyOverrides(anims);
         }
@@ -63,20 +67,16 @@ public abstract class Action : ScriptableObject {
         
     }
 
-    public void DoCombo(EnemyStatusController enemy, PlayerStatusController player)
+    public void DoCombo(Animator anim, EnemyStatusController enemy, PlayerStatusController player, bool gonnaCombo)
     {
         if (comboDamage != 0)
         {
-            int DamageAmount = (int)(comboDamage * player.get_player_attack());
+            int DamageAmount = (int)(comboDamage * player.GetPlayerAttack());
             enemy.Damage(DamageAmount);
         }
-        if (hasComboExtraStuff)
+        if (combo != null)
         {
-            Debug.Log("do combo");
-            int DamageOverTimeAmount = (int)(combo.totalDmgOverTime * player.get_player_attack());
-            enemy.DamageOverTime(DamageOverTimeAmount, combo.timeOfDmgOverTime);
-            int something = (int)combo.statusType;
-            player.SkillStatusUpdate(something, combo.statusAmount, combo.statusDuration);
+            combo.DoAction(anim, enemy, player, gonnaCombo);
         }
     }
 

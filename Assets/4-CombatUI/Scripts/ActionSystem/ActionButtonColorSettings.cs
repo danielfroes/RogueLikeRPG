@@ -19,7 +19,7 @@ namespace Scripts.ActionSystem
         //}
         public Color GetActionColor(Action action)
         {
-            if (ActionCaster.instance.GonnaCombo() && (action.comboDamage>0 || action.hasComboExtraStuff)) { return comboColor; }
+            if (ActionCaster.instance.GonnaCombo() && (action.comboDamage>0 || action.combo != null)) { return comboColor; }
             return action.actionType == ActionType.Attack ? attackColor : spellColor;
         }
     }

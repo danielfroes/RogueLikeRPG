@@ -12,19 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9658f1f1c146cce4e9a642a1d499ab00, type: 3}
   m_Name: ShadowBoom
   m_EditorClassIdentifier: 
-  actionName: ShadowBoom
+  actionName: ShadowStrike
   details: an attack emerges from a fissure and deal a ton of damage
   actionType: 0
   castTime: 1.5
-  actionBarsNeeded: 2
+  actionBarsNeeded: 3
   activeSound: {fileID: 11400000, guid: 329ac693d0a41574bafcc8962c40ff9f, type: 2}
   totalDmgOverTime: 0
   timeOfDmgOverTime: 0
   statusType: 0
   statusAmount: 0
   statusDuration: 0
+  divineShield: 0
   comboDamage: 0
-  hasComboExtraStuff: 0
   combo: {fileID: 0}
+  animateOnPlayer: 0
   _animationClip: {fileID: 7400000, guid: cf5b0bbd6a7d35f4fb479580adb553ff, type: 2}
-  physicalDamage: 450
+  physicalDamage: 160

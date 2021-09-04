@@ -10,16 +10,18 @@ public class SpellAction : Action
     public override void DoAction(Animator anim, EnemyStatusController enemy, PlayerStatusController player, bool gonnaCombo)
     {
         base.DoAction(anim, enemy, player, gonnaCombo);
-        anim.transform.position = enemy.transform.position;
+        if (animateOnPlayer) { anim.transform.position = player.transform.position; } else { anim.transform.position = enemy.transform.position; }
+        //anim.transform.position = enemy.transform.position;
         if (magicalDamage != 0 || totalDmgOverTime != 0)
         {
-            int DamageAmount = (int)(magicalDamage * player.get_player_attack());
+            int DamageAmount = (int)(magicalDamage * player.GetPlayerAttack());
             enemy.Damage(DamageAmount);
-            int DamageOverTimeAmount = (int)(totalDmgOverTime * player.get_player_attack());
+            int DamageOverTimeAmount = (int)(totalDmgOverTime * player.GetPlayerAttack());
             enemy.DamageOverTime(DamageOverTimeAmount, timeOfDmgOverTime);
         }
         player.SkillStatusUpdate((int)statusType, statusAmount, statusDuration);
-        if (gonnaCombo) { DoCombo(enemy, player); }
+        if (divineShield) { player.ActivateDivineShield(); }
+        if (gonnaCombo) { DoCombo(anim, enemy, player, gonnaCombo); }
         player.ComboIncrement();
     }
     

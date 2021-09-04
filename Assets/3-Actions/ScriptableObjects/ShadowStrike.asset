@@ -12,19 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9658f1f1c146cce4e9a642a1d499ab00, type: 3}
   m_Name: ShadowStrike
   m_EditorClassIdentifier: 
-  actionName: ShadowStrike
-  details: a strike of shadow energy
+  actionName: ShadowSlash
+  details: a slash of shadow energy
   actionType: 0
-  castTime: 1
-  actionBarsNeeded: 1
+  castTime: 1.3
+  actionBarsNeeded: 2
   activeSound: {fileID: 11400000, guid: 9728791d988ee3c4b9c370ac4e6bfb8d, type: 2}
   totalDmgOverTime: 0
   timeOfDmgOverTime: 0
   statusType: 0
   statusAmount: 0
   statusDuration: 0
+  divineShield: 0
   comboDamage: 0
-  hasComboExtraStuff: 0
   combo: {fileID: 0}
+  animateOnPlayer: 0
   _animationClip: {fileID: 7400000, guid: fccc8f92c631b054db943044af0c41a3, type: 2}
-  physicalDamage: 300
+  physicalDamage: 90

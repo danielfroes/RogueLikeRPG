@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shuriken
   m_EditorClassIdentifier: 
   actionName: shuriken
-  details: 'combo: deals 100 extra damage'
+  details: 'combo: deals double damage'
   actionType: 0
   castTime: 0.7
   actionBarsNeeded: 1
@@ -23,8 +23,9 @@ MonoBehaviour:
   statusType: 0
   statusAmount: 0
   statusDuration: 0
-  comboDamage: 100
-  hasComboExtraStuff: 0
-  combo: {fileID: 0}
+  divineShield: 0
+  comboDamage: 0
+  combo: {fileID: 11400000, guid: d2abd30529440684a828608cc342d52b, type: 2}
+  animateOnPlayer: 0
   _animationClip: {fileID: 7400000, guid: 9aa177c7b7f1fa240946f38af652b8d0, type: 2}
-  physicalDamage: 100
+  physicalDamage: 25

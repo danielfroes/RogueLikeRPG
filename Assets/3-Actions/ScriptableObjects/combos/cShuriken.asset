@@ -10,18 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9658f1f1c146cce4e9a642a1d499ab00, type: 3}
-  m_Name: SkillTester
+  m_Name: cShuriken
   m_EditorClassIdentifier: 
-  actionName: TestSkill
-  details: this is a test to create new skills
-  actionType: 1
-  castTime: 0.5
-  actionBarsNeeded: 1
+  actionName: 
+  details: 
+  actionType: 0
+  castTime: 0
+  actionBarsNeeded: 0
   activeSound: {fileID: 0}
   totalDmgOverTime: 0
   timeOfDmgOverTime: 0
-  statusType: 2
-  statusAmount: 1
-  statusDuration: 20
-  _animationClip: {fileID: 7400000, guid: 13ade6ce6fbe78044a7168aa48f7657e, type: 2}
-  physicalDamage: 0
+  statusType: 0
+  statusAmount: 0
+  statusDuration: 0
+  divineShield: 0
+  comboDamage: 0
+  combo: {fileID: 0}
+  animateOnPlayer: 0
+  _animationClip: {fileID: 7400000, guid: ac98e5a0cb877454583ce4c526ccfe75, type: 2}
+  physicalDamage: 25

@@ -20,12 +20,13 @@ namespace Squeak
         public static event OnPlayerDamage OnDamageEvent;
 
         public int combo;
+        private bool divineShield;
         private StatBar _health;
         private Stat _defense;
         private Stat _attack;
-        public Stat _velocity;
-        public Stat _cast_velocity;
-        public Stat _energy_charge_speed;
+        private Stat _velocity;
+        private Stat _cast_velocity;
+        private Stat _energy_charge_speed;
 
         public Slider _healthBar;
 
@@ -45,6 +46,12 @@ namespace Squeak
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (divineShield)
+            {
+                Debug.Log("divine shield");
+                divineShield = false;
+                return;
+            }
             Damage(25f);
             Destroy(other.gameObject);
         }
@@ -109,6 +116,11 @@ namespace Squeak
                 case 5:
                     Debug.Log("case energy charge speed");
                     break;
+                case 6:
+                    Debug.Log("case HP");
+                    if (amount < 0) { _health.Decrease(-amount); } else { _health.Regen(amount); }
+                    _healthBar.value = _health.GetHealthPercentage();
+                    break;
                 default:
                     Debug.Log("default case");
                     break;
@@ -129,11 +141,11 @@ namespace Squeak
             yield break;
         }
 
+        public void ActivateDivineShield(){divineShield = true;}
 
-        public float get_player_attack()
-        {
-            return _attack.Value;
-        }
+        public float GetPlayerAttack(){return _attack.Value;}
+
+        public float GetCastVelocity(){return _cast_velocity.Value;}
 
     }
 }

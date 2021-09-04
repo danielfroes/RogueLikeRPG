@@ -1013,6 +1013,7 @@ MonoBehaviour:
     type: 3}
   _infoPanel: {fileID: 2718536430110143274}
   _transitionsTime: 0.2
+  inputComponent: {fileID: 0}
   open: {fileID: 0}
   select: {fileID: 0}
   submit: {fileID: 0}
@@ -1797,7 +1798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3882353, g: 0.54742765, b: 0.6784314, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1920,6 +1921,7 @@ MonoBehaviour:
   details: {fileID: 2718536430018139899}
   castTime: {fileID: 2718536429733357627}
   damage: {fileID: 2718536430855581635}
+  actionsNeeded: {fileID: 0}
 --- !u!1 &2718536430186131195
 GameObject:
   m_ObjectHideFlags: 0

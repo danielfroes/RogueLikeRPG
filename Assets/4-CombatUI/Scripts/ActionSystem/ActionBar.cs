@@ -53,7 +53,7 @@ public class ActionBar : MonoBehaviour {
     void FixedUpdate()
     {
 
-        //float _fillSpeed = PlayerStatusController._energy_charge_speed;
+        //float _fillSpeed = Player._energy_charge_speed;
 
         fillImg.fillAmount += fillSpeed*Time.deltaTime;
 

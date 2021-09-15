@@ -11,7 +11,7 @@ namespace Scripts.ActionSystem
     public class ActionButton : MonoBehaviour {
 
         [HideInInspector]
-        public Action action;
+        public PlayerAction action;
         [FormerlySerializedAs("actionMenu")] [HideInInspector]
         public ActionMenuController _actionMenuController;
         [SerializeField]

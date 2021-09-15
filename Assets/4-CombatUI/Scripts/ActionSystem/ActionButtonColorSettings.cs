@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Scripts.ActionSystem
 {
-    [CreateAssetMenu(fileName = "new Action Button Color Setting", menuName = "Action Menu SO/Settings/Buttons Color Settings", order = 0)]
+    [CreateAssetMenu(fileName = "new PlayerAction Button Color Setting", menuName = "PlayerAction Menu SO/Settings/Buttons Color Settings", order = 0)]
     public class ActionButtonColorSettings : ScriptableObject
     {
         public Color interactableTextColor;
@@ -12,7 +12,7 @@ namespace Scripts.ActionSystem
         public Color spellColor;
 
 
-        public Color GetActionColor(Action action)
+        public Color GetActionColor(PlayerAction action)
         {
             return action.actionType == ActionType.Attack ? attackColor : spellColor;
         }

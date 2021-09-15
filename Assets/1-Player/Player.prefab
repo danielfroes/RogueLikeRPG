@@ -796,6 +796,7 @@ GameObject:
   - component: {fileID: 1950875022676130005}
   - component: {fileID: 1950875022676130006}
   - component: {fileID: 1950875022676130007}
+  - component: {fileID: 6763041885089555479}
   m_Layer: 0
   m_Name: Player-Sprite
   m_TagString: Untagged
@@ -887,6 +888,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6763041885089555479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950875022676130004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a54501d9a334692917d91cb031926b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+  _battleStateController: {fileID: 0}
 --- !u!1 &1950875022806349146
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,6 +917,7 @@ GameObject:
   - component: {fileID: 1950875022806349094}
   - component: {fileID: 1772182541}
   - component: {fileID: 1516081532}
+  - component: {fileID: 1516081536}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -941,7 +957,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dash: {fileID: 11400000, guid: cd816e628dc0ce240bae3fc2c7c0c7b7, type: 2}
   damaged: {fileID: 11400000, guid: 9782a73e86d27d84ea059ae2023096fb, type: 2}
-  inputListener: {fileID: 0}
   movementDuration: 0.18
   movementBufferTime: 0.9
   transitionCurve:
@@ -970,6 +985,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   actionMenu: {fileID: 4922231373654037319}
   _actionMenu: {fileID: 7058663579240274876}
+  _actionTargetSelector: {fileID: 1516081536}
 --- !u!114 &5317840038220392902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1120,11 +1136,32 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e9661349-e98d-40e8-a001-1fd8d3244696
     m_ActionName: ActionMenu/Menu[/Keyboard/z,/Keyboard/shift,/DualShock4GamepadHID/buttonWest,/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 45aa3f74-8810-47c8-9bd8-96b0e3074698
+    m_ActionName: Player/SelectLeftEnemy[/Keyboard/c]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c97c11b5-69f2-4938-94e3-71face3f6a21
+    m_ActionName: Player/SelectRightEnemy[/Keyboard/v]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1516081536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950875022806349146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3320ade476efc439fbc1e609fc98a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _battleStateController: {fileID: 0}
 --- !u!1 &6461843569583662093
 GameObject:
   m_ObjectHideFlags: 0
@@ -6836,21 +6873,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54992f69b5c544ba58442bdeffb44e61, type: 3}
---- !u!224 &7058663578859904766 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2718536430192978250, guid: 54992f69b5c544ba58442bdeffb44e61,
-    type: 3}
-  m_PrefabInstance: {fileID: 4922231372572194740}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &4922231372646609293 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 76580409, guid: 54992f69b5c544ba58442bdeffb44e61,
+--- !u!1 &7058663579240274876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2718536430046964744, guid: 54992f69b5c544ba58442bdeffb44e61,
     type: 3}
   m_PrefabInstance: {fileID: 4922231372572194740}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &4922231373464587433 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1439775517, guid: 54992f69b5c544ba58442bdeffb44e61,
+    type: 3}
+  m_PrefabInstance: {fileID: 4922231372572194740}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &4922231372646609293 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 76580409, guid: 54992f69b5c544ba58442bdeffb44e61,
     type: 3}
   m_PrefabInstance: {fileID: 4922231372572194740}
   m_PrefabAsset: {fileID: 0}
@@ -6872,15 +6909,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4922231372572194740}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &7058663577430830111 stripped
+--- !u!224 &7058663578859904766 stripped
 RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2718536429305224107, guid: 54992f69b5c544ba58442bdeffb44e61,
+  m_CorrespondingSourceObject: {fileID: 2718536430192978250, guid: 54992f69b5c544ba58442bdeffb44e61,
     type: 3}
   m_PrefabInstance: {fileID: 4922231372572194740}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7058663579240274876 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2718536430046964744, guid: 54992f69b5c544ba58442bdeffb44e61,
+--- !u!224 &7058663577430830111 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2718536429305224107, guid: 54992f69b5c544ba58442bdeffb44e61,
     type: 3}
   m_PrefabInstance: {fileID: 4922231372572194740}
   m_PrefabAsset: {fileID: 0}
@@ -7006,6 +7043,11 @@ PrefabInstance:
       propertyPath: _playerStatusController
       value: 
       objectReference: {fileID: 5317840038220392902}
+    - target: {fileID: 5487453022032987220, guid: 639cfc97cac814b07b6243da99da5ffd,
+        type: 3}
+      propertyPath: _actionTargetSelector
+      value: 
+      objectReference: {fileID: 1516081536}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 639cfc97cac814b07b6243da99da5ffd, type: 3}
 --- !u!224 &1978943579512083361 stripped

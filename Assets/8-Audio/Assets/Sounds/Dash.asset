@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a34bc389d1d21b946b7adaa7a50e457e, type: 3}
-  m_Name: Dash
+  m_Name: dash
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 75e6c97be2f4dbe4ebccb1703ba72b8e, type: 3}
+  clip: {fileID: 8300000, guid: 367becd9a667b7140a8c18dbb11e5f36, type: 3}
   group: {fileID: -8732218913031730458, guid: 6f775cf678f4aee439a461d5db2f56d8, type: 2}
   loop: 0
-  volume: 1
+  volume: 0.5

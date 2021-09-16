@@ -221,6 +221,8 @@ MonoBehaviour:
   _Down: 1
   _Right: 1
   _Left: 1
+  numberSuccessiveAttacks: 0
+  timeBetweenSuccessiveAttacks: 0
 --- !u!95 &1969162617
 Animator:
   serializedVersion: 3
@@ -264,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29194902f276a9f479d250bfaf508451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 11400000, guid: 9728791d988ee3c4b9c370ac4e6bfb8d, type: 2}
+  sound: {fileID: 11400000, guid: 86f53c3dd4fb6a047ba7e52f5a1ef692, type: 2}
 --- !u!1 &8286640242035591504
 GameObject:
   m_ObjectHideFlags: 0

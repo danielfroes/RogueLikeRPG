@@ -20,7 +20,7 @@ MonoBehaviour:
   actionType: 1
   castTime: 1
   actionBarsNeeded: 2
-  activeSound: {fileID: 0}
+  activeSound: {fileID: 11400000, guid: a76a3dbd23aa9974f88056f605b8dab2, type: 2}
   totalDmgOverTime: 100
   timeOfDmgOverTime: 10
   statusType: 6
@@ -30,5 +30,5 @@ MonoBehaviour:
   comboDamage: 0
   combo: {fileID: 11400000, guid: c17213bae9d7b8e4c9c045a595fc4fa2, type: 2}
   animateOnPlayer: 1
-  _animationClip: {fileID: 7400000, guid: 02d45acfc83812f4784e5db301bfe247, type: 2}
+  _animationClip: {fileID: 7400000, guid: 5ccb7fa0767b1c94a8ba8a79f132d589, type: 2}
   magicalDamage: 0

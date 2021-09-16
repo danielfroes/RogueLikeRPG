@@ -247,6 +247,8 @@ MonoBehaviour:
   _Down: 1
   _Right: 1
   _Left: 1
+  numberSuccessiveAttacks: 0
+  timeBetweenSuccessiveAttacks: 0
 --- !u!114 &-5938704471666961844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,4 +292,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29194902f276a9f479d250bfaf508451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 11400000, guid: 9728791d988ee3c4b9c370ac4e6bfb8d, type: 2}
+  sound: {fileID: 11400000, guid: 86f53c3dd4fb6a047ba7e52f5a1ef692, type: 2}

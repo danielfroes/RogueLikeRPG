@@ -17,7 +17,7 @@ MonoBehaviour:
   actionType: 0
   castTime: 0
   actionBarsNeeded: 0
-  activeSound: {fileID: 0}
+  activeSound: {fileID: 11400000, guid: a76a3dbd23aa9974f88056f605b8dab2, type: 2}
   totalDmgOverTime: 0
   timeOfDmgOverTime: 0
   statusType: 6
@@ -27,5 +27,5 @@ MonoBehaviour:
   comboDamage: 0
   combo: {fileID: 0}
   animateOnPlayer: 0
-  _animationClip: {fileID: 7400000, guid: 02d45acfc83812f4784e5db301bfe247, type: 2}
+  _animationClip: {fileID: 7400000, guid: 5ccb7fa0767b1c94a8ba8a79f132d589, type: 2}
   magicalDamage: 0

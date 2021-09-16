@@ -3750,7 +3750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29194902f276a9f479d250bfaf508451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 11400000, guid: 356a4fb1190007a40b02087af709acb5, type: 2}
+  sound: {fileID: 11400000, guid: af4b9583f3ca23b469e365378dc110a9, type: 2}
 --- !u!4 &750928770
 Transform:
   m_ObjectHideFlags: 0
@@ -4229,6 +4229,12 @@ PrefabInstance:
       propertyPath: movementBufferTime
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 1950875022806349093, guid: bda144f2ed7bc4d028b24efb44a0abcb,
+        type: 3}
+      propertyPath: dash
+      value: 
+      objectReference: {fileID: 11400000, guid: 74ae2e4c2efe3e44f909bd3eca781a9e,
+        type: 2}
     - target: {fileID: 1950875022806349094, guid: bda144f2ed7bc4d028b24efb44a0abcb,
         type: 3}
       propertyPath: m_Enabled
@@ -4323,19 +4329,19 @@ PrefabInstance:
         type: 3}
       propertyPath: availableActions.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: bfcccde9505885242ae9ff5c96eee319,
+      objectReference: {fileID: 11400000, guid: 7f9a8af5684bae54083d82db6d567397,
         type: 2}
     - target: {fileID: 4922231373654037319, guid: bda144f2ed7bc4d028b24efb44a0abcb,
         type: 3}
       propertyPath: availableActions.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 7f9a8af5684bae54083d82db6d567397,
+      objectReference: {fileID: 11400000, guid: bfcccde9505885242ae9ff5c96eee319,
         type: 2}
     - target: {fileID: 4922231373654037319, guid: bda144f2ed7bc4d028b24efb44a0abcb,
         type: 3}
       propertyPath: availableActions.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: ecea3d79c615c234c850cb94be697bf7,
+      objectReference: {fileID: 11400000, guid: e6c2acbc2690d469cb17655b4b06793a,
         type: 2}
     - target: {fileID: 4922231373654037319, guid: bda144f2ed7bc4d028b24efb44a0abcb,
         type: 3}
@@ -4522,6 +4528,18 @@ PrefabInstance:
       propertyPath: availableActions.Array.data[33]
       value: 
       objectReference: {fileID: 11400000, guid: ce039c91d32d4874d96badbf813e010f,
+        type: 2}
+    - target: {fileID: 4922231373654037319, guid: bda144f2ed7bc4d028b24efb44a0abcb,
+        type: 3}
+      propertyPath: select
+      value: 
+      objectReference: {fileID: 11400000, guid: e0504f7eded0d7840bf3abb46675f838,
+        type: 2}
+    - target: {fileID: 4922231373654037319, guid: bda144f2ed7bc4d028b24efb44a0abcb,
+        type: 3}
+      propertyPath: submit
+      value: 
+      objectReference: {fileID: 11400000, guid: 3924a66bf6f55c54aa5d3540e5fb71fc,
         type: 2}
     - target: {fileID: 5317840038220392902, guid: bda144f2ed7bc4d028b24efb44a0abcb,
         type: 3}
@@ -7041,7 +7059,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 12.6
+  m_fontSize: 11.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

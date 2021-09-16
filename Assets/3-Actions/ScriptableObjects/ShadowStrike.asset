@@ -17,7 +17,7 @@ MonoBehaviour:
   actionType: 0
   castTime: 1.3
   actionBarsNeeded: 2
-  activeSound: {fileID: 11400000, guid: 9728791d988ee3c4b9c370ac4e6bfb8d, type: 2}
+  activeSound: {fileID: 11400000, guid: 682b99bee62e3234cac6ab20d7ae8275, type: 2}
   totalDmgOverTime: 0
   timeOfDmgOverTime: 0
   statusType: 0

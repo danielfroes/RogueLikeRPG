@@ -4335,13 +4335,13 @@ PrefabInstance:
         type: 3}
       propertyPath: availableActions.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: bfcccde9505885242ae9ff5c96eee319,
+      objectReference: {fileID: 11400000, guid: ce039c91d32d4874d96badbf813e010f,
         type: 2}
     - target: {fileID: 4922231373654037319, guid: bda144f2ed7bc4d028b24efb44a0abcb,
         type: 3}
       propertyPath: availableActions.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: e6c2acbc2690d469cb17655b4b06793a,
+      objectReference: {fileID: 11400000, guid: 46c2957189c45404e939658805281901,
         type: 2}
     - target: {fileID: 4922231373654037319, guid: bda144f2ed7bc4d028b24efb44a0abcb,
         type: 3}
@@ -7059,7 +7059,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 11.45
+  m_fontSize: 13.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

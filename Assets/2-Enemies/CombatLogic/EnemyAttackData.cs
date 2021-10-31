@@ -1,10 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using DirectionSystem;
-
-
-
 
 public class EnemyAttackData : MonoBehaviour
 {
@@ -33,6 +29,10 @@ public class EnemyAttackData : MonoBehaviour
     [SerializeField] private bool _Right = true;
     [SerializeField] private bool _Left = true;
 
+
+    [Header("Successive Attacks")]
+    public int numberSuccessiveAttacks = 0;
+    public float timeBetweenSuccessiveAttacks = 0;
 
     private float[] weights;
     private List<Direction> _possibleDirections = new List<Direction>();

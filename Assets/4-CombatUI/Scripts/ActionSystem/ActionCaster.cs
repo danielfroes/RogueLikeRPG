@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using Squeak;
@@ -16,7 +13,7 @@ public class ActionCaster : MonoBehaviour {
     [SerializeField] Animator _actionAnim = null;
                      EnemyStatusController _enemyStatusController = null;
     [SerializeField] PlayerStatusController _playerStatusController = null;
-    [SerializeField] EnemySelector _enemySelector = null;
+    [SerializeField] ActionTargetSelector _actionTargetSelector = null;
    
     void Awake()
     {
@@ -26,13 +23,13 @@ public class ActionCaster : MonoBehaviour {
             Destroy(this);
     }
 
-    public void CastAction(Action action) {
+    public void CastAction(PlayerAction action) {
         castingBar.value = 0;
         castingBar.gameObject.SetActive(true);
         isCasting = true;
         castingBar.DOValue(castingBar.maxValue, action.castTime).OnComplete(() =>
         {
-            _enemyStatusController = _enemySelector.selectedEnemy.GetComponent<EnemyStatusController>();
+            _enemyStatusController = _actionTargetSelector.SelectedEnemy;
             action.DoAction(_actionAnim, _enemyStatusController, _playerStatusController);
             castingBar.gameObject.SetActive(false);
             isCasting = false;

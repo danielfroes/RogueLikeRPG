@@ -1,8 +1,8 @@
 ﻿using Squeak;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "new Action", menuName = "Action Menu SO/Action/Attack")]
-public class AttackAction : Action {
+[CreateAssetMenu(fileName = "new PlayerAction", menuName = "PlayerAction Menu SO/PlayerAction/Attack")]
+public class AttackAction : PlayerAction {
 
     public int physicalDamage;
     public override void DoAction(Animator anim, EnemyStatusController enemy, PlayerStatusController player)

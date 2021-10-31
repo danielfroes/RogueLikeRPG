@@ -1,20 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using Squeak;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
-public class GameOverManager : MonoBehaviour
+
+public class GameOverMenuController : MonoBehaviour
 {
-
-    [SerializeField] UnityEvent _onGameOver = null;
-
     [SerializeField] GameObject _gameOverMenu = null;
-    // Start is called before the first frame update
+    [SerializeField] BattleStateController _battleStateController;
     void Awake()
     {
         _gameOverMenu.SetActive(false);
@@ -26,10 +18,10 @@ public class GameOverManager : MonoBehaviour
 
     IEnumerator OnGameOverCoroutine()
     {
-        _onGameOver.Invoke();
         yield return new WaitForSeconds(2);
         Time.timeScale = 0;
         _gameOverMenu.SetActive(true);
+        _battleStateController.LoseBattle();
     }
     
 

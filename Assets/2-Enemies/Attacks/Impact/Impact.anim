@@ -490,7 +490,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 4
-    functionName: DestroyAttack
+    functionName: DestroyGameObjectAnimationEvent
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

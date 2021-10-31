@@ -31,7 +31,7 @@ public class ActionMenuController : MonoBehaviour
     private GameObject last;
     
     //TODO:Refactor this to it separate script
-    public PlayerAction[] availableActions;
+    public Action[] availableActions;
      
     private EventSystem eventSystem;
     private Vector2 _secondaryInitPivot;
@@ -41,6 +41,11 @@ public class ActionMenuController : MonoBehaviour
 
     private void Awake() {
         eventSystem = GameObject.FindObjectOfType<EventSystem>();
+        //_attackButton.onClick.AddListener(() => ChooseOption(ActionType.Attack));
+        //_spellButton.onClick.AddListener(() => ChooseOption(ActionType.Spell));
+
+        //ChooseOption(ActionType.Attack);
+        //ChooseOption(ActionType.Spell);
     }
     private void Start() {
         _mainInitPivot = _mainOptions.pivot;

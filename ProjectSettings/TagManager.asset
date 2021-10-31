@@ -72,6 +72,3 @@ TagManager:
   - name: Menus
     uniqueID: 1610710769
     locked: 0
-  - name: Transition
-    uniqueID: 2717195347
-    locked: 0

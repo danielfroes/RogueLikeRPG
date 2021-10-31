@@ -12,7 +12,7 @@ public class InfoPanel : MonoBehaviour {
     [SerializeField] TextMeshProUGUI actionsNeeded = null;
 
     // Start is called before the first frame update
-    public void SetInfoPanelText(PlayerAction action) {
+    public void SetInfoPanelText(Action action) {
         title.SetText(action.actionName);
         details.SetText(action.details);
         castTime.SetText("<b>"+action.castTime + "</b>s");

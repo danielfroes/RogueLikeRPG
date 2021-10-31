@@ -24,7 +24,8 @@ namespace Squeak
 
 
         public bool isDead = false;
-
+        public EnemySelector _enemySelector;
+        
         // +-------------------------+
         // | MonoBehaviour lifecycle |
         // +-------------------------+
@@ -51,6 +52,7 @@ namespace Squeak
             else
             {
                 isDead = true;
+                StartCoroutine(_enemySelector.UpdateEnemyList());
                 Debug.Log("Morte");
                 OnDeathEvent?.Invoke();
             }

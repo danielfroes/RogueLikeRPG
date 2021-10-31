@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using DirectionSystem;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 // SORT OUT CODES IN ACTION MENU
 // SWAP ACTION-MAPS WHEN ACTIVATING MENU
@@ -18,48 +20,37 @@ namespace Squeak
         public float movementBufferTime;
         public AnimationCurve transitionCurve;
 
-        Vector2 currentInputDirection = Vector2.zero;
+        private Vector2 currentInputDirection = Vector2.zero;
         public Input inputManager;
 		public ActionMenuController actionMenu;
-		[SerializeField] GameObject _actionMenu;
-        [SerializeField] ActionTargetSelector _actionTargetSelector;
+		[SerializeField] private GameObject _actionMenu;
+        private EnemySelector enemySelector;
 
         // lots of bools for state management
-        bool _moving;
-        bool _casting;
-        bool _damaged;
-        bool _canBuffer;
-        bool _dead;
+        private bool _moving;
+        private bool _casting;
+        private bool _damaged;
+        private bool _canBuffer;
+        private bool _dead;
 
         // components
-        Animator _animator;
-        bool _winned;
+        private Animator _animator;
 
         // other stuff
-        Vector2 Position => CombatGrid.Instance.PositionToCellCenter(transform.position);
-        
-        void OnEnable()
+        private Vector2 Position => CombatGrid.Instance.PositionToCellCenter(transform.position);
+
+        private void OnEnable()
         {
         	inputManager.Player.Enable();
         	inputManager.ActionMenu.Disable();
         }
-		void OnDisable()
+		private void OnDisable()
 		{
 			inputManager.Player.Disable();
 			inputManager.ActionMenu.Disable();
 		}
         
-
-        public void DisableInput()
-        {
-            inputManager.Disable();
-        }
-
-        public void EnableInputs()
-        {
-            inputManager.Enable();
-        }
-        void Awake()
+        private void Awake()
         {
             _animator = GetComponentInChildren<Animator>();
 
@@ -73,8 +64,10 @@ namespace Squeak
 			inputManager.Player.Menu.performed += _0 => ActivateActionMenu();
 			inputManager.ActionMenu.Menu.performed += _0 => ActivateActionMenu();
 
-            inputManager.Player.SelectLeftEnemy.performed += _ => _actionTargetSelector.MoveTargetToLeft();
-            inputManager.Player.SelectRightEnemy.performed += _ => _actionTargetSelector.MoveTargetToRight();
+            inputManager.Player.SelectLeftEnemy.performed += _0 => 
+                enemySelector.SelectEnemy(Direction.left);
+            inputManager.Player.SelectRightEnemy.performed += _0 => 
+                enemySelector.SelectEnemy(Direction.right);
 				
         }
 
@@ -87,19 +80,20 @@ namespace Squeak
                 StartCoroutine(Damage());
             };
             PlayerStatusController.OnDeathEvent += Die;
-            
+
+            enemySelector = GetComponent<EnemySelector>();
         }
 
-        void Update()
+        private void Update()
         {
-            if (!_moving && currentInputDirection != Vector2.zero )
+            if (!_moving && currentInputDirection != Vector2.zero)
             {
                 StartCoroutine(Move(DirectionUtils.Vec3ToDir(currentInputDirection)));
                 currentInputDirection = Vector2.zero;
             }
         }
 
-        void ActivateActionMenu()
+        private void ActivateActionMenu()
         {
         	if (!_actionMenu.activeInHierarchy)
         	{
@@ -120,7 +114,7 @@ namespace Squeak
             if (Time.time == 0f)
                 return;
 
-            if (_damaged || _winned)
+            if (_damaged)
                 return;
 
             if (_casting)
@@ -216,22 +210,6 @@ namespace Squeak
             _damaged = false;
         }
 
-        public void ActivateWinComemoration()
-        {
-            CancelCasting();
-            _winned = true;
-            _animator.Play("WinDance");
-        }
-        
-        public void DeactivateWinComemoration()
-        {
-            CancelCasting();
-            _winned = false;
-            _animator.Play("Idle");
-        }
-        
-        
-        
         private void Die()
         {
 
@@ -241,7 +219,7 @@ namespace Squeak
             enabled = false;
         }
 
-        public void Cast(PlayerAction action)
+        public void Cast(Action action)
         {
             _casting = true;
             inputManager.Player.Enable();
@@ -258,7 +236,7 @@ namespace Squeak
             ActionCaster.instance.CancelCasting();
         }
 
-        private IEnumerator WaitCast(PlayerAction action)
+        private IEnumerator WaitCast(Action action)
         {
             _animator.Play("Charge");
             yield return new WaitForSeconds(action.castTime);

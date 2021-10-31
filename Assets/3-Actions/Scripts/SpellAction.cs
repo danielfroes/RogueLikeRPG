@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using Squeak;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "new SpellAction", menuName = "Action Menu SO/Action/Spell")]
-public class SpellAction : Action
+[CreateAssetMenu(fileName = "new SpellAction", menuName = "PlayerAction Menu SO/PlayerAction/Spell")]
+public class SpellAction : PlayerAction
 {
     public int magicalDamage;
     public override void DoAction(Animator anim, EnemyStatusController enemy, PlayerStatusController player, bool gonnaCombo)

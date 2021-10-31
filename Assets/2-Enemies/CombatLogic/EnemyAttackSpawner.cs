@@ -13,7 +13,6 @@ namespace Enemy
         [SerializeField] int attacksToTaunt = 4;
         [SerializeField] Animator _animator = null;
         [SerializeField] EnemyStatusController _statusController;
-        [SerializeField] EnemyAttackSpawnerController _spawnerController;
         GameObject _attackContainer = null;
         int cntToTaunt = 0;
         Transform _playerTransform;
@@ -25,10 +24,6 @@ namespace Enemy
             Instantiate(_attackContainer, transform);
             
             _playerTransform = FindObjectOfType<PlayerController>().transform;
-
-            _spawnerController.RegisterAttackSpawner(this);
-            _statusController.OnDeathEvent += (() => _spawnerController.UnregisterAttackSpawner(this));
-
         }
 
 
@@ -62,12 +57,6 @@ namespace Enemy
             AttackTransformFixer.FixPosition(attack, attackDir, _playerTransform.position);
             AttackTransformFixer.FixRotation(attack, attackDir); 
         }
-
-
-        void OnDestroy()
-        {
-            //TODO eu nao acho q isso funciona e pode casuar potenciais bugs? 
-            _statusController.OnDeathEvent -= (() => _spawnerController.UnregisterAttackSpawner(this));
-        }
+        
     }
 }

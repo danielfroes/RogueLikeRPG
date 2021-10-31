@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using Squeak;
@@ -16,7 +13,7 @@ public class ActionCaster : MonoBehaviour {
     [SerializeField] Animator _actionAnim = null;
                      EnemyStatusController _enemyStatusController = null;
     [SerializeField] PlayerStatusController _playerStatusController = null;
-    [SerializeField] EnemySelector _enemySelector = null;
+    [SerializeField] ActionTargetSelector _actionTargetSelector = null;
    
     void Awake()
     {

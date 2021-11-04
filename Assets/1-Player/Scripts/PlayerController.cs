@@ -14,7 +14,6 @@ namespace Squeak
         public Sound dash;
         public Sound damaged;
 
-
         // movement stuff
         public float movementDuration;
         public float movementBufferTime;
@@ -25,6 +24,7 @@ namespace Squeak
 		public ActionMenuController actionMenu;
 		[SerializeField] private GameObject _actionMenu;
         private EnemySelector enemySelector;
+        [SerializeField] ActionTargetSelector _actionTargetSelector;
 
         // lots of bools for state management
         private bool _moving;
@@ -35,6 +35,7 @@ namespace Squeak
 
         // components
         private Animator _animator;
+        bool _winned;
 
         // other stuff
         private Vector2 Position => CombatGrid.Instance.PositionToCellCenter(transform.position);
@@ -210,8 +211,22 @@ namespace Squeak
             _damaged = false;
         }
 
+        public void ActivateWinComemoration()
+        {
+            CancelCasting();
+            _winned = true;
+            _animator.Play("WinDance");
+        }
+        
+        public void DeactivateWinComemoration()
+        {
+            CancelCasting();
+            _winned = false;
+            _animator.Play("Idle");
+        }
         private void Die()
         {
+            //inputListener.enabled = false;
 
             CancelCasting();
             StopAllCoroutines();
@@ -219,7 +234,7 @@ namespace Squeak
             enabled = false;
         }
 
-        public void Cast(Action action)
+        public void Cast(PlayerAction action)
         {
             _casting = true;
             inputManager.Player.Enable();
@@ -236,7 +251,7 @@ namespace Squeak
             ActionCaster.instance.CancelCasting();
         }
 
-        private IEnumerator WaitCast(Action action)
+        private IEnumerator WaitCast(PlayerAction action)
         {
             _animator.Play("Charge");
             yield return new WaitForSeconds(action.castTime);

@@ -11,7 +11,7 @@ namespace Scripts.ActionSystem
     public class ActionButton : MonoBehaviour {
 
         [HideInInspector]
-        public Action action;
+        public PlayerAction action;
         [FormerlySerializedAs("actionMenu")] [HideInInspector]
         public ActionMenuController _actionMenuController;
         [SerializeField]
@@ -62,8 +62,7 @@ namespace Scripts.ActionSystem
 
 
         public void SelectAction() {
-            // if(action.actionBarsNeeded <= ActionBar.instance.numActions)
-
+            //if(action.actionBarsNeeded <= ActionBar.instance.numActions)
             ActionBar.instance.SpendAction(action.actionBarsNeeded);
             bool gonnaCombo = ActionCaster.instance.GonnaCombo();
             ActionCaster.instance.CastAction(action, gonnaCombo);
@@ -72,8 +71,6 @@ namespace Scripts.ActionSystem
             AudioManager.Play(select);
             
             _actionMenuController.SetActionMenuActive(false);
-
-
         }
 
     }

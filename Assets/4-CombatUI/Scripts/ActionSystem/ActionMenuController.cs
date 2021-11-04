@@ -31,7 +31,7 @@ public class ActionMenuController : MonoBehaviour
     private GameObject last;
     
     //TODO:Refactor this to it separate script
-    public Action[] availableActions;
+    public PlayerAction[] availableActions;
      
     private EventSystem eventSystem;
     private Vector2 _secondaryInitPivot;

@@ -13,11 +13,7 @@ namespace Scripts.ActionSystem
         public Color comboColor;
 
 
-        //public Color GetActionColor(Action action)
-        //{
-        //    return action.actionType == ActionType.Attack ? attackColor : spellColor;
-        //}
-        public Color GetActionColor(Action action)
+        public Color GetActionColor(PlayerAction action)
         {
             if (ActionCaster.instance.GonnaCombo() && (action.comboDamage>0 || action.combo != null)) { return comboColor; }
             return action.actionType == ActionType.Attack ? attackColor : spellColor;

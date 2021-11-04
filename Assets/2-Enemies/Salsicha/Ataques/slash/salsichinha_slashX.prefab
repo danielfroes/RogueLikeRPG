@@ -557,9 +557,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2741896067264995676}
   - component: {fileID: 1761183727007726823}
-  - component: {fileID: 4947892223656849771}
   - component: {fileID: 7724343481255648601}
   - component: {fileID: 5556212447833097808}
+  - component: {fileID: -4071926106055423793}
   m_Layer: 0
   m_Name: salsichinha_slashX
   m_TagString: Untagged
@@ -608,18 +608,6 @@ MonoBehaviour:
   _Left: 0
   numberSuccessiveAttacks: 0
   timeBetweenSuccessiveAttacks: 0
---- !u!114 &4947892223656849771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2741896067264995679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f124bc637ae49b1418c2c149500fd59b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &7724343481255648601
 Animator:
   serializedVersion: 3
@@ -652,6 +640,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 11400000, guid: 329ac693d0a41574bafcc8962c40ff9f, type: 2}
+--- !u!114 &-4071926106055423793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2741896067264995679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66b84bbab05bedc40a424da8df4933ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2759601051447175825
 GameObject:
   m_ObjectHideFlags: 0

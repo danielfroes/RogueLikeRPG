@@ -16,7 +16,9 @@ public class ActionCaster : MonoBehaviour {
     [SerializeField] Animator _actionAnim = null;
                      EnemyStatusController _enemyStatusController = null;
     [SerializeField] PlayerStatusController _playerStatusController = null;
-    [SerializeField] EnemySelector _enemySelector = null;
+    [SerializeField] ActionTargetSelector _actionTargetSelector = null;
+   
+    //[SerializeField] EnemySelector _enemySelector = null;
    
     void Awake()
     {
@@ -26,14 +28,14 @@ public class ActionCaster : MonoBehaviour {
             Destroy(this);
     }
 
-    public void CastAction(Action action, bool gonnaCombo) {
-        //_playerStatusController player;
+    public void CastAction(PlayerAction action, bool gonnaCombo) {
         castingBar.value = 0;
         castingBar.gameObject.SetActive(true);
         isCasting = true;
         castingBar.DOValue(castingBar.maxValue, (float)(action.castTime / _playerStatusController.GetCastVelocity())).OnComplete(() =>
         {
-            _enemyStatusController = _enemySelector.selectedEnemy.GetComponent<EnemyStatusController>();
+            //_enemyStatusController = _enemySelector.selectedEnemy.GetComponent<EnemyStatusController>();
+            _enemyStatusController = _actionTargetSelector.SelectedEnemy;
             action.DoAction(_actionAnim, _enemyStatusController, _playerStatusController, gonnaCombo);
             castingBar.gameObject.SetActive(false);
             isCasting = false;

@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 namespace Squeak
 {
@@ -24,7 +25,7 @@ namespace Squeak
 
 
         public bool isDead = false;
-        public EnemySelector _enemySelector;
+        //public EnemySelector _enemySelector;
         
         // +-------------------------+
         // | MonoBehaviour lifecycle |
@@ -52,7 +53,7 @@ namespace Squeak
             else
             {
                 isDead = true;
-                StartCoroutine(_enemySelector.UpdateEnemyList());
+                //StartCoroutine(_enemySelector.UpdateEnemyList());
                 Debug.Log("Morte");
                 OnDeathEvent?.Invoke();
             }

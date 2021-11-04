@@ -1,5 +1,5 @@
 ﻿    using System.Collections;
-    using System.Collections.Generic;
+using System.Collections.Generic;
     using Squeak;
     using UnityEngine;
 
@@ -23,7 +23,7 @@ public enum StatusUpdateType
 
 
 
-public abstract class Action : ScriptableObject {
+public abstract class PlayerAction : ScriptableObject {
     
     public string actionName;
     [TextArea(3, 10)] public string details;
@@ -38,10 +38,10 @@ public abstract class Action : ScriptableObject {
     public float statusDuration;
     public bool divineShield;
     public int comboDamage;
-    public Action combo;
+    public PlayerAction combo;
     public bool animateOnPlayer;
-
-
+    public bool onCountdownEnd;
+    
     [SerializeField] AnimationClip _animationClip = null;
     AnimatorOverrideController _animatorController;
     
@@ -62,11 +62,11 @@ public abstract class Action : ScriptableObject {
         }
 
         actionAnim.runtimeAnimatorController = _animatorController;
-
+            
         actionAnim.SetTrigger(DoActionID);
         
     }
-
+    
     public void DoCombo(Animator anim, EnemyStatusController enemy, PlayerStatusController player, bool gonnaCombo)
     {
         if (comboDamage != 0)
@@ -79,8 +79,6 @@ public abstract class Action : ScriptableObject {
             combo.DoAction(anim, enemy, player, gonnaCombo);
         }
     }
-
-
 
     //O animator do ataque ta dentro do player
     //Ele eh unico e compartilhado, entao a referencia dele pode ser pega de várias formas.

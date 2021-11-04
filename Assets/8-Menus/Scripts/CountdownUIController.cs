@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class StartTimer : MonoBehaviour
+public class CountdownUIController : MonoBehaviour
 {
     [SerializeField] UnityEvent _onTimerBegin;
     [SerializeField] UnityEvent _onTimerEnd;
@@ -16,13 +16,14 @@ public class StartTimer : MonoBehaviour
     [SerializeField] int countdownTime;
 
     bool _isTimerActive;
+
     void Awake()
     {
         _timerText.gameObject.SetActive(false);
         Time.timeScale = 0;
     }
 
-    void Update()
+    /*void Update()
     {
         if (_isTimerActive) return;
         
@@ -44,23 +45,27 @@ public class StartTimer : MonoBehaviour
             }
         }
     }
+    */
     
-    
-    
-    IEnumerator StartCountdown()
+    public void StartCountdown(Action onCountdownEnd)
+    {
+        StartCoroutine(CountdownCoroutine(onCountdownEnd));
+    }
+
+    IEnumerator CountdownCoroutine(Action onCountdownEnd)
     {
         _mainMenu.SetActive(false);
         _isTimerActive = true;
         Time.timeScale = 1;
-        _onTimerBegin.Invoke();
         _timerText.gameObject.SetActive(true);
         for (var i = countdownTime; i >= 0; i--)
         {
             _timerText.SetText(i.ToString());
             yield return new WaitForSeconds(1);
         }
-        _onTimerEnd.Invoke();
-        gameObject.SetActive(false);
+        
+        onCountdownEnd?.Invoke();
+        _timerText.gameObject.SetActive(false);
     }
 
 }

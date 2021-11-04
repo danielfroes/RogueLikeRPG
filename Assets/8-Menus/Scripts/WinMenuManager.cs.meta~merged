@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 633dea482e8ad48d5acf274cd2672f4a
+=======
 <<<<<<< HEAD:Assets/8-Menus/MainMenu.cs.meta
 guid: 60b9bf581f8bc7345bb57ec54fac4684
 =======
 guid: 633dea482e8ad48d5acf274cd2672f4a
 >>>>>>> parent of b2d39c3 (Merge branch 'progressionSystem' into EnemySelector):Assets/8-Menus/Scripts/WinMenuManager.cs.meta
+>>>>>>> parent of b2d39c3 (Merge branch 'progressionSystem' into EnemySelector)
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

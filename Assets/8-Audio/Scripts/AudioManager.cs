@@ -31,7 +31,13 @@ public static class AudioManager
     public static void Play(Sound sound)
     {
         AudioSource src = Pool.Dequeue();
-        
+        if(src == null){
+            Debug.Log("null");
+        }
+        if(sound == null)
+        {
+            Debug.Log("Sound null");
+        }
         src.clip = sound.clip;
         src.outputAudioMixerGroup = sound.@group;
         src.loop = sound.loop;

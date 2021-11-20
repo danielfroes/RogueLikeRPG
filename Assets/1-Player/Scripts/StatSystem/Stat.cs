@@ -147,6 +147,7 @@ namespace Squeak
 
     }
 
+    [System.Serializable]
     public struct StatModifier {
         public ModifierType type;
         public float value;

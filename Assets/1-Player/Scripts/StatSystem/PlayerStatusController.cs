@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 namespace Squeak
 {
+    public enum StatType {HP, DEFENSE, ATTACK, VELOCITY, CAST_VELOCITY, ENERGY_CHARGE_SPEED}
     public class PlayerStatusController : MonoBehaviour
     {
         public static PlayerStatusController Instance { get; private set; }
@@ -93,7 +94,7 @@ namespace Squeak
             combo--;
         }
 
-
+        // TODO refactor int type --> StatType type
         public void SkillStatusUpdate(int type, float amount, float duration)
         {
             StatModifier modifier;
